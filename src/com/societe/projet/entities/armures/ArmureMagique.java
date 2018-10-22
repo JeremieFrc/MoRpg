@@ -1,5 +1,8 @@
 package com.societe.projet.entities.armures;
 
-public class ArmureMagique extends Armure {
+import java.util.ArrayList;
+import java.util.List;
 
+public class ArmureMagique extends Armure {
+	private List <ArmureMixte> listPhysique = new ArrayList<ArmureMixte>();
 }
