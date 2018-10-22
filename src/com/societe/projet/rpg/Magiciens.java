@@ -20,7 +20,7 @@ public class Magiciens extends Rpg implements DefaultMagicien {
 	}
 
 	@Override
-	void figth(Personnage defeender) {
+	void figth(Personnage defender) {
 		// TODO Auto-generated method stub
 		
 	}

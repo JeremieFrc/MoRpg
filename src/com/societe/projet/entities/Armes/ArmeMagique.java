@@ -1,5 +1,5 @@
 package com.societe.projet.entities.armes;
 
-public abstract class Arme  {
+public class ArmeMagique extends Arme{
 
 }

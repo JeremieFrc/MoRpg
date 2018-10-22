@@ -10,7 +10,7 @@ public abstract class Rpg implements DefaultFighter {
 	abstract String getWeasponRestriction();
 	abstract String getArmorRestriction();
 	
-	abstract void figth(Personnage defeender);
+	abstract void figth(Personnage defender);
 	abstract boolean isEquipable(Arme arme);
 	abstract boolean isEquipable(Armure armure);
 }

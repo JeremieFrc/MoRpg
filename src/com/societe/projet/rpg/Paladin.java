@@ -20,7 +20,7 @@ public class Paladin extends Rpg implements DefaultPaladin{
 	}
 
 	@Override
-	void figth(Personnage defeender) {
+	void figth(Personnage defender) {
 		// TODO Auto-generated method stub
 		
 	}

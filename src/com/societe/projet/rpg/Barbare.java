@@ -20,7 +20,7 @@ public class Barbare extends Rpg implements DefaultFighter  {
 	}
 
 	@Override
-	void figth(Personnage defeender) {
+	void figth(Personnage defender) {
 		// TODO Auto-generated method stub
 		
 	}
