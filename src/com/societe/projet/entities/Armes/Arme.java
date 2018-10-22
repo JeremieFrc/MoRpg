@@ -1,4 +1,4 @@
-package com.societe.projet.entities.Armes;
+package com.societe.projet.entities.armes;
 
 public class Arme {
 
