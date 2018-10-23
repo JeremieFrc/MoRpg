@@ -6,8 +6,7 @@ public class ApplicationCombat {
 		// TODO Auto-generated method stub
 		
 		
-		///jbdvihsvnioxvoihln l
-
+		// helleo vnzuohvàzrj^bo
 	}
 
 }
