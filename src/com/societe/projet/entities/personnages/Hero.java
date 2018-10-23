@@ -1,9 +1,11 @@
 package com.societe.projet.entities.personnages;
 
 public class Hero extends Personnage {
+
+	public Hero(int pointVie, int pointAction) {
+		super(pointVie, pointAction);
+		
+	}
 	
-	public hero){
-		super();
-		this.PV;
 		
 }
