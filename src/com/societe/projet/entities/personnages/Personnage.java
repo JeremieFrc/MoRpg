@@ -57,6 +57,8 @@ public abstract class Personnage {
 		return pointAction;
 	}
 
+	
+	
 	public void setPointAction(int pointAction) {
 		this.pointAction = pointAction;
 	}
