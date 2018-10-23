@@ -6,7 +6,7 @@ public class ApplicationCombat {
 		// TODO Auto-generated method stub
 		
 		
-		// helleo vnzuohvàzrj^bo
+		System.out.println("test");
 	}
 
 }
