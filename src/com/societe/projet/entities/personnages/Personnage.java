@@ -27,8 +27,16 @@ public abstract class Personnage {
 	 * @param pointVie
 	 * @param pointAction
 	 */
-
+	
 	public Personnage(int pointVie,int pointAction) {
+		this.pointVie = pointVie;
+		this.pointAction = pointAction;
+	}
+
+	public Personnage(List<Armure> listArmure, List<Arme> listArme, int pointVie, int pointAction) {
+		
+		this.listArmure = listArmure;
+		this.listArme = listArme;
 		this.pointVie = pointVie;
 		this.pointAction = pointAction;
 	}
@@ -40,7 +48,6 @@ public abstract class Personnage {
 		return pointVie;
 	}
 
-
 	public void setPointVie(int pointVie) {
 		this.pointVie = pointVie;
 	}
@@ -50,11 +57,27 @@ public abstract class Personnage {
 		return pointAction;
 	}
 
-
 	public void setPointAction(int pointAction) {
 		this.pointAction = pointAction;
 	}
 	
-	
-	
+	//************************************************//
+	//	 @Setter and @getter List
+	//***********************************************//	
+
+	public List<Armure> getListArmure() {
+		return listArmure;
+	}
+
+	public void setListArmure(Armure armuree) {
+		this.listArmure.add(armuree);
+	}
+
+	public List<Arme> getListArme() {
+		return listArme;
+	}
+
+	public void setListArme(Arme arm) {
+		this.listArme.add(arm);
+	}
 }
