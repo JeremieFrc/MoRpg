@@ -1,6 +1,11 @@
 package com.societe.projet.entities.users;
 
-public class Users {
+import java.util.ArrayList;
+import java.util.List;
 
-	//class user
+import com.societe.projet.entities.personnages.Personnage;
+
+public class Users {
+	private List <Personnage> listPersonnage = new ArrayList<Personnage>();
+	
 }
