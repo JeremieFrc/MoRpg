@@ -19,5 +19,29 @@ public abstract class Arme  {
 		this.degatPhysique = degatPhysique;
 		this.cpa = cpa;
 	}
+
+	public int getDegatPhysique() {
+		return degatPhysique;
+	}
+
+	public void setDegatPhysique(int degatPhysique) {
+		this.degatPhysique = degatPhysique;
+	}
+
+	public int getDegatMagit() {
+		return degatMagit;
+	}
+
+	public void setDegatMagit(int degatMagit) {
+		this.degatMagit = degatMagit;
+	}
+
+	public int getCpa() {
+		return cpa;
+	}
+
+	public void setCpa(int cpa) {
+		this.cpa = cpa;
+	}
 	
 }
