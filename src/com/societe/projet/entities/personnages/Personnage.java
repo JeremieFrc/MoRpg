@@ -8,26 +8,34 @@ import com.societe.projet.entities.armures.Armure;
 
 
 public abstract class Personnage {
+	//************************************************//
+	//	 @private
+	//***********************************************//	
+	
 	private List <Armure> listArmure = new ArrayList<Armure>();
 	private List <Arme> listArme= new ArrayList<Arme>();
+	
+	private int pointVie;
+	private int pointAction;
+	
+	//************************************************//
+	//	 @Constructeur 
+	//***********************************************//	
 	
 	/**
 	 * 
 	 * @param pointVie
 	 * @param pointAction
 	 */
-	
-	
-	private int pointVie;
-	private int pointAction;
-	
-	
+
 	public Personnage(int pointVie,int pointAction) {
 		this.pointVie = pointVie;
 		this.pointAction = pointAction;
 	}
 
-
+	//************************************************//
+	//	 @Setter and @getter
+	//***********************************************//	
 	public int getPointVie() {
 		return pointVie;
 	}

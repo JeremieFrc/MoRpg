@@ -1,11 +1,17 @@
 package com.societe.projet.entities.armes;
 
 public abstract class Arme  {
-
+	//************************************************//
+	//	 @private
+	//***********************************************//
 	
 	private int degatPhysique;
 	private int degatMagit;
 	private int cpa ; //point de consommation
+	
+	//************************************************//
+	//	 @Constructeur 
+	//***********************************************//	
 	
 	/**
 	 * 
@@ -19,6 +25,9 @@ public abstract class Arme  {
 		this.degatPhysique = degatPhysique;
 		this.cpa = cpa;
 	}
+	//************************************************//
+	//	 @Setter and @getter
+	//***********************************************//	
 
 	public int getDegatPhysique() {
 		return degatPhysique;
