@@ -14,7 +14,7 @@ public class ScannerProvider {
 		this.scanner = new Scanner(System.in);
 	}
 	//************************************************//
-	//	        $getters
+	//	        $gettersScanner
 	//***********************************************//	
 			   
 	 public Scanner getScanner() {
