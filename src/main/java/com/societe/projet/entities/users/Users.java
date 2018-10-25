@@ -1,4 +1,4 @@
-package com.societe.projet.entities.users;
+package main.java.com.societe.projet.entities.users;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.societe.projet.utils;
+package main.java.com.societe.projet.utils;
 
 import java.util.Scanner;
 

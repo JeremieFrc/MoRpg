@@ -1,4 +1,4 @@
-package com.societe.projet;
+package main.java.com.societe.projet;
 
 public class ApplicationCombat {
 

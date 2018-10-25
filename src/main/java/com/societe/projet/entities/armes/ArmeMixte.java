@@ -1,4 +1,4 @@
-package com.societe.projet.entities.armes;
+package main.java.com.societe.projet.entities.armes;
 
 public class ArmeMixte extends Arme {
 	

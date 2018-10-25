@@ -1,4 +1,4 @@
-package com.societe.projet.entities.personnages;
+package main.java.com.societe.projet.entities.personnages;
 
 import java.util.List;
 

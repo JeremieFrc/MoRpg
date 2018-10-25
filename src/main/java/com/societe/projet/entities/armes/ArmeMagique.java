@@ -1,4 +1,4 @@
-package com.societe.projet.entities.armes;
+package main.java.com.societe.projet.entities.armes;
 
 import java.util.ArrayList;
 import java.util.List;

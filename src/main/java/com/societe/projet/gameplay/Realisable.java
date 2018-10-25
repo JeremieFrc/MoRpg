@@ -1,4 +1,4 @@
-package com.societe.projet.gameplay;
+package main.java.com.societe.projet.gameplay;
 
 public interface Realisable {
 	void actionAttaque();

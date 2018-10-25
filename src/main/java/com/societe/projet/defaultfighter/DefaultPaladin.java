@@ -1,9 +1,9 @@
-package com.societe.projet.defaultfighter;
+package main.java.com.societe.projet.defaultfighter;
 
-import com.societe.projet.entities.armes.Arme;
-import com.societe.projet.entities.armures.Armure;
-import com.societe.projet.entities.personnages.Personnage;
-import com.societe.projet.rpg.Paladin;
+import main.java.com.societe.projet.entities.armes.Arme;
+import main.java.com.societe.projet.entities.armures.Armure;
+import main.java.com.societe.projet.entities.personnages.Personnage;
+import main.java.com.societe.projet.rpg.Paladin;
 
 public class DefaultPaladin extends DefaultFighter implements Paladin {
 

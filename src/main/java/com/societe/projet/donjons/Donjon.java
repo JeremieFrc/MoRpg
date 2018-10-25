@@ -1,4 +1,4 @@
-package com.societe.projet.donjons;
+package main.java.com.societe.projet.donjons;
 
 import java.util.ArrayList;
 import java.util.List;

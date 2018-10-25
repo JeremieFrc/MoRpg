@@ -1,9 +1,9 @@
-package com.societe.projet.entities.armes;
+package main.java.com.societe.projet.entities.armes;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.societe.projet.entities.armures.ArmureMixte;
+import main.java.com.societe.projet.entities.armures.ArmureMixte;
 
 public class ArmePhysique extends Arme {
 	//************************************************//

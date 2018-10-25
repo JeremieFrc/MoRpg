@@ -1,4 +1,4 @@
-package com.societe.projet.entities.armures;
+package main.java.com.societe.projet.entities.armures;
 
 public abstract class Armure {
 

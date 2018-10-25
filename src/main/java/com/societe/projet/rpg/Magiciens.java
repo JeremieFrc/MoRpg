@@ -1,4 +1,4 @@
-package com.societe.projet.rpg;
+package main.java.com.societe.projet.rpg;
 
 public interface Magiciens extends Rpg {
 
