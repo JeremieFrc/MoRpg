@@ -1,4 +1,4 @@
-package com.societe.projet.defaultfighter;
+package main.java.com.societe.projet.defaultfighter;
 
 import com.societe.projet.entities.armes.Arme;
 import com.societe.projet.entities.armures.Armure;
