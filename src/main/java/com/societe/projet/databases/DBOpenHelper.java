@@ -53,7 +53,4 @@ public class DBOpenHelper {
 	public Connection getConnection() {
 		return connection;
 	}
-	
-	
-	
 }
