@@ -16,7 +16,7 @@ public class ApplicationCombat {
 		//********************//
 		//	 @Monstres
 		//*******************//
-		
+		System.out.println("test");
 		
 		
 		

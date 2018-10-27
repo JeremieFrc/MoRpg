@@ -6,7 +6,7 @@ public abstract class Armure {
 	//************************************************//
 	//	 @private
 	//***********************************************//
-	
+
 	private int defencePhysique;
 	private int defenceMagic;
 	
