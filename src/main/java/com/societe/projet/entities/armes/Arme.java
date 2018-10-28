@@ -1,12 +1,14 @@
 package com.societe.projet.entities.armes;
 
+import com.societe.projet.entities.armures.Armure;
+
 public abstract class Arme  {
 	//************************************************//
 	//	 @private
 	//***********************************************//
 	
 	private int degatPhysique;
-	private int degatMagit;
+	private int degatMagic;
 	private int cpa ; //point de consommation
 	
 	//************************************************//
@@ -15,13 +17,14 @@ public abstract class Arme  {
 	
 	/**
 	 * 
-	 * @param degatMagit
+	 * @param degatMagic
 	 * @param degatPhysique
 	 * @param cpa
 	 */
-	
-	public Arme (int degatMagit, int degatPhysique,int cpa) {
-		this.degatMagit = degatMagit;
+	public Arme() {}
+
+	public Arme (int degatMagic, int degatPhysique,int cpa) {
+		this.degatMagic = degatMagic;
 		this.degatPhysique = degatPhysique;
 		this.cpa = cpa;
 	}
@@ -37,12 +40,12 @@ public abstract class Arme  {
 		this.degatPhysique = degatPhysique;
 	}
 
-	public int getDegatMagit() {
-		return degatMagit;
+	public int getdegatMagic() {
+		return degatMagic;
 	}
 
-	public void setDegatMagit(int degatMagit) {
-		this.degatMagit = degatMagit;
+	public void setdegatMagic(int degatMagic) {
+		this.degatMagic = degatMagic;
 	}
 
 	public int getCpa() {
@@ -52,5 +55,15 @@ public abstract class Arme  {
 	public void setCpa(int cpa) {
 		this.cpa = cpa;
 	}
-	
+	//************************************************//
+	//	 @Methods 
+   //***********************************************//
+	public int attack(Armure armure) {
+		int result = 0;
+
+		result = this.getDegatPhysique()-this.getdegatMagic() - armure.getDefenceMagic()- armure.getDefencePhysique();
+
+		return result > 0 ? result : 0; //application ternaire
+	}
+
 }

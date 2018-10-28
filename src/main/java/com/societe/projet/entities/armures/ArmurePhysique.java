@@ -3,6 +3,8 @@ package com.societe.projet.entities.armures;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.societe.projet.entities.armes.Arme;
+
 public class ArmurePhysique extends Armure {
 	//************************************************//
 	//	 @private
@@ -16,6 +18,25 @@ public class ArmurePhysique extends Armure {
 	
 	public ArmurePhysique(int defencePhysique, int defenceMagic) {
 		super(defencePhysique, defenceMagic);
-		// TODO Auto-generated constructor stub
 	}
+	
+	//************************************************//
+	//	 @Setter and @getter
+	//***********************************************//
+	public List<ArmureMixte> getListPhysiqye() {
+		return listPhysiqye;
+	}
+
+	public void setListPhysiqye(List<ArmureMixte> listPhysiqye) {
+		this.listPhysiqye = listPhysiqye;
+	}
+	//************************************************//
+	//	 @Methods 
+	//***********************************************//
+	
+	public int SubitAttack(Arme arme) {
+		return 0;
+	}
+
+	
 }

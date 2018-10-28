@@ -7,7 +7,7 @@ import com.societe.projet.entities.personnages.Hero;
 import com.societe.projet.entities.personnages.Monstre;
 import com.societe.projet.entities.personnages.Personnage;
 
-public class Donjon {
+public class Donjon { //personnage builder lui qui gere tous les personnage point enter programme
 	
 	
 	private List <Personnage> listPersonnage = new ArrayList<Personnage>();
@@ -17,4 +17,6 @@ public class Donjon {
 	
 	private List <ArrayList<Monstre>> listEtagge = new ArrayList<ArrayList<Monstre>>();
 	private int nbEtages;
+	
+
 }

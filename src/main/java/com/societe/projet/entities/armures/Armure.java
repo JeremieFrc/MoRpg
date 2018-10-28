@@ -10,7 +10,6 @@ public abstract class Armure {
 	private int defencePhysique;
 	private int defenceMagic;
 	
-	
 	//************************************************//
 	//	 @Constructeur 
 	//***********************************************//
@@ -20,6 +19,8 @@ public abstract class Armure {
 	 * @param defencePhysique
 	 * @param defenceMagic
 	 */
+	
+	public Armure() {}
 	
 	public Armure(int defencePhysique, int defenceMagic) {
 
@@ -46,8 +47,6 @@ public abstract class Armure {
 	public void setDefenceMagic(int defenceMagic) {
 		this.defenceMagic = defenceMagic;
 	}
-	
-	
 	
 	
 }
