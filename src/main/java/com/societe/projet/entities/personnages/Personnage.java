@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.societe.projet.entities.armes.Arme;
 import com.societe.projet.entities.armures.Armure;
+import com.societe.projet.gameplay.Butin;
 
 
 public abstract class Personnage {
@@ -13,13 +14,17 @@ public abstract class Personnage {
 	//	 @private
 	//***********************************************//	
 	
-	private List <Armure> listArmure = new ArrayList<Armure>();
-	private List <Arme> listArme= new ArrayList<Arme>();
-	
 	private String name;
+	
 	private int pointVie;
 	private int pointAction;
 	private int pointAttaque;
+	
+	private Arme arme;
+	private Armure armure;
+	
+	private List<Butin> butins;
+	
 	
 	
 	//************************************************//
@@ -32,19 +37,16 @@ public abstract class Personnage {
 	 * @param pointAction
 	 */
 	
-	public Personnage(int pointVie,int pointAction) {
+	public Personnage() {}
+	
+	
+	public Personnage(String name,int pointVie,int pointAction,int pointAttaque) {
+		this.name = name;
 		this.pointVie = pointVie;
 		this.pointAction = pointAction;
+		this.pointAttaque = pointAction;
 	}
-
-	public Personnage(List<Armure> listArmure, List<Arme> listArme, int pointVie, int pointAction) {
-		
-		this.listArmure = listArmure;
-		this.listArme = listArme;
-		this.pointVie = pointVie;
-		this.pointAction = pointAction;
-	}
-
+	
 	//************************************************//
 	//	 @Setter and @getter
 	//***********************************************//	
@@ -57,7 +59,6 @@ public abstract class Personnage {
 		this.name = name;
 	}
 	
-	
 	public int getPointVie() {
 		return pointVie;
 	}
@@ -65,7 +66,6 @@ public abstract class Personnage {
 	public void setPointVie(int pointVie) {
 		this.pointVie = pointVie;
 	}
-
 
 	public int getPointAction() {
 		return pointAction;
@@ -79,30 +79,50 @@ public abstract class Personnage {
 		return pointAttaque;
 	}
 
+	//************************************************//
+	//	 @Setter and @getter
+	//***********************************************//	
+	
+	
 	public void setPointAttaque(int pointAttaque) {
 		this.pointAttaque = pointAttaque;
 	}
-	
+
+
+
+	public Arme getArme() {
+		return arme;
+	}
+
+
+
+	public void setArme(Arme arme) {
+		this.arme = arme;
+	}
+
+
+
+	public Armure getArmure() {
+		return armure;
+	}
+
+
+
+	public void setArmure(Armure armure) {
+		this.armure = armure;
+	}
 	
 	//************************************************//
-	//	 @Setter and @getter List
+	//	 @Setter and @getter butins
 	//***********************************************//	
-
 	
-
-	public List<Armure> getListArmure() {
-		return listArmure;
+	public List<Butin> getButins() {
+		return butins;
 	}
-
-	public void setListArmure(Armure armuree) {
-		this.listArmure.add(armuree);
+	public void setButins(List<Butin> butins) {
+		this.butins = butins;
 	}
-
-	public List<Arme> getListArme() {
-		return listArme;
-	}
-
-	public void setListArme(Arme arm) {
-		this.listArme.add(arm);
-	}
+	
+	
+	
 }
