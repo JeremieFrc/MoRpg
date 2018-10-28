@@ -34,7 +34,7 @@ public class ArmePhysique extends Arme {
 	public void setListArmPhysique(List<ArmeMixte> listArmPhysique) {
 		this.listArmPhysique = listArmPhysique;
 	}
-	
+
 	//************************************************//
 	//	 @Methods 
    //***********************************************//
