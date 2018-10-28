@@ -10,7 +10,7 @@ public class ArmureMagique extends Armure {
 	//	 @private
 	//***********************************************//	
 	
-	private List <ArmureMixte> listMagic = new ArrayList<ArmureMixte>();
+	private List <ArmureMixte> listAmurMagic = new ArrayList<ArmureMixte>();
 	
 	//************************************************//
 	//	 @Constructeur 
@@ -22,11 +22,11 @@ public class ArmureMagique extends Armure {
 	//	 @Setter and @getter
 	//***********************************************//
 	
-	public List<ArmureMixte> getListMagic() {
-		return listMagic;
+	public List<ArmureMixte> getListAmurMagic() {
+		return listAmurMagic;
 	}
-	public void setListMagic(List<ArmureMixte> listMagic) {
-		this.listMagic = listMagic;
+	public void setListAmurMagic(List<ArmureMixte> listAmurMagic) {
+		this.listAmurMagic = listAmurMagic;
 	}
 	
 	//************************************************//

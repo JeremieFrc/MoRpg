@@ -11,7 +11,7 @@ public class ArmePhysique extends Arme {
 	//	 @private
 	//***********************************************//	
 	
-	private List <ArmeMixte> listPhysique = new ArrayList<ArmeMixte>();
+	private List <ArmeMixte> listArmPhysique = new ArrayList<ArmeMixte>();
 	
 	//************************************************//
 	//	 @Constructeur 
@@ -27,12 +27,12 @@ public class ArmePhysique extends Arme {
 	//	 @Setter and @getter
 	//***********************************************//
 	
-	public List<ArmeMixte> getListPhysique() {
-		return listPhysique;
+	public List<ArmeMixte> getListArmPhysique() {
+		return listArmPhysique;
 	}
 
-	public void setListPhysique(List<ArmeMixte> listPhysique) {
-		this.listPhysique = listPhysique;
+	public void setListArmPhysique(List<ArmeMixte> listArmPhysique) {
+		this.listArmPhysique = listArmPhysique;
 	}
 	
 	//************************************************//

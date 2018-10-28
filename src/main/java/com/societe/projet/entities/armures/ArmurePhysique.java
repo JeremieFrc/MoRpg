@@ -10,7 +10,7 @@ public class ArmurePhysique extends Armure {
 	//	 @private
 	//***********************************************//
 
-	private List <ArmureMixte> listPhysiqye = new ArrayList<ArmureMixte>();
+	private List <ArmureMixte> listAmurPhysiqye = new ArrayList<ArmureMixte>();
 	
 	//************************************************//
 	//	 @Constructeur 
@@ -23,12 +23,12 @@ public class ArmurePhysique extends Armure {
 	//************************************************//
 	//	 @Setter and @getter
 	//***********************************************//
-	public List<ArmureMixte> getListPhysiqye() {
-		return listPhysiqye;
+	public List<ArmureMixte> getListAmurPhysiqye() {
+		return listAmurPhysiqye;
 	}
 
-	public void setListPhysiqye(List<ArmureMixte> listPhysiqye) {
-		this.listPhysiqye = listPhysiqye;
+	public void setListAmurPhysiqye(List<ArmureMixte> listPhysiqye) {
+		this.listAmurPhysiqye = listPhysiqye;
 	}
 	//************************************************//
 	//	 @Methods 
