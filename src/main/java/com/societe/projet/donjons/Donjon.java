@@ -12,6 +12,7 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 	
 	
 	private List <Personnage> listPersonnage = new ArrayList<Personnage>();
+	
 	private List <Monstre> listMonstre = new ArrayList<Monstre>();
 	private List <Hero> listHeros= new ArrayList<Hero>();
 	

@@ -6,6 +6,7 @@ import com.societe.projet.donjons.Donjon;
 import com.societe.projet.entities.armes.Arme;
 import com.societe.projet.entities.armes.ArmeMagique;
 import com.societe.projet.entities.armes.ArmePhysique;
+import com.societe.projet.entities.armures.Armure;
 import com.societe.projet.entities.armures.ArmureMagique;
 import com.societe.projet.entities.armures.ArmurePhysique;
 import com.societe.projet.entities.personnages.Personnage;
@@ -76,7 +77,10 @@ public class ApplicationCombat {
 		
 		//init avec arme et armure physique barbare aceed setArmeBarbare
 		barbare.setArme(armP);
+		barbare.setArmure(armuP);
+		
 		((Arme) barbare.getArme()).affiArme();
+		((Armure) barbare.getArmure()).affiArmure();
 		
 	
 		persGeneric = null;

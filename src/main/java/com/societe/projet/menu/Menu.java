@@ -19,5 +19,16 @@ public class Menu {
 	 */
 	
 	
+	public char menuEquipe() {
+		
+		System.out.println("-------- creation menu equipe---------------");
+		
+		
+		return '0';
+	
+	
+	}
+	
+	
 	
 }
