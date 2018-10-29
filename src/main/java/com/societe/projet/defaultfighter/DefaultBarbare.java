@@ -31,6 +31,11 @@ public class DefaultBarbare extends DefaultFighter implements Barbare {
 		super.figth(defender);
 	}
 
+	
+	//******************************************************//
+	//	 @ verification contraintes barbare armure et arme
+	//*****************************************************//
+	
 	@Override
 	public boolean isEquipable(Arme arme) {
 		boolean result = false;

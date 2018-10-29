@@ -1,7 +1,9 @@
 package com.societe.projet.defaultfighter;
 
 import com.societe.projet.entities.armes.Arme;
+import com.societe.projet.entities.armes.ArmeMagique;
 import com.societe.projet.entities.armures.Armure;
+import com.societe.projet.entities.armures.ArmureMagique;
 import com.societe.projet.entities.personnages.Personnage;
 import com.societe.projet.rpg.Magiciens;
 
@@ -24,17 +26,27 @@ public class DefaultMagicien extends DefaultFighter implements Magiciens{
 		// TODO Auto-generated method stub
 		super.figth(defender);
 	}
+	
+	//******************************************************//
+	//	 @ verification contraintes Magiciens armure et arme
+	//*****************************************************//
 
 	@Override
 	public boolean isEquipable(Arme arme) {
-		// TODO Auto-generated method stub
-		return super.isEquipable(arme);
+		boolean result = false;
+		if (arme instanceof ArmeMagique) {
+			result = true;
+		}
+		return result;
 	}
 
 	@Override
 	public boolean isEquipable(Armure armure) {
-		// TODO Auto-generated method stub
-		return super.isEquipable(armure);
+		boolean result = false;
+		if (armure instanceof ArmureMagique) {
+			result = true;
+		}
+		return result;
 	}
 
 }

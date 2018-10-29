@@ -1,7 +1,11 @@
 package com.societe.projet.defaultfighter;
 
 import com.societe.projet.entities.armes.Arme;
+import com.societe.projet.entities.armes.ArmeMagique;
+import com.societe.projet.entities.armes.ArmeMixte;
 import com.societe.projet.entities.armures.Armure;
+import com.societe.projet.entities.armures.ArmureMagique;
+import com.societe.projet.entities.armures.ArmureMixte;
 import com.societe.projet.entities.personnages.Personnage;
 import com.societe.projet.rpg.Paladin;
 
@@ -24,17 +28,26 @@ public class DefaultPaladin extends DefaultFighter implements Paladin {
 		// TODO Auto-generated method stub
 		
 	}
-
+	//******************************************************//
+	//	 @ verification contraintes Paladin armure et arme
+	//*****************************************************//
 	@Override
 	public boolean isEquipable(Arme arme) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean result = false;
+		
+		if (arme instanceof ArmeMixte || arme instanceof ArmeMagique) {
+			result = true;
+		}
+		return result;
 	}
 
 	@Override
 	public boolean isEquipable(Armure armure) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean result = false;
+		if (armure instanceof ArmureMixte || armure instanceof ArmureMagique) {
+			result = true;
+		}
+		return result;
 	}
 
 }
