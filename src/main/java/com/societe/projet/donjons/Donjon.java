@@ -20,7 +20,7 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 	private Personnage personne;
 	private String nom;
 	
-	private ScannerProvider scanner;
+	private ScannerProvider scanners;
 	private int nbEtages;
 	
 	
@@ -37,7 +37,7 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 	
 	public Donjon() {}
 	public Donjon(ScannerProvider scanners) {
-		this.scanner = scanners;
+		this.scanners = scanners;
 	}
 	
 	//************************************************//
@@ -82,11 +82,11 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 	}
 	
 	public void setGamePlayUser() {
-		Menu meal = new Menu(scanner);
+		Menu meal = new Menu(scanners);
 	
 			switch(meal.menuEquipe()) {
-				case 1 : meal.equipHero();break;
-				case 2 : break;
+				case "1" : meal.equipType();break;
+				case "2" : break;
 				default :break;
 			}
 	}

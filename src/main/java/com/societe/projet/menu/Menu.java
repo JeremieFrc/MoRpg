@@ -12,30 +12,37 @@ public class Menu {
 		this.scanner = scanner;
 	}
 	
-	public int menuEquipe() {
+	public String menuEquipe() {
 		
 		System.out.println("-------- creation menu equipe---------------");
-		System.out.println("Creation equipe de HEROS [1] ");
+		System.out.println("Creation equipe de HEROS  [1] ");
 		System.out.println("Creation equipe de Montre [2]");
-		System.out.println("Exist [3]");
+		System.out.println("Exist                     [3]");
 		
-		
-		return 1;
+		return scanner.getScanner().nextLine();
 	}
-	
-	public int equipHero() {
+	public String equipType() {
 		System.out.println("Creation equipe de HEROS  ");
 		System.out.println("choix Heros  :paladin    [1]");
 		System.out.println("choix heros  :magicien   [2]");
 		System.out.println("choix heros  :barbare    [3]");
-		return 0;
+		return scanner.getScanner().nextLine();
 	}
 	
-	public void equipMonstre() {
-			
-	}
+	public int nbPerson() {
+		int  response = 0;
+		System.out.println("Creation equipe de HEROS  ");
+		System.out.println("Selec nbbre de Personne  ");
 		
-	
+		if(scanner.getScanner().nextInt()>0) {
+			response = scanner.getScanner().nextInt();
+			//clear flux
+			scanner.getScanner().nextLine();
+		}else {
+			nbPerson();
+		}
+		return response ;
+	}
 	
 	
 }
