@@ -2,26 +2,17 @@ package com.societe.projet.menu;
 
 import java.util.Scanner;
 
+import com.societe.projet.utils.ScannerProvider;
+
 public class Menu {
 
-	private Scanner scanner;
-	private String choix;
+	private ScannerProvider scanner;
 	
-	public String getChoix() {
-		return choix;
-	}
-
-	public void setChoix(String choix) {
-		this.choix = choix;
-	}
-
-	public Menu(Scanner scanner) {
+	public Menu(ScannerProvider scanner) {
 		this.scanner = scanner;
 	}
 	
-	public void menuEquipe() {
-		
-		boolean response = true;
+	public int menuEquipe() {
 		
 		System.out.println("-------- creation menu equipe---------------");
 		System.out.println("Creation equipe de HEROS [1] ");
@@ -29,19 +20,15 @@ public class Menu {
 		System.out.println("Exist [3]");
 		
 		
-		choix = scanner.nextLine();
-		
-		while(response) {
-			switch(choix) {
-				case "1" : break;
-				case "2" : break;
-				case "3" : response = false; break;
-			}
-		}
+		return 1;
 	}
 	
-	public void equipHero() {
-		
+	public int equipHero() {
+		System.out.println("Creation equipe de HEROS  ");
+		System.out.println("choix Heros  :paladin    [1]");
+		System.out.println("choix heros  :magicien   [2]");
+		System.out.println("choix heros  :barbare    [3]");
+		return 0;
 	}
 	
 	public void equipMonstre() {
