@@ -6,6 +6,7 @@ import java.util.List;
 import com.societe.projet.entities.armes.Arme;
 import com.societe.projet.entities.armures.Armure;
 import com.societe.projet.gameplay.Butin;
+import com.societe.projet.rpg.Rpg;
 
 
 public abstract class Personnage {
@@ -23,6 +24,8 @@ public abstract class Personnage {
 	private Arme arme;
 	private Armure armure;
 	
+	private  Rpg rpg;
+	
 	private List<Butin> butins;
 	
 	
@@ -38,7 +41,6 @@ public abstract class Personnage {
 	 */
 	
 	public Personnage() {}
-	
 	
 	public Personnage(String name,int pointVie,int pointAction,int pointAttaque) {
 		this.name = name;
@@ -79,35 +81,25 @@ public abstract class Personnage {
 		return pointAttaque;
 	}
 
-	//************************************************//
-	//	 @Setter and @getter
-	//***********************************************//	
-	
-	
 	public void setPointAttaque(int pointAttaque) {
 		this.pointAttaque = pointAttaque;
 	}
-
-
+	
+	//************************************************//
+	//	 @Setter and @getter
+	//***********************************************//	
 
 	public Arme getArme() {
 		return arme;
 	}
 
-
-
 	public void setArme(Arme arme) {
 		this.arme = arme;
 	}
 
-
-
 	public Armure getArmure() {
 		return armure;
 	}
-
-
-
 	public void setArmure(Armure armure) {
 		this.armure = armure;
 	}
@@ -122,7 +114,31 @@ public abstract class Personnage {
 	public void setButins(List<Butin> butins) {
 		this.butins = butins;
 	}
+
+	//************************************************//
+	//	 @Setter and @getter  reg
+	//***********************************************//
 	
+	public Rpg getRpg() {
+		return rpg;
+	}
+
+	public void setRpg(Rpg rpg) {
+		this.rpg = rpg;
+	}
 	
+	//************************************************//
+	//	 @Methods test
+	//***********************************************//
 	
+	public void affichePersonnage() {
+		System.out.println("------Personnage------------");
+		System.out.println("nom : "+name);
+		System.out.println("point de vie : "+pointVie);
+		System.out.println("point action : "+pointAction);
+		System.out.println("point attaque : "+pointAction);
+	
+	}
+
+
 }
