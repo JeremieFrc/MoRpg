@@ -11,7 +11,6 @@ public class Menu {
 	public Menu(ScannerProvider scanner) {
 		this.scanner = scanner;
 	}
-	
 	public String menuEquipe() {
 		
 		System.out.println("-------- creation menu equipe---------------");
@@ -21,28 +20,29 @@ public class Menu {
 		
 		return scanner.getScanner().nextLine();
 	}
+	public int nbPerson() {
+		int  response = 0;
+		System.out.println("Creation equipe de HEROS  ");
+		System.out.println("Selec nombre de Personne  ");
+		response = scanner.getScanner().nextInt();
+		if(response>0) {
+			System.out.println(response);
+			//clear flux
+			scanner.getScanner().nextLine();
+		}else {
+			scanner.getScanner().nextLine();
+			nbPerson();
+		}
+		return response ;
+	}
 	public String equipType() {
 		System.out.println("Creation equipe de HEROS  ");
 		System.out.println("choix Heros  :paladin    [1]");
 		System.out.println("choix heros  :magicien   [2]");
 		System.out.println("choix heros  :barbare    [3]");
 		return scanner.getScanner().nextLine();
-	}
+	}	
 	
-	public int nbPerson() {
-		int  response = 0;
-		System.out.println("Creation equipe de HEROS  ");
-		System.out.println("Selec nbbre de Personne  ");
-		
-		if(scanner.getScanner().nextInt()>0) {
-			response = scanner.getScanner().nextInt();
-			//clear flux
-			scanner.getScanner().nextLine();
-		}else {
-			nbPerson();
-		}
-		return response ;
-	}
 	
 	
 }
