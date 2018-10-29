@@ -140,5 +140,4 @@ public abstract class Personnage {
 	
 	}
 
-
 }

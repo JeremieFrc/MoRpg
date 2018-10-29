@@ -29,21 +29,37 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 		this.nom = nom;
 	}
 	
+	
+	//************************************************//
+	//	 @default heros,montres life
+	//***********************************************//
+	
+	
 	public Donjon setDefaultHero(Rpg rpg){
 		this.personne = new Hero();
 		this.personne.setName(nom);
 		this.personne.setRpg(rpg);
 		return this; //retunr element qui utilise courant
 	}
-	
-	public Personnage attributLife() {
+	public Donjon setDefaultMontre(Rpg rpg){
+		this.personne = new Monstre();
+		this.personne.setName(nom);
+		this.personne.setRpg(rpg);
+		return this; //retunr element qui utilise courant
+	}
+	public Personnage dftAttributLife() {
 		this.personne.setPointVie(100);
 		this.personne.setPointAction(12);
 		this.personne.setPointAttaque(20);
 		return personne;
 	}
-
+	//************************************************//
+	//	 @default heros,montres  Equipement
+	//***********************************************//
 	
+	public Personnage setDeftEquipement() {
+		return this.personne;
+	}
 	
 	
 }

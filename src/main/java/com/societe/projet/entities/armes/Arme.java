@@ -65,5 +65,12 @@ public abstract class Arme  {
 
 		return result > 0 ? result : 0; //application ternaire
 	}
-
+	
+	public void affiArme() {
+		System.out.println("-----Armure -----------");
+		System.out.println("degatPhysique : "+degatPhysique);
+		System.out.println("degatMagic : "+degatMagic);
+		System.out.println("degatMagic : "+cpa);
+		
+	}
 }
