@@ -8,7 +8,16 @@ import com.societe.projet.rpg.Rpg;
 
 public class DefaultFighter implements Rpg{
 
+	private Personnage personnage;
 	
+	public Personnage getPersonnage() {
+		return personnage;
+	}
+
+	public void setPersonnage(Personnage personnage) {
+		this.personnage = personnage;
+	}
+
 	@Override
 	public String getWeasponRestriction() {
 		// TODO Auto-generated method stub

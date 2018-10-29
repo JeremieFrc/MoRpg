@@ -67,7 +67,7 @@ public abstract class Arme  {
 	}
 	
 	public void affiArme() {
-		System.out.println("-----Armure -----------");
+		System.out.println("-----Arme : -----------");
 		System.out.println("degatPhysique : "+degatPhysique);
 		System.out.println("degatMagic : "+degatMagic);
 		System.out.println("degatMagic : "+cpa);

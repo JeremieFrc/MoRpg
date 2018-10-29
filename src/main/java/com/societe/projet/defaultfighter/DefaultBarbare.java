@@ -11,6 +11,7 @@ import com.societe.projet.rpg.Rpg;
 
 public class DefaultBarbare extends DefaultFighter implements Barbare {
 
+	private Arme armeBarbare;
 	
 
 	@Override
@@ -55,6 +56,15 @@ public class DefaultBarbare extends DefaultFighter implements Barbare {
 			result = true;
 		}
 		return result;
+	}
+
+	//******************************************************//
+	//	 @ setEquimepent barbare armure et arme
+	//*****************************************************//
+	
+	@Override
+	public void setArmeBarbare(Arme arme) {
+		armeBarbare = arme;	
 	}
 
 }

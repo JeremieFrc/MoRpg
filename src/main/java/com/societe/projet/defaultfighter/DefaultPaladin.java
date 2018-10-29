@@ -26,8 +26,9 @@ public class DefaultPaladin extends DefaultFighter implements Paladin {
 	@Override
 	public void figth(Personnage defender) {
 		// TODO Auto-generated method stub
-		
 	}
+	
+	
 	//******************************************************//
 	//	 @ verification contraintes Paladin armure et arme
 	//*****************************************************//
