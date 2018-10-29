@@ -50,10 +50,9 @@ public abstract class Armure {
 	
 	public void affiArmure() {
 		System.out.println("-----Armure -----------");
-		System.out.println("nom : "+name);
+		System.out.println("po : "+name);
 		System.out.println("point de vie : "+pointVie);
-		System.out.println("point action : "+pointAction);
-		System.out.println("point attaque : "+pointAction);
+		
 	}
 	
 }
