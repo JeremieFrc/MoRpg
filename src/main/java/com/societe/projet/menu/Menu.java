@@ -89,4 +89,14 @@ public class Menu {
 		
 		return scanner.getScanner().nextInt();	
 	}	
+
+	
+	public void menuArme() {
+		System.out.println("\nPersonnage Paladin [1]");
+		System.out.println("Personnage Magicien  [2]");
+		System.out.println("Personnage Barbare   [3]");
+		
+	}
+
+
 }

@@ -28,9 +28,6 @@ public abstract class Personnage {
 	
 	private List<Butin> butins;
 	
-	
-	
-		
 	//************************************************//
 	//	 @Constructeur 
 	//***********************************************//	

@@ -31,9 +31,12 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 	private int nbJoueurGame[];
 	private Menu menu;
 	
-	private List <Personnage> listPersonnage = new ArrayList<Personnage>();
 	private List<Monstre> listMonstre = new ArrayList<Monstre>();
 	private List <Hero> listHeros= new ArrayList<Hero>();
+	
+	
+	
+	private List <Personnage> listPersonnage = new ArrayList<Personnage>();
 	private List <ArrayList<Monstre>> listEtagge = new ArrayList<ArrayList<Monstre>>();
 	
 	//************************************************//
@@ -102,37 +105,42 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 	}
 	public void  interfaceGame() {	
 		
-		menu.screenGame();
-		nbJoueurGame = menu.initNbJoueurs();
+		//menu.screenGame();
+		//nbJoueurGame = menu.initNbJoueurs();
 		//nbEtages = menu.nbEtage();
 		
-		this.createElementPersonnage(0,nbJoueurGame[0]);
-		this.createElementPersonnage(1,nbJoueurGame[1]);
-		//this.afficheList(listPersonnage);
+		//init les element
+		//this.createElementPersonnage(0,nbJoueurGame[0]);
+		//this.createElementPersonnage(1,nbJoueurGame[1]);
 		
-		
-			//Personnage p = new Hero();
-			//p.setRpg(new DefaultPaladin());
-			//verifiedType(p);
-			//listPersonnage.add(p);
+		this.methodTest();
+		this.initArmeEquipe(listHeros);
 			
-			//Personnage pp = new Hero();
-			//pp.setRpg(new DefaultMagicien()); 
-			//verifiedType(pp);
-			//listPersonnage.add(pp);
-			
-			//Personnage ppp = new Hero();
-			//ppp.setRpg(new DefaultBarbare());
-			//verifiedType(ppp);
-			//listPersonnage.add(ppp);
 		
-		for(Personnage pc : listHeros) {
-			verifiedType(pc);
+		
+	}
+	public <T> void initArmeEquipe(List<T> liste) {
+		for(T valeur : liste) {
+			switch(verifiedTyp(valeur)) {
+			case 1 :
+				System.out.println("Perso est Paladin");
+				break;
+			case 2 : 
+				System.out.println("Perso est Barbare");
+				break;
+			case 3 : 
+				System.out.println("Perso est Magiciens");
+				break;
+			}
 			
 		}
-		//this.afficheList(listPersonnage);	
 	}
-	public void createElementPersonnage(int equipe,int nbJoueurGame) {
+	
+	public <T> void initPersoArme(T person) {
+		///init les element
+	}
+	
+ 	public void createElementPersonnage(int equipe,int nbJoueurGame) {
 		//int response = 0;
 		int compteur = 0;
 		
@@ -209,6 +217,17 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 			 System.out.println("Ceci est bien une instance de type Magicien");
 		 }
 	}
+	public <T> int verifiedTyp(T perso) {
+		int response = 0 ; 
+		if( ((Personnage) perso).getRpg() instanceof Paladin ) {
+			response = 1;
+		 }else if( ((Personnage) perso).getRpg() instanceof Barbare ) {
+			 response = 2;
+		 }else if( ((Personnage) perso).getRpg() instanceof Magiciens ) {
+			 response = 3;
+		 }
+		return response;
+	}
 	public <T> void verifiedType(T perso) {
 		 if( ((Personnage) perso).getRpg() instanceof Paladin ) {
 			 System.out.println("Ceci est bien une instance de type Paladin");
@@ -220,9 +239,37 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 	}
 	public <T> void afficheList(List<T> list) {
 		for(T valeur : list) {
-			System.out.println("*********liste********************");
 			this.verifiedType(valeur);
 			((Personnage) valeur).affichePersonnage();
 		}
 	}
+
+	//************************************************//
+	//	 @Test unitaire
+	//***********************************************//
+
+	public void methodTest() {
+		//this.afficheList(listPersonnage);	
+		
+		Personnage p = new Hero();
+		p.setRpg(new DefaultPaladin());
+		//verifiedType(p);
+		listHeros.add((Hero) p);
+		
+		Personnage pp = new Hero();
+		pp.setRpg(new DefaultMagicien()); 
+		//verifiedType(pp);
+		listHeros.add((Hero) pp);
+		
+		Personnage ppp = new Hero();
+		ppp.setRpg(new DefaultBarbare());
+		//verifiedType(ppp);
+		listHeros.add((Hero) ppp);
+	
+		for(Personnage pc : listHeros) {
+			verifiedType(pc);
+		}
+		//this.afficheList(listPersonnage);	
+	}
+
 }
