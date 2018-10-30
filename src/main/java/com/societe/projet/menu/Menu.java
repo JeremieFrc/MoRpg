@@ -80,9 +80,9 @@ public class Menu {
 	}	
 	public int affCreatePerso(int nbJoueurGame) {
 
-		System.out.println("\nEquipe nbPerso maximun "+nbJoueurGame);
+		System.out.println("\nEquipe nbPerso maximun : "+nbJoueurGame);
 		
-		System.out.println("\nPersonnage Paladin [1].");
+		System.out.println("\nPersonnage Paladin   [1]");
 		System.out.println("Personnage Magicien  [2]");
 		System.out.println("Personnage Barbare   [3]");
 		System.out.print("choix : ");
