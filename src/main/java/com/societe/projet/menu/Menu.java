@@ -79,16 +79,14 @@ public class Menu {
 		return response;
 	}	
 	public int affCreatePerso(int nbJoueurGame) {
+
+		System.out.println("\nEquipe nbPerso maximun "+nbJoueurGame);
 		
-		//scanner.getScanner().nextLine(); //clear en cas error
-		
-		System.out.println("\nEquipe Heros nbPerso maximun "+nbJoueurGame);
-		System.out.println("Personnage Paladin  [1]");
-		System.out.println("Personnage Magicien [2]");
-		System.out.println("Personnage Barbare  [3]");
+		System.out.println("\nPersonnage Paladin [1].");
+		System.out.println("Personnage Magicien  [2]");
+		System.out.println("Personnage Barbare   [3]");
 		System.out.print("choix : ");
 		
 		return scanner.getScanner().nextInt();	
 	}	
-
 }

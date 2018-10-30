@@ -3,6 +3,8 @@ package com.societe.projet.donjons;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.societe.projet.defaultfighter.DefaultBarbare;
+import com.societe.projet.defaultfighter.DefaultMagicien;
 import com.societe.projet.defaultfighter.DefaultPaladin;
 import com.societe.projet.entities.personnages.Hero;
 import com.societe.projet.entities.personnages.Monstre;
@@ -30,9 +32,8 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 	
 	private Menu menu;
 	
-	
 	private List <Personnage> listPersonnage = new ArrayList<Personnage>();
-	private List <Monstre> listMonstre = new ArrayList<Monstre>();
+	private List<Monstre> listMonstre = new ArrayList<Monstre>();
 	private List <Hero> listHeros= new ArrayList<Hero>();
 	private List <ArrayList<Monstre>> listEtagge = new ArrayList<ArrayList<Monstre>>();
 	
@@ -98,26 +99,31 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 		this.menu = new Menu(scanners);
 	}
 	public void  interfaceGame() {	
+		
 		menu.screenGame();
 		nbJoueurGame = menu.initNbJoueurs();
 		nbEtages = menu.nbEtage();
-		this.selectEquipe(menu.menuEquipe(),nbJoueurGame);
+		
+		createElementPersonnage(0);
+		createElementPersonnage(1);
+	
+	
 	}
-	public void selectEquipe(int choix,int nbJoueurGame[]) {
-		int response = 0;
+	
+	
+	public void createElementPersonnage(int equipe) {
 		Personnage perso = null;
 		
-		switch(choix) {
-		case 1 : 
-			System.out.println("\n-----Personnage Heros--------\n ");
+		switch(equipe) {
+		case 0 : 
+			System.out.println("\n-----Personnage Heros-?-------\n ");
 			perso = new Hero();
-			createPersonnage(perso);
+			createPersonnage(perso,nbJoueurGame[0],equipe);
 			break;
-		case 2 : 
-			response = menu.affCreatePerso(nbJoueurGame[1]);
-			System.out.println("\n-----Personnage Monstre --------\n ");
+		case 1 :
+			System.out.println("\n-----Personnage Monstre -*-------\n ");
 			perso = new Monstre();
-			createPersonnage(perso);
+			createPersonnage(perso,nbJoueurGame[1],equipe);
 			break;
 		default : 
 			System.out.println("Error de selection");
@@ -125,43 +131,46 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 			break;
 		}
 	}
-	public void createPersonnage(Personnage perso) {
+	public void createPersonnage(Personnage perso,int nbJoueurGame,int equipe) {
+		
+		Personnage saveInstane = perso;
 		int response = 0;
-		int compteur = 1;
-		
-		while(compteur<=nbJoueurGame[0]) {
-			response = menu.affCreatePerso(nbJoueurGame[0]);
-			switch(response) {
-				case 1:
-					System.out.println("\n---- Paladin --------\n ");
-					 perso.setRpg(new DefaultPaladin()); //init de type paladin
-					 initPerson(perso);
-					//creation paladin
-					compteur++;
-					break;
-				case 2:
-					//creation Magicien
-					compteur++;
-					break;
-				case 3:
-					//creation barbare
-					compteur++;
-					break;
-				default:
-					System.out.println("error de selection");
-					response = menu.affCreatePerso(nbJoueurGame[0]);
-					break;
-			}
-			System.out.println("boucle");
-			perso = null;
-		}
+		int compteur = 0;
+
+			while(compteur < nbJoueurGame) {
+				response = menu.affCreatePerso(nbJoueurGame);
+				switch(response) {
+					case 1:
+						 System.out.println("\n---- Paladin --------\n ");
+						 //creation paladin
+						 saveInstane.setRpg(new DefaultPaladin()); //init de type paladin
+						 initPerson(perso,equipe);
+						 compteur++;
+						 break;
+					case 2:
+						System.out.println("\n---- Magicien --------\n ");
+						//creation Magicien
+						saveInstane.setRpg(new DefaultMagicien()); //init de type paladin
+						initPerson(perso,equipe);
+						compteur++;
+						break;
+					case 3:
+						System.out.println("\n---- Barbare --------\n ");
+						//creation barbare
+						saveInstane.setRpg(new DefaultBarbare()); //init de type paladin
+						initPerson(perso,equipe);
+						compteur++;
+						break;
+					default:
+						System.out.println("error de selection type Personnage");
+						break;
+				}
+				System.out.println("boucle  ");	
+			}	
 	}
-	public void initPerson(Personnage personne) {
-		
-		System.out.println("\n---- Paladin --------\n ");
+	public void initPerson(Personnage personne,int equipe) {
 		
 		verifiedType(personne);
-		
 		//init element personnage
 		
 		personne.setName("gauliat");
@@ -169,9 +178,17 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 		personne.setPointAction(22);
 		personne.setPointAttaque(120);
 		personne.affichePersonnage();
+		
+		System.out.println("\n-----************-------\n ");
+		if(equipe == 0) {
+			System.out.println("element inserer equipe heros");
+			listHeros.add((Hero) personne);
+		}else {
+			System.out.println("element inserer equipe monstre");
+			listMonstre.add((Monstre) personne);
+		}	
 	}
-	
-	void verifiedType(Personnage perso) {
+	public void verifiedType(Personnage perso) {
 		 if( perso.getRpg() instanceof Paladin ) {
 			 System.out.println("Ceci est bien une instance de type Paladin");
 		 }else if( perso.getRpg() instanceof Barbare ) {
@@ -180,5 +197,9 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 			 System.out.println("Ceci est bien une instance de type Magicien");
 		 }
 	}
-	
+	public <T> void afficheList(List<T> list) {
+		for(T valeur : list) {
+			((Personnage) valeur).affichePersonnage();
+		}
+	}
 }
