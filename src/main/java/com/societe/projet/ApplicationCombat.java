@@ -27,7 +27,11 @@ public class ApplicationCombat {
 	//	 @insert menu
 	//***********************************************//
 	 Donjon persGeneric = new Donjon(scanners);
-	 persGeneric.setGamePlayUser();
+	 //persGeneric.
+	 
+	 persGeneric.initMenu();
+	 persGeneric.interfaceGame();
+
 	 
 	 //************************************************//
 	//	 @insert base Data

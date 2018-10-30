@@ -2,7 +2,7 @@ package com.societe.projet.donjons;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+
 
 import com.societe.projet.entities.personnages.Hero;
 import com.societe.projet.entities.personnages.Monstre;
@@ -17,16 +17,15 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 	//	 @Private
 	//***********************************************//
 	
+	private ScannerProvider scanners;
+	
 	private Personnage personne;
 	private String nom;
 	
-	private ScannerProvider scanners;
 	private int nbEtages;
+	private int nbJoueurGame[];
 	
-	private int nbHeros;
-	private int nbMonstre;
-	
-	
+	private Menu menu;
 	
 	
 	private List <Personnage> listPersonnage = new ArrayList<Personnage>();
@@ -42,26 +41,27 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 	public Donjon(ScannerProvider scanners) {
 		this.scanners = scanners;
 	}
-	
 	//************************************************//
 	//	 @getter setter
 	//***********************************************//
-	
 	public String getNom() {
 		return nom;
 	}
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-	
-	public void setnbHeros(int nbHeros) {
-		this.nbHeros = nbHeros;
+	public int getNbEtages() {
+		return nbEtages;
 	}
-	
-	public void setnbMontre(int nbMonstre) {
-		this.nbMonstre = nbMonstre;
+	public void setNbEtages(int nbEtages) {
+		this.nbEtages = nbEtages;
 	}
-	
+	public int[] getNbJoueurGame() {
+		return nbJoueurGame;
+	}
+	public void setNbJoueurGame(int[] nbJoueurGame) {
+		this.nbJoueurGame = nbJoueurGame;
+	}
 	//************************************************//
 	//	 @default heros,montres life
 	//***********************************************//
@@ -84,28 +84,69 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 		this.personne.setPointAttaque(20);
 		return personne;
 	}
-	//************************************************//
-	//	 @default heros,montres Equipement
-	//***********************************************//
-	
 	public Personnage setDeftEquipement() {
 		return this.personne;
 	}
+	//************************************************//
+	//	 @menu and interaction user
+	//***********************************************//
 	
-	public void setGamePlayUser() {
-		
-		Menu meal = new Menu(scanners);
-		
-			switch(meal.menuEquipe()) {
-				case "1" :  this.setnbHeros(meal.nbPerson());break;
-				case "2" :  this.setnbMontre(meal.nbPerson());break;
-				default :break;
-			}	
-			
-			System.out.println(nbMonstre);
-	
+	public void initMenu() {
+		this.menu = new Menu(scanners);
 	}
-	
-	
+	public void  interfaceGame() {	
+		menu.screenGame();
+		nbJoueurGame = menu.initNbJoueurs();
+		nbEtages = menu.nbEtage();
+		this.selectEquipe(menu.menuEquipe(),nbJoueurGame);
+	}
+	public void selectEquipe(int choix,int nbJoueurGame[]) {
+		int response = 0;
+		
+		switch(choix) {
+		case 1 : 
+			System.out.println("\n-----Personnage Heros--------\n ");
+			createPersonnage();
+			break;
+		case 2 : 
+			response = menu.affCreatePerso(nbJoueurGame[1]);
+			System.out.println("\n-----Personnage Monstre --------\n ");
+			break;
+		default : 
+			System.out.println("Error de selection");
+			menu.menuEquipe();
+			break;
+		}
+	}
+	public void createPersonnage() {
+		int response = 0;
+		int compteur = 1;
+		
+		while(compteur<=nbJoueurGame[0]) {
+			response = menu.affCreatePerso(nbJoueurGame[0]);
+			
+			switch(response) {
+				case 1:
+					//creation paladin
+					compteur++;
+					break;
+				case 2:
+					//creation Magicien
+					compteur++;
+					break;
+				case 3:
+					//creation barbare
+					compteur++;
+					break;
+				default:
+					System.out.println("error de selection");
+					response = menu.affCreatePerso(nbJoueurGame[0]);
+					break;
+			}
+		}
+	}
+	public void initPerson() {
+		
+	}
 	
 }

@@ -28,6 +28,8 @@ public abstract class Arme  {
 		this.degatPhysique = degatPhysique;
 		this.cpa = cpa;
 	}
+	
+	
 	//************************************************//
 	//	 @Setter and @getter
 	//***********************************************//	
