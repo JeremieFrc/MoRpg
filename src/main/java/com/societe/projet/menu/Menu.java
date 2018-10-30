@@ -52,7 +52,7 @@ public class Menu {
 	public int nbEtage() {
 		int nb = 0;
 		
-		System.out.println("\n--------Saisie nombre etage  pour Donjon----------\n");
+		System.out.println("\n--------Saisie nombre etage pour Donjon----------\n");
 		System.out.print("Choix : ");
 		
 		nb = scanner.getScanner().nextInt();
@@ -67,7 +67,7 @@ public class Menu {
 	public int menuEquipe() {
 		int response = 0;
 		
-		System.out.println("\n-------- creation menu Personnage ---------------\n");
+		System.out.println("\n-------- creation des Personnages ---------------\n");
 		
 		System.out.println("Equipe de HEROS  [1] ");
 		System.out.println("Equipe de Montre [2]");

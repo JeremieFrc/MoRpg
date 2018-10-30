@@ -2,6 +2,7 @@ package com.societe.projet;
 
 
 import com.societe.projet.defaultfighter.DefaultBarbare;
+import com.societe.projet.defaultfighter.DefaultPaladin;
 import com.societe.projet.donjons.Donjon;
 import com.societe.projet.entities.armes.Arme;
 import com.societe.projet.entities.armes.ArmeMagique;
@@ -9,8 +10,9 @@ import com.societe.projet.entities.armes.ArmePhysique;
 import com.societe.projet.entities.armures.Armure;
 import com.societe.projet.entities.armures.ArmureMagique;
 import com.societe.projet.entities.armures.ArmurePhysique;
+import com.societe.projet.entities.personnages.Hero;
 import com.societe.projet.entities.personnages.Personnage;
-
+import com.societe.projet.rpg.Paladin;
 import com.societe.projet.utils.ScannerProvider;
 
 public class ApplicationCombat {
@@ -33,17 +35,26 @@ public class ApplicationCombat {
 	 persGeneric.interfaceGame();
 
 	 
+	
+
+	 
 	 //************************************************//
 	//	 @insert base Data
 	//***********************************************//
 		
-		
-		
-	
-		
 	}
 	public void testInit( Donjon persGeneric ) {
 		
+		 
+		 Personnage p = new Hero();
+		 p.setRpg(new DefaultPaladin());
+		 
+		//verification de l'instance
+		 
+		 if( p.getRpg() instanceof Paladin ) {
+			 System.out.println("Ceci est bien une instance de type Paladin");
+		 }//tres important
+		 
 		//************************************************//
 		//	 @init object
 		//***********************************************//
