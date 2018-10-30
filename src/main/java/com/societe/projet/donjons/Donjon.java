@@ -192,12 +192,17 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 	}
 	public void initPerson(Personnage per,int equipe) {
 		
+		scanners.getScanner().nextLine();
 		verifiedType(per);	
+		System.out.println("Nom : ");
 		
-		per.setName("gauliat");
-		per.setPointVie(12);
-		per.setPointAction(22);
-		per.setPointAttaque(120);
+		per.setName(scanners.getScanner().nextLine());
+		per.setPointVie(scanners.getScanner().nextInt());
+		scanners.getScanner().nextLine();	
+		per.setPointAction(scanners.getScanner().nextInt());
+		scanners.getScanner().nextLine();
+		per.setPointAttaque(scanners.getScanner().nextInt());
+		scanners.getScanner().nextLine();
 		//personne.affichePersonnage();
 		
 		if(equipe == 0) {
