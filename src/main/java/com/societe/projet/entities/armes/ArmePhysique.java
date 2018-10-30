@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.societe.projet.entities.armures.Armure;
-import com.societe.projet.entities.armures.ArmureMixte;
+
 
 public class ArmePhysique extends Arme {
 	//************************************************//
 	//	 @private
 	//***********************************************//	
 	
-	private List <ArmeMixte> listArmPhysique = new ArrayList<ArmeMixte>();
+	private List<ArmeMixte> listArmPhysique = new ArrayList<ArmeMixte>();
 	
 	//************************************************//
 	//	 @Constructeur 

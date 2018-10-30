@@ -1,8 +1,7 @@
 package com.societe.projet.rpg;
 
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 
 import com.societe.projet.entities.armes.Arme;

@@ -1,6 +1,6 @@
 package com.societe.projet.defaultfighter;
 
-import com.societe.projet.donjons.Donjon;
+
 import com.societe.projet.entities.armes.Arme;
 import com.societe.projet.entities.armures.Armure;
 import com.societe.projet.entities.personnages.Personnage;

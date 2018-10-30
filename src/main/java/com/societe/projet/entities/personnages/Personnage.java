@@ -1,6 +1,6 @@
 package com.societe.projet.entities.personnages;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import com.societe.projet.entities.armes.Arme;

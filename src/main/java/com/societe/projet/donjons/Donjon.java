@@ -107,9 +107,8 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 		//nbEtages = menu.nbEtage();
 		
 		this.createElementPersonnage(0,nbJoueurGame[0]);
-		//this.createElementPersonnage(1);
-		
-		this.afficheList(listPersonnage);
+		this.createElementPersonnage(1,nbJoueurGame[1]);
+		//this.afficheList(listPersonnage);
 		
 		
 			//Personnage p = new Hero();
@@ -127,17 +126,14 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 			//verifiedType(ppp);
 			//listPersonnage.add(ppp);
 		
-		for(Personnage pc : listPersonnage) {
+		for(Personnage pc : listHeros) {
 			verifiedType(pc);
 			
 		}
-		//this.afficheList(listPersonnage);
-		
+		//this.afficheList(listPersonnage);	
 	}
-	
 	public void createElementPersonnage(int equipe,int nbJoueurGame) {
-		
-		int response = 0;
+		//int response = 0;
 		int compteur = 0;
 		
 		while(compteur < nbJoueurGame) {
@@ -162,7 +158,6 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 	public void createPersonnage(Personnage pers,int equipe,int nbJoueurGame) {
 		
 				int response = menu.affCreatePerso(nbJoueurGame);
-				
 				switch(response) {
 					case 1:
 						 System.out.println("\n---- Paladin --------\n ");
@@ -199,7 +194,7 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 		
 		if(equipe == 0) {
 			System.out.println("inserer equipe heros");
-			listPersonnage.add(per);
+			listHeros.add((Hero) per);
 		}else {
 			System.out.println("inserer equipe monstre");
 			listMonstre.add((Monstre) per);

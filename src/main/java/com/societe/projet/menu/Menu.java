@@ -40,7 +40,7 @@ public class Menu {
 	public void verifNbJoueur(int tab[]) {
 		
 		//parcourir tab and verification data
-		boolean response = true;
+		//boolean response = true;
 		
 		for(int i = 0; i<tab.length;i++) {
 			if(tab[i] < 0) {
