@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_5480YNdpEeiycvH5fem2wA" name="model">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_59bEsNdpEeiycvH5fem2wA">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Package" xmi:id="_HegOoNdrEeiycvH5fem2wA" name="MoRpg">
+    <packagedElement xmi:type="uml:Package" xmi:id="_He86k9drEeiycvH5fem2wA" name="com">
+      <packagedElement xmi:type="uml:Package" xmi:id="_He86lNdrEeiycvH5fem2wA" name="societe">
+        <packagedElement xmi:type="uml:Package" xmi:id="_He86lddrEeiycvH5fem2wA" name="projet">
+          <packagedElement xmi:type="uml:Package" xmi:id="_He86ltdrEeiycvH5fem2wA" name="entities">
+            <packagedElement xmi:type="uml:Package" xmi:id="_He86l9drEeiycvH5fem2wA" name="armes"/>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_V3iwwNdrEeiycvH5fem2wA" name="ArmeMagique">
+    <generalization xmi:type="uml:Generalization" xmi:id="_e2snoNdsEeiycvH5fem2wA" general="_W1JogNdrEeiycvH5fem2wA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_W1JogNdrEeiycvH5fem2wA" name="Arme"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Xv_gINdrEeiycvH5fem2wA" name="ArmePhysique">
+    <generalization xmi:type="uml:Generalization" xmi:id="_fye6cNdsEeiycvH5fem2wA" general="_W1JogNdrEeiycvH5fem2wA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_ZYRskNdrEeiycvH5fem2wA" name="ArmeMixte">
+    <generalization xmi:type="uml:Generalization" xmi:id="_jqV80NdsEeiycvH5fem2wA" general="_W1JogNdrEeiycvH5fem2wA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_da0U8NdrEeiycvH5fem2wA" name="Armure"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_eiqt0NdrEeiycvH5fem2wA" name="ArmureMagique">
+    <generalization xmi:type="uml:Generalization" xmi:id="_y_EEENdsEeiycvH5fem2wA" general="_da0U8NdrEeiycvH5fem2wA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_frhzUNdrEeiycvH5fem2wA" name="ArmurePhysique">
+    <generalization xmi:type="uml:Generalization" xmi:id="_0Z5DUNdsEeiycvH5fem2wA" general="_da0U8NdrEeiycvH5fem2wA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_hrWWANdrEeiycvH5fem2wA" name="ArmureMixte">
+    <generalization xmi:type="uml:Generalization" xmi:id="_1KA4sNdsEeiycvH5fem2wA" general="_da0U8NdrEeiycvH5fem2wA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_od_ugNdrEeiycvH5fem2wA" name="Personnage"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_q7V6sNdrEeiycvH5fem2wA" name="Hero">
+    <generalization xmi:type="uml:Generalization" xmi:id="_rHm_oNdsEeiycvH5fem2wA" general="_od_ugNdrEeiycvH5fem2wA"/>
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_B3-xYNdzEeiycvH5fem2wA" client="_q7V6sNdrEeiycvH5fem2wA" supplier="_Ly1fsNdtEeiycvH5fem2wA" contract="_Ly1fsNdtEeiycvH5fem2wA"/>
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_T44yENdzEeiycvH5fem2wA" client="_q7V6sNdrEeiycvH5fem2wA" supplier="_N3thgNdtEeiycvH5fem2wA" contract="_N3thgNdtEeiycvH5fem2wA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_ruTBoNdrEeiycvH5fem2wA" name="Monstre">
+    <generalization xmi:type="uml:Generalization" xmi:id="_p0DtENdsEeiycvH5fem2wA" general="_od_ugNdrEeiycvH5fem2wA"/>
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_VEaxENdzEeiycvH5fem2wA" client="_ruTBoNdrEeiycvH5fem2wA" supplier="_N3thgNdtEeiycvH5fem2wA" contract="_N3thgNdtEeiycvH5fem2wA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_wCFLANdrEeiycvH5fem2wA" name="Rpg"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_xO6xkNdrEeiycvH5fem2wA" name="Paladin">
+    <generalization xmi:type="uml:Generalization" xmi:id="_7N_NUNdsEeiycvH5fem2wA" general="_wCFLANdrEeiycvH5fem2wA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_yrWTUNdrEeiycvH5fem2wA" name="Barbare">
+    <generalization xmi:type="uml:Generalization" xmi:id="_8bTVANdsEeiycvH5fem2wA" general="_wCFLANdrEeiycvH5fem2wA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_0jbPQNdrEeiycvH5fem2wA" name="Magicien">
+    <generalization xmi:type="uml:Generalization" xmi:id="_7zOoYNdsEeiycvH5fem2wA" general="_wCFLANdrEeiycvH5fem2wA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Ci8eINdsEeiycvH5fem2wA" name="DefaultFighter">
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_Q8eTANdtEeiycvH5fem2wA" client="_Ci8eINdsEeiycvH5fem2wA" supplier="_wCFLANdrEeiycvH5fem2wA" contract="_wCFLANdrEeiycvH5fem2wA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_FJ8VkNdsEeiycvH5fem2wA" name="DefaultPaladin">
+    <generalization xmi:type="uml:Generalization" xmi:id="_2pZn0NdsEeiycvH5fem2wA" general="_Ci8eINdsEeiycvH5fem2wA"/>
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_R6bJANdtEeiycvH5fem2wA" client="_FJ8VkNdsEeiycvH5fem2wA" supplier="_xO6xkNdrEeiycvH5fem2wA" contract="_xO6xkNdrEeiycvH5fem2wA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Nk1eQNdsEeiycvH5fem2wA" name="DefaultBarbare">
+    <generalization xmi:type="uml:Generalization" xmi:id="_6UMekNdsEeiycvH5fem2wA" general="_Ci8eINdsEeiycvH5fem2wA"/>
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_vU9UYNdtEeiycvH5fem2wA" client="_Nk1eQNdsEeiycvH5fem2wA" supplier="_yrWTUNdrEeiycvH5fem2wA" contract="_yrWTUNdrEeiycvH5fem2wA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_VSd4UNdsEeiycvH5fem2wA" name="DefaultMagicien">
+    <generalization xmi:type="uml:Generalization" xmi:id="_3UTmANdsEeiycvH5fem2wA" general="_Ci8eINdsEeiycvH5fem2wA"/>
+    <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_wVBDMNdtEeiycvH5fem2wA" client="_VSd4UNdsEeiycvH5fem2wA" supplier="_0jbPQNdrEeiycvH5fem2wA" contract="_0jbPQNdrEeiycvH5fem2wA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_Ly1fsNdtEeiycvH5fem2wA" name="Butin"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_N3thgNdtEeiycvH5fem2wA" name="Realisable"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_5UzosNdtEeiycvH5fem2wA" name="Donjon"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_711bANdtEeiycvH5fem2wA" name="ApplicationCombat"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_W474INdyEeiycvH5fem2wA"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_op9pwNdyEeiycvH5fem2wA"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_MY9AUNd0EeiycvH5fem2wA"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_PaSYcNd2EeiycvH5fem2wA"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_QuNecNd2EeiycvH5fem2wA"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_tT66oNd2EeiycvH5fem2wA"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_HRU30Nd3EeiycvH5fem2wA"/>
+  <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_HezJkNdrEeiycvH5fem2wA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_HezJkddrEeiycvH5fem2wA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/PapyrusJava/1#/"/>
+    </eAnnotations>
+    <appliedProfile xmi:type="uml:Profile" href="pathmap://PapyrusJava_PROFILES/PapyrusJava.profile.uml#_j9REUByGEduN1bTiWJ0lyw"/>
+  </profileApplication>
+  <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_HezJktdrEeiycvH5fem2wA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_He86kNdrEeiycvH5fem2wA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/Codegen/1#/"/>
+    </eAnnotations>
+    <appliedProfile xmi:type="uml:Profile" href="pathmap://Codegen_PROFILES/Codegen.profile.uml#_fPDsIBa-EearhdjjJ6cVzQ"/>
+  </profileApplication>
+  <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_He86kddrEeiycvH5fem2wA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_He86ktdrEeiycvH5fem2wA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+    </eAnnotations>
+    <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+  </profileApplication>
+</uml:Model>

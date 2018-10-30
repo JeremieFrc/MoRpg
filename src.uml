@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_H_dwMNxZEeiuX9UeVX6obA" name="src">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_IDFE4NxZEeiuX9UeVX6obA">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_LNr_sNxZEeiuX9UeVX6obA" name="Utilisateur"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_SneQsNxZEeiuX9UeVX6obA" name="Création équipe héro"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_Us6TMNxZEeiuX9UeVX6obA" name="Création équipe monstre"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_ffg6INxZEeiuX9UeVX6obA" name="Créer nom">
+    <generalization xmi:type="uml:Generalization" xmi:id="_6K-3MNxZEeiuX9UeVX6obA" general="_SneQsNxZEeiuX9UeVX6obA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_ojlisNxZEeiuX9UeVX6obA" name="Déterminer Vie">
+    <generalization xmi:type="uml:Generalization" xmi:id="_6vFp0NxZEeiuX9UeVX6obA" general="_SneQsNxZEeiuX9UeVX6obA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_rZO6INxZEeiuX9UeVX6obA" name="Déterminer PA">
+    <generalization xmi:type="uml:Generalization" xmi:id="_7TVmYNxZEeiuX9UeVX6obA" general="_SneQsNxZEeiuX9UeVX6obA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_Iid6INxaEeiuX9UeVX6obA" name="Démarrer le donjon"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_QP-_cNxaEeiuX9UeVX6obA" name="Attaquer"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_RJ_woNxaEeiuX9UeVX6obA" name="Défendre"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_cEmdANxaEeiuX9UeVX6obA" memberEnd="_cEoSMNxaEeiuX9UeVX6obA _cEoSMdxaEeiuX9UeVX6obA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_cEnrINxaEeiuX9UeVX6obA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_cEnrIdxaEeiuX9UeVX6obA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_cEoSMNxaEeiuX9UeVX6obA" name="attaquer" type="_QP-_cNxaEeiuX9UeVX6obA" association="_cEmdANxaEeiuX9UeVX6obA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_cEoSMdxaEeiuX9UeVX6obA" name="utilisateur" type="_LNr_sNxZEeiuX9UeVX6obA" association="_cEmdANxaEeiuX9UeVX6obA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_dfmbYNxaEeiuX9UeVX6obA" memberEnd="_dfnCctxaEeiuX9UeVX6obA _dfnCc9xaEeiuX9UeVX6obA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dfnCcNxaEeiuX9UeVX6obA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dfnCcdxaEeiuX9UeVX6obA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_dfnCctxaEeiuX9UeVX6obA" name="défendre" type="_RJ_woNxaEeiuX9UeVX6obA" association="_dfmbYNxaEeiuX9UeVX6obA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_dfnCc9xaEeiuX9UeVX6obA" type="_LNr_sNxZEeiuX9UeVX6obA" association="_dfmbYNxaEeiuX9UeVX6obA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_4y830NxaEeiuX9UeVX6obA" memberEnd="_4y8309xaEeiuX9UeVX6obA _4y9e4NxaEeiuX9UeVX6obA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_4y830dxaEeiuX9UeVX6obA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_4y830txaEeiuX9UeVX6obA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_4y8309xaEeiuX9UeVX6obA" name="démarrer le donjon" type="_Iid6INxaEeiuX9UeVX6obA" association="_4y830NxaEeiuX9UeVX6obA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_4y9e4NxaEeiuX9UeVX6obA" name="utilisateur" type="_LNr_sNxZEeiuX9UeVX6obA" association="_4y830NxaEeiuX9UeVX6obA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_8yZI4NxaEeiuX9UeVX6obA" memberEnd="_8ya-ENxaEeiuX9UeVX6obA _8ya-EdxaEeiuX9UeVX6obA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_8yaXANxaEeiuX9UeVX6obA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_8yaXAdxaEeiuX9UeVX6obA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_8ya-ENxaEeiuX9UeVX6obA" name="utilisateur" type="_LNr_sNxZEeiuX9UeVX6obA" association="_8yZI4NxaEeiuX9UeVX6obA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_8ya-EdxaEeiuX9UeVX6obA" name="création équipe héro" type="_SneQsNxZEeiuX9UeVX6obA" association="_8yZI4NxaEeiuX9UeVX6obA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_9jBUkNxaEeiuX9UeVX6obA" memberEnd="_9jCisdxaEeiuX9UeVX6obA _9jCistxaEeiuX9UeVX6obA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9jB7oNxaEeiuX9UeVX6obA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_9jCisNxaEeiuX9UeVX6obA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_9jCisdxaEeiuX9UeVX6obA" name="utilisateur" type="_LNr_sNxZEeiuX9UeVX6obA" association="_9jBUkNxaEeiuX9UeVX6obA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_9jCistxaEeiuX9UeVX6obA" name="création équipe monstre" type="_Us6TMNxZEeiuX9UeVX6obA" association="_9jBUkNxaEeiuX9UeVX6obA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_I_Vm4NxbEeiuX9UeVX6obA" client="_H_dwMNxZEeiuX9UeVX6obA" supplier="_SneQsNxZEeiuX9UeVX6obA"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_J3bsgNxbEeiuX9UeVX6obA" client="_H_dwMNxZEeiuX9UeVX6obA" supplier="_Us6TMNxZEeiuX9UeVX6obA"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_h2UHgNxbEeiuX9UeVX6obA" client="_QP-_cNxaEeiuX9UeVX6obA" supplier="_Iid6INxaEeiuX9UeVX6obA"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_ibHdsNxbEeiuX9UeVX6obA" client="_RJ_woNxaEeiuX9UeVX6obA" supplier="_Iid6INxaEeiuX9UeVX6obA"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_txijYNxbEeiuX9UeVX6obA" name="BDD Arme">
+    <generalization xmi:type="uml:Generalization" xmi:id="_A0FAMNxcEeiuX9UeVX6obA" general="_SneQsNxZEeiuX9UeVX6obA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_vq8VANxbEeiuX9UeVX6obA" name="BDD Armure">
+    <generalization xmi:type="uml:Generalization" xmi:id="__YqyINxbEeiuX9UeVX6obA" general="_SneQsNxZEeiuX9UeVX6obA"/>
+  </packagedElement>
+</uml:Model>
