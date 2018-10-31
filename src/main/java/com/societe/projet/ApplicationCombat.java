@@ -40,23 +40,18 @@ public class ApplicationCombat {
 	//***********************************************//
 		
 	 
-	 
-	 
+	 testInitBdd();
 	 
 	 
 	}
 	
-	public void testInitBdd() {
+	public static void testInitBdd() {
 		//declaration une seul instance de bdd
 				DAOManager dao = new DAOManager();
 				
 				dao.dropTable();
-				dao.createUserTable(); //creation ok
+				dao.createArmeTable(); //creation ok
 	}
-	
-	
-	
-	
 	
 	public void testInit( Donjon persGeneric ) {
 		

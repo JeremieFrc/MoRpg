@@ -8,7 +8,7 @@ import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 public class DBOpenHelper {
 	
 	public static final String URL = "root@localhost";
-	public static final String DATA_BASE = "bddmorpg";
+	public static final String DATA_BASE = "myrpg";
 	public static final String ServerName = "127.0.0.1";
 	public static final String USER = "root";
 	public static final String PASS = "";

@@ -26,7 +26,7 @@ public class DAOManager {
 		connection = DBOpenHelper.getIntance().getConnection();
 	}
 	
-	public void createUserTable() {
+	public void createArmeTable() {
 		//test insert base dans 
 		String query  = ArmeContract.CREATE_TABLE;
 		
