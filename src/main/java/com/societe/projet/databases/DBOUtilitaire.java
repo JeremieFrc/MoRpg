@@ -46,6 +46,17 @@ public class DBOUtilitaire {
 			e.printStackTrace();
 		}
 	}
+	
+	public static void CloseStatement(Statement statement) {
+		try {
+			statement.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
 	public static void closePreparedStatement(PreparedStatement preparedStatement) {
 		try {
 			preparedStatement.close();

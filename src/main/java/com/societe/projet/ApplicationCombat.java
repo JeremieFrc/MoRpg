@@ -1,6 +1,7 @@
 package com.societe.projet;
 
 
+import com.societe.projet.databases.dao.DAOManager;
 import com.societe.projet.defaultfighter.DefaultBarbare;
 import com.societe.projet.defaultfighter.DefaultPaladin;
 import com.societe.projet.donjons.Donjon;
@@ -33,16 +34,30 @@ public class ApplicationCombat {
 	 
 	 persGeneric.initMenu();
 	 persGeneric.interfaceGame();
-
-	 
-	
-
 	 
 	 //************************************************//
 	//	 @insert base Data
 	//***********************************************//
 		
+	 
+	 
+	 
+	 
+	 
 	}
+	
+	public void testInitBdd() {
+		//declaration une seul instance de bdd
+				DAOManager dao = new DAOManager();
+				
+				dao.dropTable();
+				dao.createUserTable(); //creation ok
+	}
+	
+	
+	
+	
+	
 	public void testInit( Donjon persGeneric ) {
 		
 		 
