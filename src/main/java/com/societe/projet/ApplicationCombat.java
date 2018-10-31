@@ -1,6 +1,8 @@
 package com.societe.projet;
 
 
+import com.societe.projet.databases.contracts.armes.ArmeContract;
+import com.societe.projet.databases.contracts.armures.ArmureContract;
 import com.societe.projet.databases.dao.DAOManager;
 import com.societe.projet.defaultfighter.DefaultBarbare;
 import com.societe.projet.defaultfighter.DefaultPaladin;
@@ -49,8 +51,18 @@ public class ApplicationCombat {
 		//declaration une seul instance de bdd
 				DAOManager dao = new DAOManager();
 				
-				dao.dropTable();
-				dao.createArmeTable(); //creation ok
+				dao.dropTable(ArmeContract.DROP_TABLE);
+				dao.dropTable(ArmureContract.DROP_TABLE);
+				
+				dao.createTable(ArmeContract.CREATE_TABLE); //creation ok
+				dao.createTable(ArmureContract.CREATE_TABLE);
+				
+				//insert en dure
+				dao.insertBdd(ArmeContract.INSERT_TABLE);
+				dao.insertBdd(ArmureContract.INSERT_TABLE);
+				
+				dao.closeConnection();
+				
 	}
 	
 	public void testInit( Donjon persGeneric ) {

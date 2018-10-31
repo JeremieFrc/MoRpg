@@ -20,7 +20,7 @@ public class ArmeContract implements Contract {
 	public static final String CREATE_TABLE =
 			"CREATE TABLE " + TABLE + "(" +FIELDS[0] + " INT " + " NOT NULL " + " PRIMARY KEY AUTO_INCREMENT " + ","+
 					FIELDS[1] + " VARCHAR(255) " + "," +
-					FIELDS[2] + " INT  " +
+					FIELDS[2] + " INT  " + "," +
 					FIELDS[3] + " INT  " +
 			") ENGINE=InnoDB DEFAULT CHARSET=UTF8 ";
 	

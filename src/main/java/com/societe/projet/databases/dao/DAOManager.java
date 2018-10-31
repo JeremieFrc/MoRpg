@@ -15,7 +15,6 @@ public class DAOManager {
 	private Connection connection = null;
 	private Statement statement = null;
 	private ResultSet resultSet = null;
-	
 	private PreparedStatement preparedStatement = null;
 	
 	private int status;
@@ -26,9 +25,9 @@ public class DAOManager {
 		connection = DBOpenHelper.getIntance().getConnection();
 	}
 	
-	public void createArmeTable() {
+	public void createTable(String query) {
 		//test insert base dans 
-		String query  = ArmeContract.CREATE_TABLE;
+		//String query  = ArmeContract.CREATE_TABLE;
 		
 		//init
 			try {
@@ -44,13 +43,37 @@ public class DAOManager {
 				DBOUtilitaire.CloseStatement(statement);
 			}
 	}
-	public void dropTable() {
+	public void dropTable(String query) {
 		try {
 			statement = connection.createStatement();
-			statement.executeUpdate(ArmeContract.DROP_TABLE);
+			statement.executeUpdate(query);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
+
+	public void insertBdd(String query) {
+		try {
+			statement = connection.createStatement();
+			statement.executeUpdate(query);
+			System.out.println("insert ok");
+		} catch (SQLException e) {
+			System.out.println("error insert");
+			e.printStackTrace();
+		}
+		
+	}
+
+	public void closeConnection() {
+		if(connection != null ) {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
 }

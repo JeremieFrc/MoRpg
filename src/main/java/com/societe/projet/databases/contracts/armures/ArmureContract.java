@@ -5,7 +5,7 @@ import com.societe.projet.databases.contracts.Contract;
 public class ArmureContract implements Contract {
 	/********* DESCRIPTION ELEMENT TABLE **************/
 
-	public static final String TABLE = "user";
+	public static final String TABLE = "Armure";
 	public static final String[] FIELDS = {"id","nom","defence"};
 	
 	public static final String SELECT_FIELDS = FIELDS[0] 
