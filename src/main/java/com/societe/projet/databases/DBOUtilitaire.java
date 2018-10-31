@@ -46,7 +46,6 @@ public class DBOUtilitaire {
 			e.printStackTrace();
 		}
 	}
-	
 	public static void CloseStatement(Statement statement) {
 		try {
 			statement.close();
@@ -55,7 +54,6 @@ public class DBOUtilitaire {
 			e.printStackTrace();
 		}
 	}
-	
 	
 	public static void closePreparedStatement(PreparedStatement preparedStatement) {
 		try {

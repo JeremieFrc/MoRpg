@@ -9,6 +9,7 @@ public interface Contract {
 	 * method de creation et select pour la table en question
 	 */
 	public String getTable();
+	public String getContForeign();
 	public String[] getFields(); //nous allons stocker nos champs
 	
 	public String getSelectTable();

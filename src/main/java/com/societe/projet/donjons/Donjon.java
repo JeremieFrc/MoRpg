@@ -133,12 +133,10 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 				break;
 			}
 		}
-	}
-	
+	}	
 	public <T> void initPersoArme(T person) {
 		///init les element
-	}
-	
+	}	
  	public void createElementPersonnage(int equipe,int nbJoueurGame) {
 		//int response = 0;
 		int compteur = 0;

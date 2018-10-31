@@ -1,16 +1,21 @@
 package com.societe.projet.databases.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.mysql.jdbc.PreparedStatement;
+
 import com.societe.projet.databases.DBOUtilitaire;
 import com.societe.projet.databases.DBOpenHelper;
 import com.societe.projet.databases.contracts.armes.ArmeContract;
 
 public class DAOManager {
+	
+	/**************************************\
+    	@private
+	\**************************************/
 	
 	private Connection connection = null;
 	private Statement statement = null;
@@ -19,12 +24,54 @@ public class DAOManager {
 	
 	private int status;
 	
+	/**************************************\
+	     @Constructor
+    \**************************************/
+	
 	public DAOManager () {
 		System.out.println("connection at bdd");
 		//recuperation de la connection fior utilisation
 		connection = DBOpenHelper.getIntance().getConnection();
-	}
+	}	
 	
+	/**************************************\
+		@getter and Setter
+	\**************************************/
+
+	public Connection getConnection() {
+		return connection;
+	}
+	public void setConnection(Connection connection) {
+		this.connection = connection;
+	}
+	public Statement getStatement() {
+		return statement;
+	}
+	public void setStatement(Statement statement) {
+		this.statement = statement;
+	}
+	public ResultSet getResultSet() {
+		return resultSet;
+	}
+	public void setResultSet(ResultSet resultSet) {
+		this.resultSet = resultSet;
+	}
+	public PreparedStatement getPreparedStatement() {
+		return preparedStatement;
+	}
+	public void setPreparedStatement(PreparedStatement preparedStatement) {
+		this.preparedStatement = preparedStatement;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}	
+	/**************************************\
+		@Methods
+	\**************************************/
+
 	public void createTable(String query) {
 		//test insert base dans 
 		//String query  = ArmeContract.CREATE_TABLE;
@@ -33,7 +80,6 @@ public class DAOManager {
 			try {
 				statement = connection.createStatement();
 				statement.executeUpdate(query);
-				
 				System.out.println("create ok");
 				
 			} catch (SQLException e) {
@@ -52,7 +98,8 @@ public class DAOManager {
 			e.printStackTrace();
 		}
 	}
-
+	
+	
 	public void insertBdd(String query) {
 		try {
 			statement = connection.createStatement();
@@ -62,18 +109,9 @@ public class DAOManager {
 			System.out.println("error insert");
 			e.printStackTrace();
 		}
+	}
+	public void initConstraintPrepaStat() {
 		
 	}
-
-	public void closeConnection() {
-		if(connection != null ) {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-	}
-
+	
 }

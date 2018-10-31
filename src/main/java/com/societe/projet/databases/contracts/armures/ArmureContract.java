@@ -3,15 +3,14 @@ package com.societe.projet.databases.contracts.armures;
 import com.societe.projet.databases.contracts.Contract;
 
 public class ArmureContract implements Contract {
+	
 	/********* DESCRIPTION ELEMENT TABLE **************/
 
 	public static final String TABLE = "Armure";
-	public static final String[] FIELDS = {"id","nom","defence"};
-	
+	public static final String[] FIELDS = {"id","nom","defence"};	
 	public static final String SELECT_FIELDS = FIELDS[0] 
 			+ "," + FIELDS[1] 
 			+ "," + FIELDS[2];
-
 	
 	/********* Creation and Drop **************/
 	
@@ -25,26 +24,27 @@ public class ArmureContract implements Contract {
 	
 	/************* INSERT *************/
 	
-	
 	public static final String INSERT_TABLE = "INSERT INTO "
 	+TABLE+" ("+FIELDS[1]+","+FIELDS[2]+")"
-			+ " VALUES "+ " ('bouclier',15),"
-						+ "('fronte',200),"
-						+ "('colier',222)";
+			+ " VALUES "+"('bouclier',15),"
+						+"('fronte',200),"
+						+"('cape',15),"
+						+"('animal',12),"
+						+"('voiture',20),"
+						+"('souffle',2),"
+						+"('sable',2)";
 	
 	public static final String INSERT_TABLE_V2  = "INSERT INTO "
 	+TABLE+" ("+FIELDS[1]+","+FIELDS[2]+")"
 			+ " VALUES "+" (?,?)";
-	
-	
+		
 	/************* SELECT *************/
 	
 	public static final String SELECT = "SELECT ";
 	public static final String FROM = " FROM ";
 	public static final String WHERE = " WHERE ";
 	public static final String PARAM = "=?";
-	
-	
+		
 	public static final String SELECT_ALL = SELECT + SELECT_FIELDS 
 											+ FROM + TABLE;
 	
@@ -67,7 +67,8 @@ public class ArmureContract implements Contract {
 		// TODO Auto-generated method stub
 		return SELECT_FIELDS ;
 	}
-   /*********************************************/
+   
+	/************** requete bdd ********************/
 	@Override
 	public String getCreateTable() {
 		// TODO Auto-generated method stub
@@ -77,6 +78,11 @@ public class ArmureContract implements Contract {
 	public String getDropTable() {
 		// TODO Auto-generated method stub
 		return DROP_TABLE;
+	}
+	@Override
+	public String getContForeign() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

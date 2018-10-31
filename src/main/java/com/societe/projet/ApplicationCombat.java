@@ -1,8 +1,13 @@
 package com.societe.projet;
 
 
+import com.societe.projet.databases.DBOUtilitaire;
 import com.societe.projet.databases.contracts.armes.ArmeContract;
+import com.societe.projet.databases.contracts.armes.ArmeMagiqueContract;
+import com.societe.projet.databases.contracts.armes.ArmePhysiqueContract;
 import com.societe.projet.databases.contracts.armures.ArmureContract;
+import com.societe.projet.databases.contracts.armures.ArmureMagiqueContract;
+import com.societe.projet.databases.contracts.armures.ArmurePhysicContract;
 import com.societe.projet.databases.dao.DAOManager;
 import com.societe.projet.defaultfighter.DefaultBarbare;
 import com.societe.projet.defaultfighter.DefaultPaladin;
@@ -40,34 +45,50 @@ public class ApplicationCombat {
 	 //************************************************//
 	//	 @insert base Data
 	//***********************************************//
-		
 	 
-	 testInitBdd();
-	 
-	 
+	 testInitBdd();	 
 	}
 	
 	public static void testInitBdd() {
 		//declaration une seul instance de bdd
 				DAOManager dao = new DAOManager();
 				
-				dao.dropTable(ArmeContract.DROP_TABLE);
-				dao.dropTable(ArmureContract.DROP_TABLE);
+				dao.dropTable(ArmurePhysicContract.DROP_TABLE);
+				dao.dropTable(ArmureMagiqueContract.DROP_TABLE);
 				
+				dao.dropTable(ArmureContract.DROP_TABLE);
+			
+				dao.dropTable(ArmeMagiqueContract.DROP_TABLE);
+				dao.dropTable(ArmePhysiqueContract.DROP_TABLE);
+				
+				dao.dropTable(ArmeContract.DROP_TABLE);
+				
+				
+				System.out.println(ArmeContract.CREATE_TABLE);
+				System.out.println(ArmeMagiqueContract.CREATE_TABLE_V2);
+	
+				dao.createTable(ArmureContract.CREATE_TABLE); //creation ok
 				dao.createTable(ArmeContract.CREATE_TABLE); //creation ok
-				dao.createTable(ArmureContract.CREATE_TABLE);
+				
+				dao.createTable(ArmePhysiqueContract.CREATE_TABLE_V2);
+				dao.createTable(ArmeMagiqueContract.CREATE_TABLE_V2);
+				
+				
+				dao.createTable(ArmurePhysicContract.CREATE_TABLE_V2);
+				dao.createTable(ArmureMagiqueContract.CREATE_TABLE_V2);
+				
 				
 				//insert en dure
+				
 				dao.insertBdd(ArmeContract.INSERT_TABLE);
 				dao.insertBdd(ArmureContract.INSERT_TABLE);
 				
-				dao.closeConnection();
+				//liaison contrainte
 				
+				DBOUtilitaire.closeConnection(dao.getConnection());		
 	}
-	
 	public void testInit( Donjon persGeneric ) {
 		
-		 
 		 Personnage p = new Hero();
 		 p.setRpg(new DefaultPaladin());
 		 

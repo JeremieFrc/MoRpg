@@ -8,7 +8,6 @@ public class ArmeContract implements Contract {
 
 	public static final String TABLE = "arme";
 	public static final String[] FIELDS = {"id","nom","degat","cpa"};
-	
 	public static final String SELECT_FIELDS = FIELDS[0] 
 			+ "," + FIELDS[1] 
 			+ "," + FIELDS[2]
@@ -30,9 +29,15 @@ public class ArmeContract implements Contract {
 	
 	public static final String INSERT_TABLE = "INSERT INTO "
 			+TABLE+" ("+FIELDS[1]+","+FIELDS[2]+","+FIELDS[3]+")"
-			+ " VALUES "+ "('epee',12,200),"
-						+ "('bagette',12,200),"
-						+ "('hache',12,200)";
+			+ " VALUES "+"('epee',12,200),"
+						+"('bagette',12,200),"
+						+"('hache',12,200),"
+						+"('potion',12,2),"
+						+"('sortillege',12,2),"
+						+"('epee',12,2),"
+						+"('fusil',20,20),"
+						+"('pelle',8,2),"
+						+"('gatlin',15,2)";
 	
 	public static final String INSERT_TABLE_V2  = "INSERT INTO "
 			+TABLE+" ("+FIELDS[1]+","+FIELDS[2]+","+FIELDS[3]+")"
@@ -63,25 +68,28 @@ public class ArmeContract implements Contract {
 
 	@Override
 	public String[] getFields() {
-		
 		return FIELDS;
 	}
 
 	@Override
 	public String getSelectTable() {
-		// TODO Auto-generated method stub
 		return SELECT_FIELDS ;
 	}
-   /*********************************************/
+  
+	/************* requete bdd **********************/
 	@Override
 	public String getCreateTable() {
-		// TODO Auto-generated method stub
 		return CREATE_TABLE;
 	}
 
 	@Override
 	public String getDropTable() {
-		// TODO Auto-generated method stub
 		return DROP_TABLE;
+	}
+
+	@Override
+	public String getContForeign() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
