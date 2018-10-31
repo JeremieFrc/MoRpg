@@ -132,7 +132,6 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 				System.out.println("Perso est Magiciens");
 				break;
 			}
-			
 		}
 	}
 	
