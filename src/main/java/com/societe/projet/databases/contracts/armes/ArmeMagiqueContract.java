@@ -20,9 +20,7 @@ public class ArmeMagiqueContract implements Contract {
 			"CREATE TABLE " + TABLE + "(" +FIELDS[0] + " INT " + " NOT NULL " + " AUTO_INCREMENT " + ","+
 					" PRIMARY KEY ("+FIELDS[0]+") , CONSTRAINT "
 					+FOREIGN+" FOREIGN KEY ("+FIELDS[0]+") "+
-					"  REFERENCES arme ("+FIELDS[0]+")) ENGINE=InnoDB DEFAULT CHARSET=UTF8";
-					
-	
+					"  REFERENCES arme ("+FIELDS[0]+")) ENGINE=InnoDB DEFAULT CHARSET=UTF8";		
 	
 	public static final String ALTER_TABLE_FK = "ALTER TABLE "+TABLE+ 
 			" ADD CONSTRAINT "+FOREIGN+ 
@@ -30,6 +28,10 @@ public class ArmeMagiqueContract implements Contract {
 			"    REFERENCES arme "+FIELDS[0];
 	
 	public static final String DROP_TABLE = "DROP TABLE IF EXISTS "+TABLE+";";
+	
+	public static final String INSERT_CONST = "INSERT INTO "
+					+TABLE+" ("+FIELDS[0]+")"
+					+ " VALUES "+" (?)";
 
 	@Override
 	public String getTable() {

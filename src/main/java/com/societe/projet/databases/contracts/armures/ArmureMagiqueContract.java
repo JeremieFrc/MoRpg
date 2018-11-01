@@ -28,6 +28,10 @@ public class ArmureMagiqueContract implements Contract {
 			"    FOREIGN KEY "+FIELDS[0]+ 
 			"    REFERENCES armure "+FIELDS[0];
 	
+	public static final String INSERT_CONST = "INSERT INTO "
+			+TABLE+" ("+FIELDS[0]+")"
+			+ " VALUES "+" (?)";
+	
 	public static final String DROP_TABLE = "DROP TABLE IF EXISTS "+TABLE+";";
 
 	@Override

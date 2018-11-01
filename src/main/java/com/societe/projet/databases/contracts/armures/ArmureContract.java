@@ -31,12 +31,13 @@ public class ArmureContract implements Contract {
 						+"('cape',15),"
 						+"('animal',12),"
 						+"('voiture',20),"
-						+"('souffle',2),"
 						+"('sable',2)";
 	
 	public static final String INSERT_TABLE_V2  = "INSERT INTO "
 	+TABLE+" ("+FIELDS[1]+","+FIELDS[2]+")"
 			+ " VALUES "+" (?,?)";
+	
+	
 		
 	/************* SELECT *************/
 	

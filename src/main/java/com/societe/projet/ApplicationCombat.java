@@ -31,22 +31,27 @@ public class ApplicationCombat {
 	//	 @definition Scanner
 	//***********************************************//							
 	 ScannerProvider scanners = ScannerProvider.getInstance();
-	 //Board menu = new Board(scanners);
+
 		
 	 //************************************************//
 	//	 @insert menu
 	//***********************************************//
 	 Donjon persGeneric = new Donjon(scanners);
-	 //persGeneric.
 	 
 	 persGeneric.initMenu();
 	 persGeneric.interfaceGame();
 	 
 	 //************************************************//
+	//	 @init Object
+	//***********************************************//
+	 
+	 //testInitObject(persGeneric); ok
+	 
+	 //************************************************//
 	//	 @insert base Data
 	//***********************************************//
 	 
-	 testInitBdd();	 
+	 testInitBdd(); //ok	 
 	}
 	
 	public static void testInitBdd() {
@@ -82,12 +87,16 @@ public class ApplicationCombat {
 				
 				dao.insertBdd(ArmeContract.INSERT_TABLE);
 				dao.insertBdd(ArmureContract.INSERT_TABLE);
-				
+				System.out.println(ArmeMagiqueContract.INSERT_CONST);
 				//liaison contrainte
+				
+				dao.initConstraintPrepaStat(ArmeMagiqueContract.INSERT_CONST,ArmePhysiqueContract.INSERT_CONST);
+				dao.initConstraintPrepaStat(ArmureMagiqueContract.INSERT_CONST,ArmurePhysicContract.INSERT_CONST);
+				
 				
 				DBOUtilitaire.closeConnection(dao.getConnection());		
 	}
-	public void testInit( Donjon persGeneric ) {
+	public static void testInitObject( Donjon persGeneric ) {
 		
 		 Personnage p = new Hero();
 		 p.setRpg(new DefaultPaladin());
