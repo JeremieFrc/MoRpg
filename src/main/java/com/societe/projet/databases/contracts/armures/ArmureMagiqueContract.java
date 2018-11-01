@@ -8,6 +8,10 @@ public class ArmureMagiqueContract implements Contract {
 	public static final String   TABLE    = "armuremagique";
 	public static final String[] FIELDS = {"id","nom","defence"};	
 	public static final String   FOREIGN  = "fk_armuremagique_armure";
+	public static final String SELECT_FIELDS = TABLE+"."+FIELDS[0] 
+			+ "," + FIELDS[1] 
+			+ "," + FIELDS[2];
+	
 	
 	/********* Creation constraint and Drop **************/
 	
@@ -33,6 +37,9 @@ public class ArmureMagiqueContract implements Contract {
 			+ " VALUES "+" (?)";
 	
 	public static final String DROP_TABLE = "DROP TABLE IF EXISTS "+TABLE+";";
+	
+	
+	public static final String INNER_JOIN_ARMURE = " INNER JOIN armure ON armure."+FIELDS[0]+" = "+TABLE+"."+FIELDS[0]+"";
 
 	@Override
 	public String getTable() {
@@ -46,7 +53,7 @@ public class ArmureMagiqueContract implements Contract {
 	@Override
 	public String getSelectTable() {
 		// TODO Auto-generated method stub
-		return null;
+		return SELECT_FIELDS;
 	}
 	@Override
 	public String getCreateTable() {
@@ -66,6 +73,6 @@ public class ArmureMagiqueContract implements Contract {
 	@Override
 	public String getInnerJoin() {
 		// TODO Auto-generated method stub
-		return null;
+		return INNER_JOIN_ARMURE;
 	}
 }

@@ -8,6 +8,9 @@ public class ArmurePhysicContract implements Contract {
 	public static final String   TABLE    = "armurephysique";
 	public static final String[] FIELDS = {"id","nom","defence"};	
 	public static final String   FOREIGN  = "fk_armurephysique_armure";
+	public static final String SELECT_FIELDS = TABLE+"."+FIELDS[0] 
+			+ "," + FIELDS[1] 
+			+ "," + FIELDS[2];
 	
 	
 	/********* Creation constraint and Drop **************/
@@ -21,9 +24,7 @@ public class ArmurePhysicContract implements Contract {
 					" PRIMARY KEY ("+FIELDS[0]+") , CONSTRAINT "
 					+FOREIGN+" FOREIGN KEY ("+FIELDS[0]+") "+
 					"  REFERENCES armure ("+FIELDS[0]+")) ENGINE=InnoDB DEFAULT CHARSET=UTF8";
-					
-	
-	
+				
 	public static final String ALTER_TABLE_FK = "ALTER TABLE "+TABLE+ 
 			" ADD CONSTRAINT "+FOREIGN+ 
 			"    FOREIGN KEY "+FIELDS[0]+ 
@@ -32,6 +33,8 @@ public class ArmurePhysicContract implements Contract {
 	public static final String INSERT_CONST = "INSERT INTO "
 			+TABLE+" ("+FIELDS[0]+")"
 			+ " VALUES "+" (?)";
+	
+	public static final String INNER_JOIN_ARMURE = " INNER JOIN armure ON armure."+FIELDS[0]+" = "+TABLE+"."+FIELDS[0]+"";
 	
 	public static final String DROP_TABLE = "DROP TABLE IF EXISTS "+TABLE+";";
 
@@ -47,7 +50,7 @@ public class ArmurePhysicContract implements Contract {
 	@Override
 	public String getSelectTable() {
 		// TODO Auto-generated method stub
-		return null;
+		return SELECT_FIELDS;
 	}
 	@Override
 	public String getCreateTable() {
@@ -67,6 +70,6 @@ public class ArmurePhysicContract implements Contract {
 	@Override
 	public String getInnerJoin() {
 		// TODO Auto-generated method stub
-		return null;
+		return INNER_JOIN_ARMURE;
 	}
 }

@@ -59,10 +59,10 @@ public class ApplicationCombat {
 	//	 @insert base Data
 	//***********************************************//
 	
-	 //testInitBddV1(); //ok	
-	 testInitV2() ;
+	 //testInitBddV1(); //ok	supp after utilisation 
 	 
-	 
+	 testInitV2(); //ok
+
 	}
 	
 	

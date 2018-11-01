@@ -66,7 +66,7 @@ public abstract class Arme extends DBItem {
 		return result > 0 ? result : 0; //application ternaire
 	}
 	public void affiArme() {
-		System.out.println("\n----- Arme : ----------\n");
+		System.out.println("\n----- Arme : ----------");
 		System.out.println("nom : "+nom);
 		System.out.println("degat : "+degat);
 		System.out.println("cpa : "+cpa);

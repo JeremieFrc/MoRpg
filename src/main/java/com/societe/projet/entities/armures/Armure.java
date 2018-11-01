@@ -49,7 +49,8 @@ public abstract class Armure extends DBItem {
 	}
 
 	public void affiArmure() {
-		System.out.println("-----Armure -----------");
+		System.out.println("\n-----Armure -----------");
+		System.out.println("nom : "+nom);
 		System.out.println("defence : "+defence);
 	}
 	
