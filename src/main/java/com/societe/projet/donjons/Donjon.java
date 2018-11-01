@@ -154,7 +154,7 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 		//listMonstre.get(0).getArme().affiArme();
 		listMonstre.get(0).getArmure().affiArmure();
 		listMonstre.get(0).affichePersonnage();
-		
+		nbMonstreEtage(menu.nbMonstreEtage());
 		
 		
 		
@@ -171,10 +171,23 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 	 * 
 	 */
 	
-	
-	
-	
-	
+	public void nbMonstreEtage(int nbFetag) {
+		if(nbFetag > 0 /*monstre/ etage mod !=0 */) {
+			
+			//calcul nb montre / eta = mod = 0
+			//if non alors add montre in this list and 
+			//default
+			//create monstre 
+			//init default
+			//inset list mostre
+			//this.nbMonstreEtage(new nbFetag++)	
+		}else if(nbFetag > 0 /*monstre/ etage mod ==0*/) {
+			//insert dans liste etage fonction nbmontre /etage
+		}else {
+			System.out.println("error de saisie");
+			menu.nbMonstreEtage();
+		}
+	}
 	
 	public <T> void initArmureEquipe(List<T> liste) {     							//def : ok				
 		System.out.println("\nSelect armuree : \n\n");
@@ -339,7 +352,7 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 	}
 	
 	
- 	public void createElementPersonnage(int equipe,int nbJoueurGame) {
+ 	public void createElementPersonnage(int equipe,int nbJoueurGame) {				
 		//int response = 0;
 		int compteur = 0;
 		
@@ -460,8 +473,6 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 		}
 	}
 
-	
-	
 	
 	
 	//************************************************//

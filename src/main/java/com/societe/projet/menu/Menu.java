@@ -92,8 +92,11 @@ public class Menu {
 	public void menuArme() {
 		System.out.println("\nPersonnage Paladin [1]");
 		System.out.println("Personnage Magicien  [2]");
-		System.out.println("Personnage Barbare   [3]");
-		
+		System.out.println("Personnage Barbare   [3]");	
+	}
+	public int nbMonstreEtage() {
+		System.out.println("Combien Monstre par etage");
+		return scanner.getScanner().nextInt();
 	}
 
 }
