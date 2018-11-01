@@ -5,17 +5,20 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
-
+import com.societe.projet.databases.DBItem;
 import com.societe.projet.databases.DBOUtilitaire;
 import com.societe.projet.databases.DBOpenHelper;
+import com.societe.projet.databases.contracts.Contract;
+import com.societe.projet.databases.dto.DTO;
 
 
-public class DAOManager {
+public class DAOManager <T extends DBItem >{
 	
-	/**************************************\
-    	@private
-	\**************************************/
+	/***************************************
+	*  @private
+	* ***************************************/	
 	
 	private Connection connection = null;
 	private Statement statement = null;
@@ -24,19 +27,18 @@ public class DAOManager {
 	
 	private int status;
 	
-	/**************************************\
-	     @Constructor
-    \**************************************/
-	
+   /***************************************
+	*  @Constructor
+	* ***************************************/
 	public DAOManager () {
 		System.out.println("connection at bdd");
 		//recuperation de la connection fior utilisation
 		connection = DBOpenHelper.getIntance().getConnection();
 	}	
-	
-	/**************************************\
-		@getter and Setter
-	\**************************************/
+
+	/* **************************************
+	 *  @getter and Setter
+	 * ***************************************/
 
 	public Connection getConnection() {
 		return connection;
@@ -68,14 +70,13 @@ public class DAOManager {
 	public void setStatus(int status) {
 		this.status = status;
 	}	
-	/**************************************\
-		@Methods
-	\**************************************/
+	
+	/*
+	 * **************************************
+	 *  @Methods
+	 * ***************************************/
 
-	public void createTable(String query) {
-		//test insert base dans 
-		//String query  = ArmeContract.CREATE_TABLE;
-		
+	public void createTable(String query) {	
 		//init
 			try {
 				statement = connection.createStatement();
@@ -83,7 +84,6 @@ public class DAOManager {
 				System.out.println("create ok");
 				
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}finally {
 				DBOUtilitaire.CloseStatement(statement);
@@ -113,7 +113,7 @@ public class DAOManager {
 			DBOUtilitaire.CloseStatement(statement);
 		}
 	}
-	//temporaire
+
 	public void initConstraintPrepaStat(String query1, String query2) {
 		boolean returnKey = false;
 		//String query = "INSERT INTO"
@@ -147,4 +147,48 @@ public class DAOManager {
 		}
 	}
 	
+	/*
+	 * **************************************
+	 *  @Methods
+	 * ***************************************/
+	
+	
+	
+	public ArrayList<T> selectAllJoin(Contract contract, DTO<T> dto) {
+		
+		ArrayList<T> result = new ArrayList<T>();
+		
+		StringBuilder request = new StringBuilder();
+		request.append("SELECT ");
+		request.append(contract.getSelectTable());
+		request.append(" FROM ");
+		request.append(contract.getTable());
+		request.append(contract.getInnerJoin());
+		
+		System.out.println(request.toString());
+		
+		parser(dto, result, request);
+		return result;
+	}
+	
+	private void parser(DTO<T> dto, ArrayList<T> result, StringBuilder request) {
+	
+		try {
+			//stmt = DBOpenHelper.getInstance().getConn().createStatement();
+			preparedStatement = DBOUtilitaire.initPreparedStatement(connection, request.toString());
+			resultSet = preparedStatement.executeQuery();
+			
+			while (resultSet.next()) {
+				result.add(dto.mySQLToJava(resultSet));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				preparedStatement.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 }

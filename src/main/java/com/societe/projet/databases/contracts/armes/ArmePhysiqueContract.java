@@ -6,9 +6,12 @@ public class ArmePhysiqueContract implements Contract {
 	/********* DESCRIPTION ELEMENT TABLE **************/
 
 	public static final String   TABLE    = "armephysique";
-	public static final String[] FIELDS   = {"id"};
+	public static final String[] FIELDS = {"id","nom","degat","cpa"};
 	public static final String   FOREIGN  = "fk_armephysique_arme";
-	
+	public static final String SELECT_FIELDS = TABLE+"."+FIELDS[0] 
+			+ "," + FIELDS[1] 
+			+ "," + FIELDS[2]
+			+ "," + FIELDS[3];
 	/********* Creation constraint and Drop **************/
 	
 	public static final String CREATE_TABLE =
@@ -34,6 +37,9 @@ public class ArmePhysiqueContract implements Contract {
 			+TABLE+" ("+FIELDS[0]+")"
 			+ " VALUES "+" (?)";
 
+	public static final String INNER_JOIN_ARME = " INNER JOIN arme ON arme."+FIELDS[0]+" = "+TABLE+"."+FIELDS[0]+"";
+	
+	
 	@Override
 	public String getTable() {
 		return TABLE;
@@ -46,7 +52,7 @@ public class ArmePhysiqueContract implements Contract {
 	@Override
 	public String getSelectTable() {
 		// TODO Auto-generated method stub
-		return null;
+		return SELECT_FIELDS;
 	}
 	@Override
 	public String getCreateTable() {
@@ -62,5 +68,10 @@ public class ArmePhysiqueContract implements Contract {
 	public String getContForeign() {
 		// TODO Auto-generated method stub
 		return ALTER_TABLE_FK;
+	}
+	@Override
+	public String getInnerJoin() {
+		// TODO Auto-generated method stub
+		return INNER_JOIN_ARME;
 	}
 }

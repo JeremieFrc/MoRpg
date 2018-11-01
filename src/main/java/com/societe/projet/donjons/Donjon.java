@@ -114,10 +114,7 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 		//this.createElementPersonnage(1,nbJoueurGame[1]);
 		
 		this.methodTest();
-		this.initArmeEquipe(listHeros);
-			
-		
-		
+		this.initArmeEquipe(listHeros);	
 	}
 	public <T> void initArmeEquipe(List<T> liste) {
 		for(T valeur : liste) {

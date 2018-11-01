@@ -85,5 +85,10 @@ public class ArmureContract implements Contract {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public String getInnerJoin() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

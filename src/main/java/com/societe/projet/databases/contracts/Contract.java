@@ -11,6 +11,7 @@ public interface Contract {
 	public String getTable();
 	public String getContForeign();
 	public String[] getFields(); //nous allons stocker nos champs
+	public String getInnerJoin();
 	
 	public String getSelectTable();
 	

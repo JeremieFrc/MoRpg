@@ -1,6 +1,8 @@
 package com.societe.projet.entities.armures;
 
-public abstract class Armure {
+import com.societe.projet.databases.DBItem;
+
+public abstract class Armure extends DBItem {
 
 	
 	//************************************************//

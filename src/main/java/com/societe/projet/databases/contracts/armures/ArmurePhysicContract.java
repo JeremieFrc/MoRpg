@@ -6,7 +6,7 @@ public class ArmurePhysicContract implements Contract {
 	/********* DESCRIPTION ELEMENT TABLE **************/
 
 	public static final String   TABLE    = "armurephysique";
-	public static final String[] FIELDS   = {"id"};
+	public static final String[] FIELDS = {"id","nom","defence"};	
 	public static final String   FOREIGN  = "fk_armurephysique_armure";
 	
 	
@@ -63,5 +63,10 @@ public class ArmurePhysicContract implements Contract {
 	public String getContForeign() {
 		// TODO Auto-generated method stub
 		return ALTER_TABLE_FK;
+	}
+	@Override
+	public String getInnerJoin() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

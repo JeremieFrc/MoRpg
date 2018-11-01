@@ -46,6 +46,7 @@ public class DBOUtilitaire {
 			e.printStackTrace();
 		}
 	}
+	
 	public static void CloseStatement(Statement statement) {
 		try {
 			statement.close();
@@ -54,7 +55,6 @@ public class DBOUtilitaire {
 			e.printStackTrace();
 		}
 	}
-	
 	public static void closePreparedStatement(PreparedStatement preparedStatement) {
 		try {
 			preparedStatement.close();
@@ -62,6 +62,8 @@ public class DBOUtilitaire {
 			e.printStackTrace();
 		}
 	}
+	
+	
 	public static void closeConnection(Connection connect) {
 		try {
 			connect.close();
@@ -74,7 +76,6 @@ public class DBOUtilitaire {
 		closePreparedStatement(preparedStatement);
 		closeConnection(connect);
 	}
-	
 	public static void matchClose(ResultSet resultSet, PreparedStatement preparedStatement, Connection connect) {
 		
 		closeResultSet(resultSet);

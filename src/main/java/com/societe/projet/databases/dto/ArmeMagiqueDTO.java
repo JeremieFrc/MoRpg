@@ -9,9 +9,11 @@ import com.societe.projet.entities.armes.ArmeMagique;
 public class ArmeMagiqueDTO implements DTO<ArmeMagique> {
 
 	
-	@Override
+	
+	
+	@Override 
 	public String javaToMySQL(ArmeMagique item) {
-		// TODO Auto-generated method stub
+		//Potentiel insert Data bdd
 		return null;
 	}
 

@@ -1,8 +1,9 @@
 package com.societe.projet.entities.armes;
 
+import com.societe.projet.databases.DBItem;
 import com.societe.projet.entities.armures.Armure;
 
-public abstract class Arme  {
+public abstract class Arme extends DBItem {
 	//************************************************//
 	//	 @private
 	//***********************************************//
@@ -65,7 +66,8 @@ public abstract class Arme  {
 		return result > 0 ? result : 0; //application ternaire
 	}
 	public void affiArme() {
-		System.out.println("-----Arme : -----------");
+		System.out.println("\n----- Arme : ----------\n");
+		System.out.println("nom : "+nom);
 		System.out.println("degat : "+degat);
 		System.out.println("cpa : "+cpa);
 	}

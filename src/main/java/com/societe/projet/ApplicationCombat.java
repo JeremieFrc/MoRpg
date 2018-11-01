@@ -1,7 +1,11 @@
 package com.societe.projet;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.societe.projet.databases.DBOUtilitaire;
+import com.societe.projet.databases.contracts.Contract;
 import com.societe.projet.databases.contracts.armes.ArmeContract;
 import com.societe.projet.databases.contracts.armes.ArmeMagiqueContract;
 import com.societe.projet.databases.contracts.armes.ArmePhysiqueContract;
@@ -9,6 +13,10 @@ import com.societe.projet.databases.contracts.armures.ArmureContract;
 import com.societe.projet.databases.contracts.armures.ArmureMagiqueContract;
 import com.societe.projet.databases.contracts.armures.ArmurePhysicContract;
 import com.societe.projet.databases.dao.DAOManager;
+import com.societe.projet.databases.dto.ArmeMagiqueDTO;
+import com.societe.projet.databases.dto.ArmePhysiqueDTO;
+import com.societe.projet.databases.dto.ArmureMagiqueDTO;
+import com.societe.projet.databases.dto.ArmurePhysiqueDTO;
 import com.societe.projet.defaultfighter.DefaultBarbare;
 import com.societe.projet.defaultfighter.DefaultPaladin;
 import com.societe.projet.donjons.Donjon;
@@ -51,10 +59,50 @@ public class ApplicationCombat {
 	//	 @insert base Data
 	//***********************************************//
 	
-	 testInitBdd(); //ok	 
+	 //testInitBddV1(); //ok	
+	 testInitV2() ;
+	 
+	 
 	}
 	
-	public static void testInitBdd() {
+	
+	public static void testInitV2() {
+		
+		//dao genenerique
+		DAOManager<ArmeMagique> armeDAOManager = new DAOManager<>();
+		DAOManager<ArmePhysique> armepDAOManager = new DAOManager<>();
+		
+		DAOManager<ArmureMagique> armuDAOManager = new DAOManager<>();
+		DAOManager<ArmurePhysique> armupDAOManager = new DAOManager<>();
+		
+		ArrayList<ArmeMagique> armic = armeDAOManager.selectAllJoin(new ArmeMagiqueContract(), new ArmeMagiqueDTO());
+		ArrayList<ArmePhysique> armp = armepDAOManager.selectAllJoin(new ArmePhysiqueContract(), new ArmePhysiqueDTO());
+		
+		ArrayList<ArmureMagique> armuc = armuDAOManager.selectAllJoin(new ArmureMagiqueContract(), new ArmureMagiqueDTO());
+		ArrayList<ArmurePhysique> armup = armupDAOManager.selectAllJoin(new ArmurePhysicContract(), new ArmurePhysiqueDTO());
+	
+		affArm(armic);
+		affArm(armp);
+		
+		affArmu(armuc);
+		affArmu(armup);
+		
+	}
+	
+	
+	public static <T> void affArm(List <T> item) {
+		for (T a : item) {
+			((Arme) a).affiArme();
+		}
+	}
+	public static <T> void affArmu(List <T> item) {
+		for (T a : item) {
+			((Armure) a).affiArmure();
+		}
+	}
+	
+	
+	public static void testInitBddV1() {
 		//declaration une seul instance de bdd
 				DAOManager dao = new DAOManager();
 				
