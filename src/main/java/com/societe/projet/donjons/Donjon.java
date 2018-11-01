@@ -3,14 +3,19 @@ package com.societe.projet.donjons;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.societe.projet.databases.contracts.Contract;
 import com.societe.projet.databases.contracts.armes.ArmeMagiqueContract;
+import com.societe.projet.databases.contracts.armes.ArmePhysiqueContract;
 import com.societe.projet.databases.dao.DAOManager;
 import com.societe.projet.databases.dto.ArmeMagiqueDTO;
+import com.societe.projet.databases.dto.ArmePhysiqueDTO;
+import com.societe.projet.databases.dto.DTO;
 import com.societe.projet.defaultfighter.DefaultBarbare;
 import com.societe.projet.defaultfighter.DefaultMagicien;
 import com.societe.projet.defaultfighter.DefaultPaladin;
 import com.societe.projet.entities.armes.Arme;
 import com.societe.projet.entities.armes.ArmeMagique;
+import com.societe.projet.entities.armes.ArmePhysique;
 import com.societe.projet.entities.armures.Armure;
 import com.societe.projet.entities.personnages.Hero;
 import com.societe.projet.entities.personnages.Monstre;
@@ -114,136 +119,132 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 	}
 	public void interfaceGame() {	
 		
-		//menu.screenGame();
-		//nbJoueurGame = menu.initNbJoueurs();
-		//nbEtages = menu.nbEtage();
+		//menu.screenGame();     									//def : ok
+		//nbJoueurGame = menu.initNbJoueurs();						//def : ok
+		//nbEtages = menu.nbEtage();								//def : ok
 		
 		//init les element
-		//this.createElementPersonnage(0,nbJoueurGame[0]);
-		//this.createElementPersonnage(1,nbJoueurGame[1]);
+		//this.createElementPersonnage(0,nbJoueurGame[0]); 			//def : ok
+		//this.createElementPersonnage(1,nbJoueurGame[1]);			//def : ok
 		
-		//this.methodTest(); //unitair
 		
-		this.methodTestinitArme();
-		//this.initArmeEquipe(listHeros);	
-		this.initArmeEquipeV2(listHeros);	
+		
+		//this.methodTest(); 		//unitaire
+		this.methodTestinitArme(); //unitaire :init joueur heros
+		
+		
+		
+		//this.initArmeEquipeV2(listHeros);  //en cours
+		this.initArmeEquipeV2(listMonstre);
 		
 		//((Personnage) listHeros.get(0)).setArme(new ArmeMagique("hache",12,120));//init arme sur heros or monstre
 		//listHeros.get(0).setArme(new ArmeMagique("hache",12,120));//init arme sur heros or monstre
 		//System.out.println(listHeros.size());
 		
-		//System.out.println("cccccc");
+		System.out.println("cccccc");
 		//listHeros.get(0).getArme().affiArme();
+		//listHeros.get(0).affichePersonnage();
+		listMonstre.get(0).getArme().affiArme();
+		listMonstre.get(0).affichePersonnage();
 	}
 	
 	
 	/*
 	 * 
 	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
 	 */
 	
-	public <T> void initArmeEquipe(List<T> liste) {
-		System.out.println("Select arme : ");
-		
-		for(T valeur : liste) { //for int i at length
-			switch(verifiedTyp(valeur)) {
-			case 1 :
-				System.out.println("Paladin arme possible a équiper");
-				
-				//init arme palldin arme
-				DAOManager<ArmeMagique> armDAOManager = new DAOManager<>();
-				ArrayList<ArmeMagique> armgic = armDAOManager.selectAllJoin(new ArmeMagiqueContract(), new ArmeMagiqueDTO());
-				affArmre(armgic);
-				
-				System.out.print("\nchoix : ");
-				int choix = scanners.getScanner().nextInt() - 1;
-				scanners.getScanner().nextLine();
-				
-				//init list personnage a une arme
-				
-				armgic.get(choix).affiArme();
-				
-				break;
-			
-			case 2 : 
-				System.out.println("Perso est Barbare");
-				break;
-			case 3 : 
-				System.out.println("Perso est Magiciens");
-				break;
-			}
-		}
-	}	
 	
-	public <T> void initArmeEquipeV2(List<T> liste) {
+	
+	
+	
+	
+	public <T> void initArmeEquipeV2(List<T> liste) {     							//def : ok
 		System.out.println("\nSelect arme : \n\n");
+		
 		for(int i=0;i<liste.size();i++) {
+			
 			switch(verifiedTyp(liste.get(i))) {
 			case 1 :
 				System.out.println("Paladin arme possible a équiper");
+				//init arme palldin arme mixte 
 				
-				//init arme palldin arme
+				
 				DAOManager<ArmeMagique> armDAOManager = new DAOManager<>();
 				ArrayList<ArmeMagique> armgic = armDAOManager.selectAllJoin(new ArmeMagiqueContract(), new ArmeMagiqueDTO());
 				affArme(armgic);
 				
-				System.out.print("\nchoix : ");
-				int choix = scanners.getScanner().nextInt() - 1;
-				scanners.getScanner().nextLine();
-				
-				//init list personnage a une arme
-				((Personnage) liste.get(i)).setArme(armgic.get(choix));//init arme sur heros or monstre
-				//armgic.get(choix).affiArme();
-				System.out.println("cccccc");
-				((Personnage) liste.get(i)).getArme().affiArme();
-				((Personnage) liste.get(i)).affichePersonnage();
-				
-				if(((Personnage)liste.get(i)).getArme() instanceof ArmeMagique){
-					System.out.println("instance magicuqe arme");
-				}
-				
+				((Personnage) liste.get(i)).setArme(armgic.get(this.initPersArme()));//init arme sur heros or monstre
+				this.verifInstanceArm(liste,i);
 				break;
 			
 			case 2 : 
-				System.out.println("Perso est Barbare");
+				System.out.println("Barbare arme possible a équiper");
+				//init arme Barbare
+				DAOManager<ArmePhysique> armpDAOManager = new DAOManager<>();
+				ArrayList<ArmePhysique> armp = armpDAOManager.selectAllJoin(new ArmePhysiqueContract(), new ArmePhysiqueDTO());
+				affArme(armp);
+				
+				((Personnage) liste.get(i)).setArme(armp.get(this.initPersArme()));//init arme sur heros or monstre
+				this.verifInstanceArm(liste,i);
 				break;
+				
 			case 3 : 
-				System.out.println("Perso est Magiciens");
+				System.out.println("Magiciens arme possible a équiper");
 				
+				DAOManager<ArmeMagique> armgDAOManager = new DAOManager<>();
+				ArrayList<ArmeMagique> armg = armgDAOManager.selectAllJoin(new ArmeMagiqueContract(), new ArmeMagiqueDTO());
 				
+				affArme(armg);
 				
+				//init list personne a une arme
+				((Personnage) liste.get(i)).setArme(armg.get(this.initPersArme()));//init arme sur heros or monstre
+				this.verifInstanceArm(liste,i);
 				break;
 			}
 		}
+	} 
+	
+	public int initPersArme() {													    //def : ok
+		System.out.print("\nchoix : ");
+		int choix = scanners.getScanner().nextInt() - 1;
+		scanners.getScanner().nextLine();
+		return choix;
 	}
-	public <T> void initPersArme(int valeur,List<T> liste) {
-		((Personnage) liste.get(valeur)).setArme(new ArmeMagique("hache",12,120));//init arme sur heros or monstre
+	public <T >void verifInstanceArm(List <T> listes,int valeur) {					//def : ok
+		if(((Personnage)listes.get(valeur)).getArme() instanceof ArmeMagique){
+			System.out.println("instance magique arme");
+		}else if(((Personnage)listes.get(valeur)).getArme() instanceof ArmePhysique) {
+			System.out.println("instance Physique arme");
+		}
 	}
 	
 	/*
-	 * 
-	 * 
-	 * Base de donnees methode
+	 * * Base de donnees methode
 	 */
 	
-	public static <T> void affArme(List <T> item) {
+	public static <T> void affArme(List <T> item) {									//def : ok
+		int compteur =1 ;
 		for (T a : item) {
 			((Arme) a).affiArme();
+			System.out.println("choix : ["+compteur+"]");
+			compteur++;
 		}
 	}
-	public static <T> void affArmure(List <T> item) {
+	public static <T> void affArmure(List <T> item) {								//def : ok						
+		int compteur =1 ;
 		for (T a : item) {
 			((Armure) a).affiArmure();
+			System.out.println("choix : ["+compteur+"]");
+			compteur++;
 		}
 	}
-	public <T> void initPersoArme(T person) {
-		///init les element
-	}
 	
-	/*
-	 * 
-	 * 
-	 */
 	
 	
  	public void createElementPersonnage(int equipe,int nbJoueurGame) {
@@ -326,6 +327,10 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 			listMonstre.add((Monstre) per);
 		}	
 	}	
+	
+	
+	
+	
 	public void verifiedType(Personnage perso) {
 		 if( perso.getRpg() instanceof Paladin ) {
 			 System.out.println("Ceci est bien une instance de type Paladin");
@@ -355,6 +360,11 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 			 System.out.println("Ceci est bien une instance de type Magicien");
 		 }
 	}
+	
+
+	
+	
+	
 	public <T> void afficheList(List<T> list) {
 		for(T valeur : list) {
 			this.verifiedType(valeur);
@@ -362,15 +372,25 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 		}
 	}
 
+	
+	
+	
+	
+	
+	
+	
 	//************************************************//
 	//	 @Test unitaire
 	//***********************************************//
 
 	public void methodTestinitArme() {
 		
-		Personnage p = new Hero();
-		initPerson(p,0);
-		p.setRpg(new DefaultPaladin());
+		//Personnage p = new Hero();
+		Personnage p = new Monstre();
+		initPerson(p,1);
+		//p.setRpg(new DefaultPaladin());
+		//p.setRpg(new DefaultMagicien());
+		p.setRpg(new DefaultBarbare());
 		verifiedType(p);
 	}
 	
@@ -400,5 +420,46 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 		}
 		//this.afficheList(listPersonnage);	
 	}
+
+
+
+	public <T> void initArmeEquipe(List<T> liste) {  		// a delete
+		System.out.println("Select arme : ");
+		
+		for(T valeur : liste) { //for int i at length
+			switch(verifiedTyp(valeur)) {
+			case 1 :
+				System.out.println("Paladin arme possible a équiper");
+				
+				//init arme palldin arme
+				DAOManager<ArmeMagique> armDAOManager = new DAOManager<>();
+				ArrayList<ArmeMagique> armgic = armDAOManager.selectAllJoin(new ArmeMagiqueContract(), new ArmeMagiqueDTO());
+				affArme(armgic);
+				
+				System.out.print("\nchoix : ");
+				int choix = scanners.getScanner().nextInt() - 1;
+				scanners.getScanner().nextLine();
+				
+				//init list personnage a une arme
+				
+				armgic.get(choix).affiArme();
+				
+				break;
+			
+			case 2 : 
+				System.out.println("Perso est Barbare");
+				break;
+			case 3 : 
+				System.out.println("Perso est Magiciens");
+				break;
+			}
+		}
+	}	
+	
+	
+
+
+
+
 
 }

@@ -228,7 +228,7 @@ public class ApplicationCombat {
 			ArmeMagique armMigic = new ArmeMagique("dkdk",12,12);
 			ArmureMagique armuMigic = new ArmureMagique(12);
 			
-			ArmePhysique armP = new ArmePhysique(12,12);
+			ArmePhysique armP = new ArmePhysique("buklle",12,12);
 			ArmurePhysique armuP = new ArmurePhysique(12);
 			
 			

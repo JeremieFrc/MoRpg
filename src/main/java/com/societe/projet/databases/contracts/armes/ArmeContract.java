@@ -34,7 +34,6 @@ public class ArmeContract implements Contract {
 						+"('hache',32,198),"
 						+"('potion',12,2),"
 						+"('sortillege',25,2),"
-						+"('fusil',20,20),"
 						+"('gatlin',15,2)";
 	
 	public static final String INSERT_TABLE_V2  = "INSERT INTO "
