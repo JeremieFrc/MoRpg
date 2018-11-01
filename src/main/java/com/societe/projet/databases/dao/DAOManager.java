@@ -127,7 +127,7 @@ public class DAOManager {
 					preparedStatement.executeUpdate();
 					System.out.println("init lien Magique");
 				} catch (SQLException e) {
-					System.out.println("error init lien physic");
+					System.out.println("error init lien Magic");
 					e.printStackTrace();
 				}finally {
 					DBOUtilitaire.closePreparedStatement(preparedStatement);

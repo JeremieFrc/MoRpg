@@ -45,13 +45,13 @@ public class ApplicationCombat {
 	//	 @init Object
 	//***********************************************//
 	 
-	 //testInitObject(persGeneric); ok
+	 testInitObject(persGeneric); //ok
 	 
 	 //************************************************//
 	//	 @insert base Data
 	//***********************************************//
-	 
-	 testInitBdd(); //ok	 
+	
+	 //testInitBdd(); //ok	 
 	}
 	
 	public static void testInitBdd() {
@@ -96,6 +96,8 @@ public class ApplicationCombat {
 				
 				DBOUtilitaire.closeConnection(dao.getConnection());		
 	}
+	
+	
 	public static void testInitObject( Donjon persGeneric ) {
 		
 		 Personnage p = new Hero();
@@ -136,18 +138,18 @@ public class ApplicationCombat {
 			//barbare.getRpg().isEquipable(armMigic) 
 			// barbare.getRpg().isEquipable(armuMigic)
 			
-			ArmeMagique armMigic = new ArmeMagique(12,24,12);
-			ArmureMagique armuMigic = new ArmureMagique(12,12);
+			ArmeMagique armMigic = new ArmeMagique(12,12);
+			ArmureMagique armuMigic = new ArmureMagique(12);
 			
-			ArmePhysique armP = new ArmePhysique(12,24,12);
-			ArmurePhysique armuP = new ArmurePhysique(12,12);
+			ArmePhysique armP = new ArmePhysique(12,12);
+			ArmurePhysique armuP = new ArmurePhysique(12);
 			
 			
 			if(barbare.getRpg().isEquipable(armMigic) && barbare.getRpg().isEquipable(armuMigic) ) {
 				System.out.print("vrai");
 				
 			}else {
-				System.out.println("error");
+				System.out.println("error pas equipable");
 			}
 			
 			//init avec arme et armure physique barbare aceed setArmeBarbare

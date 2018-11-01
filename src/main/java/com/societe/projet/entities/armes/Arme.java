@@ -7,8 +7,8 @@ public abstract class Arme  {
 	//	 @private
 	//***********************************************//
 	
-	private int degatPhysique;
-	private int degatMagic;
+	private String nom;
+	private int degat;
 	private int cpa ; //point de consommation
 	
 	//************************************************//
@@ -23,33 +23,31 @@ public abstract class Arme  {
 	 */
 	public Arme() {}
 
-	public Arme (int degatMagic, int degatPhysique,int cpa) {
-		this.degatMagic = degatMagic;
-		this.degatPhysique = degatPhysique;
+	public Arme (int degat,int cpa) {
+		this.degat= degat;
 		this.cpa = cpa;
 	}
-	
 	
 	//************************************************//
 	//	 @Setter and @getter
 	//***********************************************//	
 
-	public int getDegatPhysique() {
-		return degatPhysique;
+	public String getNom() {
+		return nom;
 	}
-
-	public void setDegatPhysique(int degatPhysique) {
-		this.degatPhysique = degatPhysique;
+	
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
-
-	public int getdegatMagic() {
-		return degatMagic;
+	
+	public void setDegat(int degat) {
+		this.degat = degat;
 	}
-
-	public void setdegatMagic(int degatMagic) {
-		this.degatMagic = degatMagic;
+	
+	public int getDegat() {
+		return degat;
 	}
-
+	
 	public int getCpa() {
 		return cpa;
 	}
@@ -57,22 +55,18 @@ public abstract class Arme  {
 	public void setCpa(int cpa) {
 		this.cpa = cpa;
 	}
+	
 	//************************************************//
 	//	 @Methods 
    //***********************************************//
 	public int attack(Armure armure) {
 		int result = 0;
-
-		result = this.getDegatPhysique()-this.getdegatMagic() - armure.getDefenceMagic()- armure.getDefencePhysique();
-
+		result = this.getDegat() - armure.getDefence();
 		return result > 0 ? result : 0; //application ternaire
 	}
-	
 	public void affiArme() {
 		System.out.println("-----Arme : -----------");
-		System.out.println("degatPhysique : "+degatPhysique);
-		System.out.println("degatMagic : "+degatMagic);
-		System.out.println("degatMagic : "+cpa);
-		
+		System.out.println("degat : "+degat);
+		System.out.println("cpa : "+cpa);
 	}
 }

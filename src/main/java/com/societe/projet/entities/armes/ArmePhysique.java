@@ -19,8 +19,8 @@ public class ArmePhysique extends Arme {
 	
 	public ArmePhysique() {}
 
-	public ArmePhysique(int degatMagit, int degatPhysique, int cpa) {
-		super(degatMagit, degatPhysique, cpa);
+	public ArmePhysique(int degat,int cpa) {
+		super(degat,cpa);
 	}
 	
 	//************************************************//

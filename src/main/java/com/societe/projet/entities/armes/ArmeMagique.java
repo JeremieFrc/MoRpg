@@ -16,8 +16,8 @@ public class ArmeMagique extends Arme{
 	
 	public ArmeMagique() {}
 	
-	public ArmeMagique(int degatMagic, int degatPhysique,int cpa) {
-		super(degatMagic, degatPhysique,cpa);
+	public ArmeMagique(int degat,int cpa) {
+		super(degat,cpa);
 	}
 	
 	//************************************************//
@@ -35,7 +35,6 @@ public class ArmeMagique extends Arme{
    //***********************************************//
 	@Override
 	public int attack(Armure armure) {
-		// TODO Auto-generated method stub
 		return super.attack(armure);
 	}
 	

@@ -6,9 +6,9 @@ public abstract class Armure {
 	//************************************************//
 	//	 @private
 	//***********************************************//
-
-	private int defencePhysique;
-	private int defenceMagic;
+	
+	private String nom;
+	private int defence;
 	
 	//************************************************//
 	//	 @Constructeur 
@@ -22,37 +22,33 @@ public abstract class Armure {
 	
 	public Armure() {}
 	
-	public Armure(int defencePhysique, int defenceMagic) {
-
-		this.defencePhysique = defencePhysique;
-		this.defenceMagic = defenceMagic;
+	public Armure(int defence) {
+		this.defence = defence;
 	}
 	
 	//************************************************//
 	//	 @Setter and @getter
 	//***********************************************//
 
-	public int getDefencePhysique() {
-		return defencePhysique;
+	public String getNom() {
+		return nom;
 	}
 
-	public void setDefencePhysique(int defencePhysique) {
-		this.defencePhysique = defencePhysique;
-	}
-
-	public int getDefenceMagic() {
-		return defenceMagic;
-	}
-
-	public void setDefenceMagic(int defenceMagic) {
-		this.defenceMagic = defenceMagic;
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
 	
+	public int getDefence() {
+		return defence;
+	}
+
+	public void setDefence(int defence) {
+		this.defence = defence;
+	}
+
 	public void affiArmure() {
 		System.out.println("-----Armure -----------");
-		System.out.println("defencePhysique : "+defencePhysique);
-		System.out.println("defenceMagic : "+defenceMagic);
-		
+		System.out.println("defence : "+defence);
 	}
 	
 }
