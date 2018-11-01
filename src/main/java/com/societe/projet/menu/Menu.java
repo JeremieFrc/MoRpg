@@ -69,7 +69,7 @@ public class Menu {
 		
 		System.out.println("\n-------- creation des Personnages ---------------\n");
 		
-		System.out.println("Equipe de HEROS  [1] ");
+		System.out.println("Equipe de HEROS  [1]");
 		System.out.println("Equipe de Montre [2]");
 		System.out.print("Choix : ");
 		

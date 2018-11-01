@@ -31,7 +31,7 @@ public class DAOManager <T extends DBItem >{
 	*  @Constructor
 	* ***************************************/
 	public DAOManager () {
-		System.out.println("connection at bdd");
+		//System.out.println("connection at bdd");
 		//recuperation de la connection fior utilisation
 		connection = DBOpenHelper.getIntance().getConnection();
 	}	
@@ -133,11 +133,7 @@ public class DAOManager <T extends DBItem >{
 			}
 			
 		
-	}
-	
-	
-	
-
+	}	
 	public void initConstraintPrepaStat(String query1, String query2) {
 		boolean returnKey = false;
 		//String query = "INSERT INTO"
@@ -176,8 +172,6 @@ public class DAOManager <T extends DBItem >{
 	 *  @Methods
 	 * ***************************************/
 	
-	
-	
 	public ArrayList<T> selectAllJoin(Contract contract, DTO<T> dto) {
 		
 		ArrayList<T> result = new ArrayList<T>();
@@ -189,7 +183,7 @@ public class DAOManager <T extends DBItem >{
 		request.append(contract.getTable());
 		request.append(contract.getInnerJoin());
 		
-		System.out.println(request.toString());
+		//System.out.println(request.toString());
 		
 		parser(dto, result, request);
 		return result;

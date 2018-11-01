@@ -60,10 +60,10 @@ public class ApplicationCombat {
 	//***********************************************//
 	
 	 //testInitBddV1(); //ok	supp after utilisation 
-	 dropTable(); //ok
-	 testInitArm();//ok
-	 testInitArmu();//ok
-	 testSelectV1(); //ok
+	 //dropTable(); //ok
+	 //testInitArm();//ok
+	 //testInitArmu();//ok
+	 //testSelectV1(); //ok
 
 	}
 	

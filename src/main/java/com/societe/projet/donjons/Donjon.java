@@ -3,9 +3,15 @@ package com.societe.projet.donjons;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.societe.projet.databases.contracts.armes.ArmeMagiqueContract;
+import com.societe.projet.databases.dao.DAOManager;
+import com.societe.projet.databases.dto.ArmeMagiqueDTO;
 import com.societe.projet.defaultfighter.DefaultBarbare;
 import com.societe.projet.defaultfighter.DefaultMagicien;
 import com.societe.projet.defaultfighter.DefaultPaladin;
+import com.societe.projet.entities.armes.Arme;
+import com.societe.projet.entities.armes.ArmeMagique;
+import com.societe.projet.entities.armures.Armure;
 import com.societe.projet.entities.personnages.Hero;
 import com.societe.projet.entities.personnages.Monstre;
 import com.societe.projet.entities.personnages.Personnage;
@@ -35,9 +41,12 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 	private List <Hero> listHeros= new ArrayList<Hero>();
 	
 	
-	
 	private List <Personnage> listPersonnage = new ArrayList<Personnage>();
 	private List <ArrayList<Monstre>> listEtagge = new ArrayList<ArrayList<Monstre>>();
+	
+	
+	
+	
 	
 	//************************************************//
 	//	 @Constructor
@@ -103,7 +112,7 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 	public void initMenu() {
 		this.menu = new Menu(scanners);
 	}
-	public void  interfaceGame() {	
+	public void interfaceGame() {	
 		
 		//menu.screenGame();
 		//nbJoueurGame = menu.initNbJoueurs();
@@ -113,14 +122,32 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 		//this.createElementPersonnage(0,nbJoueurGame[0]);
 		//this.createElementPersonnage(1,nbJoueurGame[1]);
 		
-		this.methodTest();
+		//this.methodTest(); //unitair
+		
+		methodTestinitArme();
 		this.initArmeEquipe(listHeros);	
+		
+		System.out.println(listHeros.size());
 	}
+	
+	
+	
+	/*
+	 * 
+	 * 
+	 */
+	
 	public <T> void initArmeEquipe(List<T> liste) {
+		
 		for(T valeur : liste) {
 			switch(verifiedTyp(valeur)) {
 			case 1 :
-				System.out.println("Perso est Paladin");
+				System.out.println("Paladin arme possible a équiper");
+				//init arme palldin arme
+				DAOManager<ArmeMagique> armDAOManager = new DAOManager<>();
+				ArrayList<ArmeMagique> armgic = armDAOManager.selectAllJoin(new ArmeMagiqueContract(), new ArmeMagiqueDTO());
+				affArmre(armgic);
+				
 				break;
 			case 2 : 
 				System.out.println("Perso est Barbare");
@@ -131,9 +158,33 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 			}
 		}
 	}	
+	
+	/*
+	 * 
+	 * 
+	 * Base de donnees methode
+	 */
+	
+	public static <T> void affArmre(List <T> item) {
+		for (T a : item) {
+			((Arme) a).affiArme();
+		}
+	}
+	public static <T> void affArmure(List <T> item) {
+		for (T a : item) {
+			((Armure) a).affiArmure();
+		}
+	}
 	public <T> void initPersoArme(T person) {
 		///init les element
-	}	
+	}
+	
+	/*
+	 * 
+	 * 
+	 */
+	
+	
  	public void createElementPersonnage(int equipe,int nbJoueurGame) {
 		//int response = 0;
 		int compteur = 0;
@@ -186,24 +237,31 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 	}
 	public void initPerson(Personnage per,int equipe) {
 		
-		scanners.getScanner().nextLine();
-		verifiedType(per);	
-		System.out.println("Nom : ");
+		//scanners.getScanner().nextLine();
+		//verifiedType(per);	
 		
+		System.out.print("Nom : ");
 		per.setName(scanners.getScanner().nextLine());
+		
+		System.out.print("vie: ");
 		per.setPointVie(scanners.getScanner().nextInt());
 		scanners.getScanner().nextLine();	
+		
+		System.out.print("point action: ");
 		per.setPointAction(scanners.getScanner().nextInt());
 		scanners.getScanner().nextLine();
+		
+		System.out.print("point attaque: ");
 		per.setPointAttaque(scanners.getScanner().nextInt());
 		scanners.getScanner().nextLine();
+		
 		//personne.affichePersonnage();
 		
 		if(equipe == 0) {
-			System.out.println("inserer equipe heros");
+			//System.out.println("inserer equipe heros");
 			listHeros.add((Hero) per);
 		}else {
-			System.out.println("inserer equipe monstre");
+			//System.out.println("inserer equipe monstre");
 			listMonstre.add((Monstre) per);
 		}	
 	}	
@@ -247,6 +305,17 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 	//	 @Test unitaire
 	//***********************************************//
 
+	public void methodTestinitArme() {
+		
+		Personnage p = new Hero();
+		initPerson(p,0);
+		p.setRpg(new DefaultPaladin());
+		verifiedType(p);
+	}
+	
+	
+	
+	
 	public void methodTest() {
 		//this.afficheList(listPersonnage);	
 		

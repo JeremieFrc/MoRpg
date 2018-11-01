@@ -33,7 +33,7 @@ public class DBOpenHelper {
 		
 		try {
 			connection = dataSource.getConnection();
-			System.out.println("connection realiser");
+			//System.out.println("connection realiser");
 		} catch (SQLException e) {
 			System.out.println("error de connection");
 			e.printStackTrace();

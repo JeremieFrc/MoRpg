@@ -12,7 +12,6 @@ public class DBOUtilitaire {
 		PreparedStatement  QUERY STRING
 	 **************************************/
 	public static PreparedStatement initPreparedStatement(Connection connect,String query) throws SQLException {
-		System.out.println("--------- initPreparedStatement --------------");	
 		PreparedStatement preparedStatement = connect.prepareStatement(query);
 		return preparedStatement;	
 	}
