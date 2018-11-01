@@ -124,12 +124,17 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 		
 		//this.methodTest(); //unitair
 		
-		methodTestinitArme();
-		this.initArmeEquipe(listHeros);	
+		this.methodTestinitArme();
+		//this.initArmeEquipe(listHeros);	
+		this.initArmeEquipeV2(listHeros);	
 		
-		System.out.println(listHeros.size());
+		//((Personnage) listHeros.get(0)).setArme(new ArmeMagique("hache",12,120));//init arme sur heros or monstre
+		//listHeros.get(0).setArme(new ArmeMagique("hache",12,120));//init arme sur heros or monstre
+		//System.out.println(listHeros.size());
+		
+		//System.out.println("cccccc");
+		//listHeros.get(0).getArme().affiArme();
 	}
-	
 	
 	
 	/*
@@ -138,17 +143,28 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 	 */
 	
 	public <T> void initArmeEquipe(List<T> liste) {
+		System.out.println("Select arme : ");
 		
-		for(T valeur : liste) {
+		for(T valeur : liste) { //for int i at length
 			switch(verifiedTyp(valeur)) {
 			case 1 :
 				System.out.println("Paladin arme possible a équiper");
+				
 				//init arme palldin arme
 				DAOManager<ArmeMagique> armDAOManager = new DAOManager<>();
 				ArrayList<ArmeMagique> armgic = armDAOManager.selectAllJoin(new ArmeMagiqueContract(), new ArmeMagiqueDTO());
 				affArmre(armgic);
 				
+				System.out.print("\nchoix : ");
+				int choix = scanners.getScanner().nextInt() - 1;
+				scanners.getScanner().nextLine();
+				
+				//init list personnage a une arme
+				
+				armgic.get(choix).affiArme();
+				
 				break;
+			
 			case 2 : 
 				System.out.println("Perso est Barbare");
 				break;
@@ -159,13 +175,58 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 		}
 	}	
 	
+	public <T> void initArmeEquipeV2(List<T> liste) {
+		System.out.println("\nSelect arme : \n\n");
+		for(int i=0;i<liste.size();i++) {
+			switch(verifiedTyp(liste.get(i))) {
+			case 1 :
+				System.out.println("Paladin arme possible a équiper");
+				
+				//init arme palldin arme
+				DAOManager<ArmeMagique> armDAOManager = new DAOManager<>();
+				ArrayList<ArmeMagique> armgic = armDAOManager.selectAllJoin(new ArmeMagiqueContract(), new ArmeMagiqueDTO());
+				affArme(armgic);
+				
+				System.out.print("\nchoix : ");
+				int choix = scanners.getScanner().nextInt() - 1;
+				scanners.getScanner().nextLine();
+				
+				//init list personnage a une arme
+				((Personnage) liste.get(i)).setArme(armgic.get(choix));//init arme sur heros or monstre
+				//armgic.get(choix).affiArme();
+				System.out.println("cccccc");
+				((Personnage) liste.get(i)).getArme().affiArme();
+				((Personnage) liste.get(i)).affichePersonnage();
+				
+				if(((Personnage)liste.get(i)).getArme() instanceof ArmeMagique){
+					System.out.println("instance magicuqe arme");
+				}
+				
+				break;
+			
+			case 2 : 
+				System.out.println("Perso est Barbare");
+				break;
+			case 3 : 
+				System.out.println("Perso est Magiciens");
+				
+				
+				
+				break;
+			}
+		}
+	}
+	public <T> void initPersArme(int valeur,List<T> liste) {
+		((Personnage) liste.get(valeur)).setArme(new ArmeMagique("hache",12,120));//init arme sur heros or monstre
+	}
+	
 	/*
 	 * 
 	 * 
 	 * Base de donnees methode
 	 */
 	
-	public static <T> void affArmre(List <T> item) {
+	public static <T> void affArme(List <T> item) {
 		for (T a : item) {
 			((Arme) a).affiArme();
 		}

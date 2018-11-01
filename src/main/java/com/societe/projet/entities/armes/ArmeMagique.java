@@ -16,8 +16,8 @@ public class ArmeMagique extends Arme{
 	
 	public ArmeMagique() {}
 	
-	public ArmeMagique(int degat,int cpa) {
-		super(degat,cpa);
+	public ArmeMagique(String nom,int degat,int cpa) {
+		super(nom,degat,cpa);
 	}
 	
 	//************************************************//

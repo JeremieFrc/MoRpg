@@ -29,6 +29,12 @@ public abstract class Arme extends DBItem {
 		this.cpa = cpa;
 	}
 	
+	public Arme(String nom,int degat,int cpa) {
+		this.nom = nom;
+		this.degat= degat;
+		this.cpa = cpa;
+	}
+	
 	//************************************************//
 	//	 @Setter and @getter
 	//***********************************************//	

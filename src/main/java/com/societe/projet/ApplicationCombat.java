@@ -225,7 +225,7 @@ public class ApplicationCombat {
 			//barbare.getRpg().isEquipable(armMigic) 
 			// barbare.getRpg().isEquipable(armuMigic)
 			
-			ArmeMagique armMigic = new ArmeMagique(12,12);
+			ArmeMagique armMigic = new ArmeMagique("dkdk",12,12);
 			ArmureMagique armuMigic = new ArmureMagique(12);
 			
 			ArmePhysique armP = new ArmePhysique(12,12);

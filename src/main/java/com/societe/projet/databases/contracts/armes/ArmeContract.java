@@ -30,10 +30,10 @@ public class ArmeContract implements Contract {
 	public static final String INSERT_TABLE = "INSERT INTO "
 			+TABLE+" ("+FIELDS[1]+","+FIELDS[2]+","+FIELDS[3]+")"
 			+ " VALUES "+"('epee',12,200),"
-						+"('bagette',12,200),"
-						+"('hache',12,200),"
+						+"('bagette',20,20),"
+						+"('hache',32,198),"
 						+"('potion',12,2),"
-						+"('sortillege',12,2),"
+						+"('sortillege',25,2),"
 						+"('fusil',20,20),"
 						+"('gatlin',15,2)";
 	
