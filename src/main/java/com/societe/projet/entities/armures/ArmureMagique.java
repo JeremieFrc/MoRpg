@@ -15,6 +15,8 @@ public class ArmureMagique extends Armure {
 	//************************************************//
 	//	 @Constructeur 
 	//***********************************************//
+	public ArmureMagique() {}
+	
 	public ArmureMagique(int defence) {
 		super(defence);
 	}

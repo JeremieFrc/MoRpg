@@ -16,6 +16,8 @@ public class ArmurePhysique extends Armure {
 	//	 @Constructeur 
 	//***********************************************//
 	
+	public ArmurePhysique() {}
+	
 	public ArmurePhysique(int defence) {
 		super(defence);
 	}

@@ -9,9 +9,7 @@ import java.sql.Statement;
 
 import com.societe.projet.databases.DBOUtilitaire;
 import com.societe.projet.databases.DBOpenHelper;
-import com.societe.projet.databases.contracts.armes.ArmeContract;
-import com.societe.projet.databases.contracts.armes.ArmeMagiqueContract;
-import com.societe.projet.databases.contracts.armes.ArmePhysiqueContract;
+
 
 public class DAOManager {
 	

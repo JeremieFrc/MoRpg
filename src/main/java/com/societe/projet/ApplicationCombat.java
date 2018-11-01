@@ -45,13 +45,13 @@ public class ApplicationCombat {
 	//	 @init Object
 	//***********************************************//
 	 
-	 testInitObject(persGeneric); //ok
+	 //testInitObject(persGeneric); //ok
 	 
 	 //************************************************//
 	//	 @insert base Data
 	//***********************************************//
 	
-	 //testInitBdd(); //ok	 
+	 testInitBdd(); //ok	 
 	}
 	
 	public static void testInitBdd() {
