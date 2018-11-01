@@ -37,7 +37,7 @@ public class DAOManager <T extends DBItem >{
 	}	
 
 	/* **************************************
-	 *  @getter and Setter
+	 *  @getter and @Setter
 	 * ***************************************/
 
 	public Connection getConnection() {
@@ -94,7 +94,7 @@ public class DAOManager <T extends DBItem >{
 			statement = connection.createStatement();
 			statement.executeUpdate(query);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			System.out.println("error drop");
 			e.printStackTrace();
 		}finally {
 			DBOUtilitaire.CloseStatement(statement);
@@ -113,6 +113,30 @@ public class DAOManager <T extends DBItem >{
 			DBOUtilitaire.CloseStatement(statement);
 		}
 	}
+	
+	public void initConstraintPrepaStat(String query1,int debut,int fin) {
+		boolean returnKey = false;
+		//String query = "INSERT INTO"
+		for(int i=debut;i<fin;i++) {
+			
+				try {
+					preparedStatement = DBOUtilitaire.initPreparedStatement(connection,query1,returnKey,i);
+					preparedStatement.executeUpdate();
+					System.out.println("init lien Magique");
+				} catch (SQLException e) {
+					System.out.println("error init lien Magic");
+					e.printStackTrace();
+				}finally {
+					DBOUtilitaire.closePreparedStatement(preparedStatement);
+				}
+			
+			}
+			
+		
+	}
+	
+	
+	
 
 	public void initConstraintPrepaStat(String query1, String query2) {
 		boolean returnKey = false;

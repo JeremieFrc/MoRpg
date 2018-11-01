@@ -60,13 +60,43 @@ public class ApplicationCombat {
 	//***********************************************//
 	
 	 //testInitBddV1(); //ok	supp after utilisation 
-	 
-	 testInitV2(); //ok
+	 dropTable(); //ok
+	 testInitArm();//ok
+	 testInitArmu();//ok
+	 testSelectV1(); //ok
 
 	}
 	
+	public static void testInitArm() {
+		DAOManager<Arme> armeDAOManager = new DAOManager<>();
+		DAOManager<ArmeMagique> armgDAOManager = new DAOManager<>();
+		DAOManager<ArmePhysique> armpDAOManager = new DAOManager<>();
+		armeDAOManager.createTable(ArmeContract.CREATE_TABLE);
+		armgDAOManager.createTable(ArmeMagiqueContract.CREATE_TABLE_V2);
+		armpDAOManager.createTable(ArmePhysiqueContract.CREATE_TABLE_V2);	
+		
+		armeDAOManager.insertBdd(ArmeContract.INSERT_TABLE);
+		//armeDAOManager.initConstraintPrepaStat(ArmeMagiqueContract.INSERT_CONST,ArmePhysiqueContract.INSERT_CONST);
+		armgDAOManager.initConstraintPrepaStat(ArmeMagiqueContract.INSERT_CONST,1,4);
+		armgDAOManager.initConstraintPrepaStat(ArmePhysiqueContract.INSERT_CONST,4,7);
+		
+	}
 	
-	public static void testInitV2() {
+	public static void testInitArmu() {
+		DAOManager<Armure> armuDAOManager = new DAOManager<>();
+		DAOManager<ArmureMagique> armugDAOManager = new DAOManager<>();
+		DAOManager<ArmurePhysique> armupDAOManager = new DAOManager<>();
+		armuDAOManager.createTable(ArmureContract.CREATE_TABLE);
+		armugDAOManager.createTable(ArmureMagiqueContract.CREATE_TABLE_V2);
+		armupDAOManager.createTable(ArmurePhysicContract.CREATE_TABLE_V2);	
+		
+		armuDAOManager.insertBdd(ArmureContract.INSERT_TABLE);
+		//armuDAOManager.initConstraintPrepaStat(ArmureMagiqueContract.INSERT_CONST,ArmurePhysicContract.INSERT_CONST);
+		armugDAOManager.initConstraintPrepaStat(ArmureMagiqueContract.INSERT_CONST,1,4);
+		armupDAOManager.initConstraintPrepaStat(ArmurePhysicContract.INSERT_CONST,4,7);
+	}
+	
+	public static void testSelectV1() {
 		
 		//dao genenerique
 		DAOManager<ArmeMagique> armeDAOManager = new DAOManager<>();
@@ -85,11 +115,8 @@ public class ApplicationCombat {
 		affArm(armp);
 		
 		affArmu(armuc);
-		affArmu(armup);
-		
+		affArmu(armup);	
 	}
-	
-	
 	public static <T> void affArm(List <T> item) {
 		for (T a : item) {
 			((Arme) a).affiArme();
@@ -101,6 +128,18 @@ public class ApplicationCombat {
 		}
 	}
 	
+	public static void dropTable() {
+		DAOManager dao = new DAOManager();
+		dao.dropTable(ArmurePhysicContract.DROP_TABLE);
+		dao.dropTable(ArmureMagiqueContract.DROP_TABLE);
+		
+		dao.dropTable(ArmureContract.DROP_TABLE);
+	
+		dao.dropTable(ArmeMagiqueContract.DROP_TABLE);
+		dao.dropTable(ArmePhysiqueContract.DROP_TABLE);
+		
+		dao.dropTable(ArmeContract.DROP_TABLE);
+	}
 	
 	public static void testInitBddV1() {
 		//declaration une seul instance de bdd
