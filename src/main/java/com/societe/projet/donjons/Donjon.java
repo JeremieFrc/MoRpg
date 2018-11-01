@@ -173,13 +173,26 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 			case 1 :
 				System.out.println("Paladin arme possible a équiper");
 				//init arme palldin arme mixte 
+				ArrayList<ArmeMagique> armgic = null;
+				ArrayList<ArmePhysique> armphs = null;
 				
+				if(selectMixteArme() == 1) {
+					System.out.println("Paladin équiper arme magique");
+					DAOManager<ArmeMagique> armDAOManager = new DAOManager<>();
+					armgic = armDAOManager.selectAllJoin(new ArmeMagiqueContract(), new ArmeMagiqueDTO());
+					affArme(armgic);
+				}else if(selectMixteArme() == 2) {
+					System.out.println("Paladin équiper arme physique");
+					DAOManager<ArmePhysique> armDAOManager = new DAOManager<>();
+					armphs = armDAOManager.selectAllJoin(new ArmePhysiqueContract(), new ArmePhysiqueDTO());
+					affArme(armphs);
+				}
+				if(armgic != null) {
+					((Personnage) liste.get(i)).setArme(armgic.get(this.initPersArme()));//init arme sur heros or monstre
+				}else {
+					((Personnage) liste.get(i)).setArme(armphs.get(this.initPersArme()));//init arme sur heros or monstre
+				}
 				
-				DAOManager<ArmeMagique> armDAOManager = new DAOManager<>();
-				ArrayList<ArmeMagique> armgic = armDAOManager.selectAllJoin(new ArmeMagiqueContract(), new ArmeMagiqueDTO());
-				affArme(armgic);
-				
-				((Personnage) liste.get(i)).setArme(armgic.get(this.initPersArme()));//init arme sur heros or monstre
 				this.verifInstanceArm(liste,i);
 				break;
 			
@@ -210,7 +223,18 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 		}
 	} 
 	
+	public int selectMixteArme() {   												//def : ok
+		int choix = 0;
+		while((choix != 1) && (choix != 2)){
+			System.out.println("Choix  Magique[1] Or Physique[2]");
+			System.out.print("Choix : ");
+			choix = scanners.getScanner().nextInt();
+			scanners.getScanner().nextLine();
+		}
+		return choix;
+	}
 	public int initPersArme() {													    //def : ok
+		//gestiion bouclage pour error
 		System.out.print("\nchoix : ");
 		int choix = scanners.getScanner().nextInt() - 1;
 		scanners.getScanner().nextLine();
@@ -388,9 +412,9 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 		//Personnage p = new Hero();
 		Personnage p = new Monstre();
 		initPerson(p,1);
-		//p.setRpg(new DefaultPaladin());
+		p.setRpg(new DefaultPaladin());
 		//p.setRpg(new DefaultMagicien());
-		p.setRpg(new DefaultBarbare());
+		//p.setRpg(new DefaultBarbare());
 		verifiedType(p);
 	}
 	
