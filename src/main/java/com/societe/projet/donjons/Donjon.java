@@ -57,7 +57,7 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 	private List <Personnage> listPersonnage = new ArrayList<Personnage>();
 	private List <ArrayList<Monstre>> listEtagge = new ArrayList<ArrayList<Monstre>>();
 	
-	private int montre = 10;
+	private int nbMonstreEtage = 10;
 	
 	
 	
@@ -156,9 +156,9 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 		//listMonstre.get(0).getArme().affiArme();   //ok
 		//listMonstre.get(0).getArmure().affiArmure();  //ok
 		//listMonstre.get(0).affichePersonnage();      //ok
-		nbMonstreEtage(menu.menuMonstreEtage(10));    
+		//nbMonstreEtage(menu.menuMonstreEtage(10));    //ok
 		
-		
+		this.initEtageMonstre(10);
 		
 	}
 	
@@ -205,12 +205,13 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 	}
 	
 	public void nbMonstreEtage(int nbMonstrEtage) {
+		int totalMonstre = listMonstre.size();
 		
-		System.out.println("reste : "+nbEtages%nbMonstrEtage);
+		System.out.println("size : "+listMonstre.size());
 		//nbFetag<=listMonstre.size() 
-		if((nbMonstrEtage > 0) && (nbMonstrEtage<= montre) && (nbEtages*nbMonstrEtage != montre) ) {
+		if((nbMonstrEtage > 0) && (nbMonstrEtage<= totalMonstre) && (nbEtages*nbMonstrEtage != totalMonstre) ) {
 			
-			System.out.println(montre+" monstres insuffissant IA add montres default");
+			System.out.println(totalMonstre+" monstres insuffissant IA add montres default");
 			
 			//add monstre default a la listMonstre
 			
@@ -238,13 +239,13 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 			setDefaultEquipment(genericMonstre);
 			//inset list monstre
 			listMonstre.add((Monstre) genericMonstre); //def : ok
-			montre = montre+1;
+			//montre = montre+1;
 			
 			nbMonstreEtage(nbMonstrEtage);
-			
-		}else if((nbMonstrEtage < 0) && (nbMonstrEtage> montre) && (nbEtages*nbMonstrEtage != montre)){
+			//&& (nbEtages*nbMonstrEtage != totalMonstre)
+		}else if(((nbMonstrEtage < 0) || (nbMonstrEtage > 0)) && (nbMonstrEtage> totalMonstre) ){
 			System.out.println("error de saisie");
-			menu.menuMonstreEtage(montre);
+			menu.menuMonstreEtage(totalMonstre);
 		}else {
 			System.out.println("------------ monstre ok insert -------------");
 			this.afficheList(listMonstre);
@@ -264,9 +265,18 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 			m.getArmure().affiArmure();
 		}
 		System.out.println("------------Instance arme ------------");
-		verifInstanceArm(list,0);
+		//verifInstanceArm(list,0);
 	}
 
+	void initEtageMonstre(int nbMontreEtage) {
+		//init les  monstre a liste etage monstre
+		
+		for(int i=0;i<listMonstre.size();i++) {
+			for(int j=0;j<nbMontreEtage;j++) {
+				
+			}
+		}
+	}
 	
 	
 	
