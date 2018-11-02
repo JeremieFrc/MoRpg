@@ -55,9 +55,9 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 	
 	
 	private List <Personnage> listPersonnage = new ArrayList<Personnage>();
-	private List <ArrayList<Monstre>> listEtagge = new ArrayList<ArrayList<Monstre>>();
+	private List <ArrayList<Monstre>> listEtages = new ArrayList<ArrayList<Monstre>>();
 	
-	private int nbMonstreEtage = 10;
+	private int nbMonstreEtage;
 	
 	
 	
@@ -114,57 +114,10 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 		this.personne.setPointAttaque(20);
 		return personne;
 	}
+	
 	public Personnage setDeftEquipement() {
 		return this.personne;
 	}
-	
-	//************************************************//
-	//	 @menu and interaction user
-	//***********************************************//
-	
-	public void initMenu() {
-		this.menu = new Menu(scanners);
-	}
-	public void interfaceGame() {	
-		
-		//menu.screenGame();     									//def : ok
-		//nbJoueurGame = menu.initNbJoueurs();						//def : ok
-		//nbEtages = menu.nbEtage();								    //def : ok
-		
-		//init les element
-		//this.createElementPersonnage(0,nbJoueurGame[0]); 			//def : ok
-		//this.createElementPersonnage(1,nbJoueurGame[1]);			//def : ok
-		
-		
-		
-		//this.methodTest(); 		//unitaire
-		//this.methodTestinitArme(); //unitaire :init joueur heros 
-		
-		
-		
-		//this.initArmeEquipe(listHeros);  //ok
-		//this.initArmeEquipe(listMonstre);	// ok
-		//this.initArmureEquipe(listMonstre);	// ok
-		
-		//((Personnage) listHeros.get(0)).setArme(new ArmeMagique("hache",12,120));//init arme sur heros or monstre
-		//listHeros.get(0).setArme(new ArmeMagique("hache",12,120));//init arme sur heros or monstre
-		//System.out.println(listHeros.size());
-		
-		//System.out.println("cccccc");
-		//listHeros.get(0).getArme().affiArme(); //ok
-		//listHeros.get(0).affichePersonnage();    //ok
-		//listMonstre.get(0).getArme().affiArme();   //ok
-		//listMonstre.get(0).getArmure().affiArmure();  //ok
-		//listMonstre.get(0).affichePersonnage();      //ok
-		//nbMonstreEtage(menu.menuMonstreEtage(10));    //ok
-		
-		this.initEtageMonstre(10);
-		
-	}
-	
-	/*******   En cours ***************Init default montre foncion nbetage ***************************************/
-	
-	//init les armure et les armes des personnage par default
 	
 	public void setDefautllAttrVie(Personnage personDefault) {
 		personDefault.setName("defaultPers");
@@ -203,6 +156,60 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 			persoDefautlt.getArmure().setNom("defaultArmure");
 		}
 	}
+	
+	//************************************************//
+	//	 @menu and interaction user
+	//***********************************************//
+	
+	public void initMenu() {
+		this.menu = new Menu(scanners);
+	}
+	public void interfaceGame() {	
+		
+		//menu.screenGame();     									//def : ok
+		//nbJoueurGame = menu.initNbJoueurs();						//def : ok
+		nbEtages = menu.nbEtage();								    //def : ok
+		
+		//init les element
+		//this.createElementPersonnage(0,nbJoueurGame[0]); 			//def : ok
+		//this.createElementPersonnage(1,nbJoueurGame[1]);			//def : ok
+		
+		
+		
+		//this.methodTest(); 		//unitaire
+		//this.methodTestinitArme(); //unitaire :init joueur heros 
+		
+		
+		
+		//this.initArmeEquipe(listHeros);  //ok
+		//this.initArmeEquipe(listMonstre);	// ok
+		//this.initArmureEquipe(listMonstre);	// ok
+		
+		//((Personnage) listHeros.get(0)).setArme(new ArmeMagique("hache",12,120));//init arme sur heros or monstre
+		//listHeros.get(0).setArme(new ArmeMagique("hache",12,120));//init arme sur heros or monstre
+		//System.out.println(listHeros.size());
+		
+		//System.out.println("cccccc");
+		//listHeros.get(0).getArme().affiArme(); //ok
+		//listHeros.get(0).affichePersonnage();    //ok
+		//listMonstre.get(0).getArme().affiArme();   //ok
+		//listMonstre.get(0).getArmure().affiArmure();  //ok
+		//listMonstre.get(0).affichePersonnage();      //ok
+		   //ok
+		
+		this.getInitMontre(listMonstre);
+		nbMonstreEtage(menu.menuMonstreEtage(listMonstre.size()));    //ok
+		this.initEtageMonstrev2();
+		
+	}
+	
+	/*******   En cours ***************Init default montre foncion nbetage ***************************************/
+	
+	//init les armure et les armes des personnage par default
+	
+	
+	
+	
 	
 	public void nbMonstreEtage(int nbMonstrEtage) {
 		int totalMonstre = listMonstre.size();
@@ -249,34 +256,41 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 		}else {
 			System.out.println("------------ monstre ok insert -------------");
 			this.afficheList(listMonstre);
-			getInstanceEquipement(listMonstre);
+			//getInstanceEquipement(listMonstre);
 		}
+		
+		nbMonstreEtage = nbMonstrEtage;
 	}
 	public int altRamdDefaultInstance() {	                //def : ok
 			 int x = (int)(Math.random() * 4)%4 +1;
 			 System.out.println(x);
 			 return x;
 	}
-	public void getInstanceEquipement(List<Monstre> list) {
-		for(Monstre m : list) {
+	public void getInitMontre(List<Monstre> list) {
+		//for(Monstre m : list) {
 			/*if(m.getArme() instanceof ArmeMagique) {
 				System.out.println("instance arme magique");
 			}*/
-			m.getArmure().affiArmure();
+			//m.getArmure().affiArmure();
+		//}
+		
+		for (int i = 0; i < 10; i++) {
+			Monstre m = new Monstre();
+			m.setName("ddd");
+			list.add(m);
 		}
-		System.out.println("------------Instance arme ------------");
+		
+		//System.out.println("------------Instance arme ------------");
 		//verifInstanceArm(list,0);
 	}
 
-	void initEtageMonstre(int nbMontreEtage) {
+	public void initEtageMonstrev1() {
 		//init les  monstre a liste etage monstre
 		
 		int nombreEtagess = 10;
 		int maxMonstreEtage = 3;
-		
 		int compteur = 0 ;
-		int montreSize = 10;
-		int listMonsteee = 10;
+		
 		
 		for(int i=0 ; i < nombreEtagess  ; i++) {
 			System.out.print(" etage["+i+"] ");
@@ -288,6 +302,41 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 			}System.out.println("");
 		}
 	}
+	
+	public void initEtageMonstrev2() {
+		//init les  monstre a liste etage monstre
+		
+		int compteur = 0 ;
+		
+		for(int i=0 ; i < nbEtages  ; i++) {
+			System.out.print(" etage["+i+"] ");
+			List <Monstre> temp = new ArrayList<Monstre>();
+			for(int j = 0; j < nbMonstreEtage ;j++) {
+					//System.out.print(" - [montre "+compteur+"]");
+					//listEtages.
+				    temp.add(listMonstre.get(compteur));
+					compteur = compteur+1;	
+			}
+			listEtages.add((ArrayList<Monstre>) temp);	
+			System.out.println("");
+			
+		
+		}
+			System.out.println(""+listEtages.size());
+			this.affListEtage();
+	}
+	
+	public void affListEtage() {
+		
+		for(ArrayList<Monstre> valeur1 : listEtages) {
+			System.out.println("\n\n\n\n\n\nEtages");
+			for(Monstre valeur2 : valeur1) {
+				valeur2.affichePersonnage();
+			}
+			
+		}
+	}
+	
 	
 	
 	
