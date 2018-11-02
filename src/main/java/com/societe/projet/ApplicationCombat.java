@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.societe.projet.databases.DBOUtilitaire;
-import com.societe.projet.databases.contracts.Contract;
 import com.societe.projet.databases.contracts.armes.ArmeContract;
 import com.societe.projet.databases.contracts.armes.ArmeMagiqueContract;
 import com.societe.projet.databases.contracts.armes.ArmePhysiqueContract;

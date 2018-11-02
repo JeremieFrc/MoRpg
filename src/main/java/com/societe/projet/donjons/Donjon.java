@@ -16,6 +16,7 @@ import com.societe.projet.databases.dto.ArmureMagiqueDTO;
 import com.societe.projet.databases.dto.ArmurePhysiqueDTO;
 import com.societe.projet.databases.dto.DTO;
 import com.societe.projet.defaultfighter.DefaultBarbare;
+import com.societe.projet.defaultfighter.DefaultFighter;
 import com.societe.projet.defaultfighter.DefaultMagicien;
 import com.societe.projet.defaultfighter.DefaultPaladin;
 import com.societe.projet.entities.armes.Arme;
@@ -161,74 +162,109 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 		
 	}
 	
-	/***************************Init default montre foncion nbetage ***************************************/
+	/*******   En cours ***************Init default montre foncion nbetage ***************************************/
 	
 	//init les armure et les armes des personnage par default
 	
 	public void setDefautllAttrVie(Personnage personDefault) {
-		this.personne.setPointVie(100);
-		this.personne.setPointAction(12);
-		this.personne.setPointAttaque(20);
+		personDefault.setPointVie(100);
+		personDefault.setPointAction(12);
+		personDefault.setPointAttaque(20);
 	}
 	
 	public void setDefaultEquipment(Personnage persoDefautlt){
 		if (persoDefautlt.getRpg() instanceof Barbare) {
-			
+			System.out.println("Equipement default barbare");
 			persoDefautlt.setArme(new ArmePhysique("defaultArme",3, 2));
 			persoDefautlt.setArmure(new ArmurePhysique(3));
 			persoDefautlt.getArmure().setNom("defaultArmure");
 		
 		}else if (persoDefautlt.getRpg() instanceof Magiciens) {
-			
+			System.out.println("Equipement default Magicient");
 			persoDefautlt.setArme(new ArmeMagique("defaultArme",3, 2));
 			persoDefautlt.setArmure(new ArmureMagique(3));
 			persoDefautlt.getArmure().setNom("defaultArmure");
 			
 		}else if (persoDefautlt.getRpg() instanceof Paladin) {
-			
+			System.out.println("Equipement default Paladin");
 			persoDefautlt.setArme(new ArmeMagique("defaultArme",20,112));
 			persoDefautlt.setArmure(new ArmureMagique(16));
 			persoDefautlt.getArmure().setNom("defaultArmure");
 			
 		}else{
+			System.out.println("Equipement default Fighter");
 			persoDefautlt.setArme(new ArmePhysique("defaultArme",2,2));
 			persoDefautlt.setArmure(new ArmurePhysique(1));
 			persoDefautlt.getArmure().setNom("defaultArmure");
 		}
 	}
 	
-	public void nbMonstreEtage(int nbFetag) {
-		if(nbFetag > 0 && nbFetag<=listMonstre.size() && nbEtages%nbFetag !=0 ) {
+	public void nbMonstreEtage(int nbMonstrEtage) {
+		int montre = 12;
+		System.out.println("reste : "+nbEtages%nbMonstrEtage);
+		
+		//nbFetag<=listMonstre.size() 
+		if((nbMonstrEtage > 0) && (nbMonstrEtage<= montre) && (nbEtages*nbMonstrEtage != montre) ) {
 			
-			System.out.println("reste : "+nbEtages%nbFetag);
+			System.out.println(nbEtages*nbMonstrEtage+" insuffissant");
 			
-			//add monstre default a la liste
-				//init monstre
+			//add monstre default a la listMonstre
 			
 			Personnage genericMonstre = new Monstre();
-			genericMonstre.setRpg(new DefaultBarbare());
 			this.setDefautllAttrVie(genericMonstre);
 			
-				
-			//if non alors add montre in this list and 
-			//default
-			//create monstre 
-			//init default
+			switch(altRamdV2()) {
+				case 1 :
+					System.out.println("default barbare");
+					genericMonstre.setRpg(new DefaultBarbare());
+					break;
+				case 2:
+					System.out.println("default Paladin");
+					genericMonstre.setRpg(new DefaultPaladin());
+					
+					break;
+				case 3:
+					System.out.println("default magicien");
+					genericMonstre.setRpg(new DefaultMagicien());
+					break;
+				case 4 :
+					System.out.println("default Fighter");
+					genericMonstre.setRpg(new DefaultFighter());
+					break;
+			}
+			setDefaultEquipment(genericMonstre);
+			
 			//inset list mostre
 			//this.nbMonstreEtage(new nbFetag++)	
-		}else if(nbFetag > 0 && nbFetag<=listMonstre.size() && nbEtages%nbFetag ==0) {
+		//}else if(nbFetag > 0 && nbFetag<=listMonstre.size() && nbEtages%nbFetag ==0) {
 			//insert dans liste etage fonction nbmontre /etage
+			//altRamd();
+			
 		}else {
 			System.out.println("error de saisie");
 			menu.nbMonstreEtage();
 		}
 	}
+	public int altRamdV2() {	
+			 int x = (int)(Math.random() * 4)%4 +1;
+			 System.out.println(x);
+			 return x;
+		
+	}
+	public void altRamd() {
+		for (int i = 0; i <= 20; i++) {
+			 int x = (int)(Math.random() * 10)%10 +1;
+			 System.out.println(x);
+		}
+	}
 	
 	
-	/******************************************************************************************/
 	
 	
 	
+	
+	
+	/******************************Parte 1 de  menu *************************************/
 	
 	
 	

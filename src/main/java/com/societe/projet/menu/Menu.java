@@ -97,6 +97,12 @@ public class Menu {
 	public int nbMonstreEtage() {
 		System.out.println("Combien Monstre par etage  ");
 		System.out.print("Choix : ");
-		return scanner.getScanner().nextInt();
+		int choix = scanner.getScanner().nextInt();
+		scanner.getScanner().nextLine();
+		return choix;
+		
 	}
+	
+	
+	
 }
