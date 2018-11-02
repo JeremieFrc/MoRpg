@@ -2,6 +2,7 @@ package com.societe.projet.donjons;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import com.societe.projet.databases.contracts.Contract;
 import com.societe.projet.databases.contracts.armes.ArmeMagiqueContract;
@@ -104,7 +105,7 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 		this.personne = new Monstre();
 		this.personne.setName(nom);
 		this.personne.setRpg(rpg);
-		return this; //retunr element qui utilise courant
+		return this; //return element qui utilise courant
 	}
 	public Personnage dftAttributLife() {
 		this.personne.setPointVie(100);
@@ -127,7 +128,7 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 		
 		//menu.screenGame();     									//def : ok
 		//nbJoueurGame = menu.initNbJoueurs();						//def : ok
-		//nbEtages = menu.nbEtage();								//def : ok
+		nbEtages = menu.nbEtage();								//def : ok
 		
 		//init les element
 		//this.createElementPersonnage(0,nbJoueurGame[0]); 			//def : ok
@@ -136,58 +137,101 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 		
 		
 		//this.methodTest(); 		//unitaire
-		this.methodTestinitArme(); //unitaire :init joueur heros
+		//this.methodTestinitArme(); //unitaire :init joueur heros 
 		
 		
 		
 		//this.initArmeEquipe(listHeros);  //ok
 		//this.initArmeEquipe(listMonstre);	// ok
-		this.initArmureEquipe(listMonstre);	// ok
+		//this.initArmureEquipe(listMonstre);	// ok
 		
 		//((Personnage) listHeros.get(0)).setArme(new ArmeMagique("hache",12,120));//init arme sur heros or monstre
 		//listHeros.get(0).setArme(new ArmeMagique("hache",12,120));//init arme sur heros or monstre
 		//System.out.println(listHeros.size());
 		
-		System.out.println("cccccc");
-		//listHeros.get(0).getArme().affiArme();
-		//listHeros.get(0).affichePersonnage();
-		//listMonstre.get(0).getArme().affiArme();
-		listMonstre.get(0).getArmure().affiArmure();
-		listMonstre.get(0).affichePersonnage();
-		nbMonstreEtage(menu.nbMonstreEtage());
+		//System.out.println("cccccc");
+		//listHeros.get(0).getArme().affiArme(); //ok
+		//listHeros.get(0).affichePersonnage();    //ok
+		//listMonstre.get(0).getArme().affiArme();   //ok
+		//listMonstre.get(0).getArmure().affiArmure();  //ok
+		//listMonstre.get(0).affichePersonnage();      //ok
+		nbMonstreEtage(menu.nbMonstreEtage());    
 		
 		
 		
 	}
 	
+	/***************************Init default montre foncion nbetage ***************************************/
+	//init les armure et les armes des personnage par default
 	
-	/*
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 */
+	public void setDefautllAttrVie(Personnage personDefault) {
+		this.personne.setPointVie(100);
+		this.personne.setPointAction(12);
+		this.personne.setPointAttaque(20);
+	}
+	
+	public void setDefaultEquipment(Personnage persoDefautlt){
+		if (persoDefautlt.getRpg() instanceof Barbare) {
+			
+			persoDefautlt.setArme(new ArmePhysique("defaultArme",3, 2));
+			persoDefautlt.setArmure(new ArmurePhysique(3));
+			persoDefautlt.getArmure().setNom("defaultArmure");
+		
+		}else if (persoDefautlt.getRpg() instanceof Magiciens) {
+			
+			persoDefautlt.setArme(new ArmeMagique("defaultArme",3, 2));
+			persoDefautlt.setArmure(new ArmureMagique(3));
+			persoDefautlt.getArmure().setNom("defaultArmure");
+			
+		}else if (persoDefautlt.getRpg() instanceof Paladin) {
+			
+			persoDefautlt.setArme(new ArmeMagique("defaultArme",20,112));
+			persoDefautlt.setArmure(new ArmureMagique(16));
+			persoDefautlt.getArmure().setNom("defaultArmure");
+			
+		}else{
+			persoDefautlt.setArme(new ArmePhysique("defaultArme",2,2));
+			persoDefautlt.setArmure(new ArmurePhysique(1));
+			persoDefautlt.getArmure().setNom("defaultArmure");
+		}
+	}
 	
 	public void nbMonstreEtage(int nbFetag) {
-		if(nbFetag > 0 /*monstre/ etage mod !=0 */) {
+		if(nbFetag > 0 && nbFetag<=listMonstre.size() && nbEtages%nbFetag !=0 ) {
 			
-			//calcul nb montre / eta = mod = 0
+			System.out.println("reste : "+nbEtages%nbFetag);
+			
+			//add monstre default a la liste
+				//init monstre
+			
+			Personnage genericMonstre = new Monstre();
+			genericMonstre.setRpg(new DefaultBarbare());
+			this.setDefautllAttrVie(genericMonstre);
+			
+			
+			
+			
 			//if non alors add montre in this list and 
 			//default
 			//create monstre 
 			//init default
 			//inset list mostre
 			//this.nbMonstreEtage(new nbFetag++)	
-		}else if(nbFetag > 0 /*monstre/ etage mod ==0*/) {
+		}else if(nbFetag > 0 && nbFetag<=listMonstre.size() && nbEtages%nbFetag ==0) {
 			//insert dans liste etage fonction nbmontre /etage
 		}else {
 			System.out.println("error de saisie");
 			menu.nbMonstreEtage();
 		}
 	}
+	
+	
+	/******************************************************************************************/
+	
+	
+	
+	
+	
 	
 	public <T> void initArmureEquipe(List<T> liste) {     							//def : ok				
 		System.out.println("\nSelect armuree : \n\n");

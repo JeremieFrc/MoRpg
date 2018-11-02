@@ -95,7 +95,8 @@ public class Menu {
 		System.out.println("Personnage Barbare   [3]");	
 	}
 	public int nbMonstreEtage() {
-		System.out.println("Combien Monstre par etage");
+		System.out.println("Combien Monstre par etage  ");
+		System.out.print("Choix : ");
 		return scanner.getScanner().nextInt();
 	}
 

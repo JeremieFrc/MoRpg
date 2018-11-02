@@ -28,6 +28,8 @@ public abstract class Armure extends DBItem {
 		this.defence = defence;
 	}
 	
+	
+	
 	//************************************************//
 	//	 @Setter and @getter
 	//***********************************************//

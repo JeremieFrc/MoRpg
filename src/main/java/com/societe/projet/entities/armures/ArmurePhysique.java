@@ -22,6 +22,7 @@ public class ArmurePhysique extends Armure {
 		super(defence);
 	}
 	
+	
 	//************************************************//
 	//	 @Setter and @getter
 	//***********************************************//
