@@ -99,5 +99,4 @@ public class Menu {
 		System.out.print("Choix : ");
 		return scanner.getScanner().nextInt();
 	}
-
 }

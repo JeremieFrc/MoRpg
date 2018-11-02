@@ -162,6 +162,7 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 	}
 	
 	/***************************Init default montre foncion nbetage ***************************************/
+	
 	//init les armure et les armes des personnage par default
 	
 	public void setDefautllAttrVie(Personnage personDefault) {
@@ -208,9 +209,7 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 			genericMonstre.setRpg(new DefaultBarbare());
 			this.setDefautllAttrVie(genericMonstre);
 			
-			
-			
-			
+				
 			//if non alors add montre in this list and 
 			//default
 			//create monstre 
@@ -534,9 +533,6 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 		verifiedType(p);
 	}
 	
-	
-	
-	
 	public void methodTest() {
 		//this.afficheList(listPersonnage);	
 		
@@ -596,10 +592,5 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 		}
 	}	
 	
-	
-
-
-
-
 
 }
