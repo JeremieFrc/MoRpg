@@ -94,12 +94,16 @@ public class Menu {
 		System.out.println("Personnage Magicien  [2]");
 		System.out.println("Personnage Barbare   [3]");	
 	}
-	public int nbMonstreEtage() {
+	
+	public int menuMonstreEtage(int totalMontre) {
+		
+		System.out.println("Total montre dans arene : "+totalMontre);
 		System.out.println("Combien Monstre par etage  ");
 		System.out.print("Choix : ");
-		int choix = scanner.getScanner().nextInt();
-		scanner.getScanner().nextLine();
-		return choix;
+		
+		//int choix = scanner.getScanner().nextInt();
+		//scanner.getScanner().nextLine();
+		return scanner.getScanner().nextInt();
 		
 	}
 	

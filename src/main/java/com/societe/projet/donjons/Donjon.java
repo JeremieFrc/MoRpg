@@ -57,7 +57,7 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 	private List <Personnage> listPersonnage = new ArrayList<Personnage>();
 	private List <ArrayList<Monstre>> listEtagge = new ArrayList<ArrayList<Monstre>>();
 	
-	
+	private int montre = 10;
 	
 	
 	
@@ -129,7 +129,7 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 		
 		//menu.screenGame();     									//def : ok
 		//nbJoueurGame = menu.initNbJoueurs();						//def : ok
-		nbEtages = menu.nbEtage();								//def : ok
+		nbEtages = menu.nbEtage();								    //def : ok
 		
 		//init les element
 		//this.createElementPersonnage(0,nbJoueurGame[0]); 			//def : ok
@@ -156,7 +156,7 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 		//listMonstre.get(0).getArme().affiArme();   //ok
 		//listMonstre.get(0).getArmure().affiArmure();  //ok
 		//listMonstre.get(0).affichePersonnage();      //ok
-		nbMonstreEtage(menu.nbMonstreEtage());    
+		nbMonstreEtage(menu.menuMonstreEtage(10));    
 		
 		
 		
@@ -167,6 +167,7 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 	//init les armure et les armes des personnage par default
 	
 	public void setDefautllAttrVie(Personnage personDefault) {
+		personDefault.setName("defaultPers");
 		personDefault.setPointVie(100);
 		personDefault.setPointAction(12);
 		personDefault.setPointAttaque(20);
@@ -175,24 +176,28 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 	public void setDefaultEquipment(Personnage persoDefautlt){
 		if (persoDefautlt.getRpg() instanceof Barbare) {
 			System.out.println("Equipement default barbare");
+			
 			persoDefautlt.setArme(new ArmePhysique("defaultArme",3, 2));
 			persoDefautlt.setArmure(new ArmurePhysique(3));
 			persoDefautlt.getArmure().setNom("defaultArmure");
 		
 		}else if (persoDefautlt.getRpg() instanceof Magiciens) {
 			System.out.println("Equipement default Magicient");
+			
 			persoDefautlt.setArme(new ArmeMagique("defaultArme",3, 2));
 			persoDefautlt.setArmure(new ArmureMagique(3));
 			persoDefautlt.getArmure().setNom("defaultArmure");
 			
 		}else if (persoDefautlt.getRpg() instanceof Paladin) {
 			System.out.println("Equipement default Paladin");
+			
 			persoDefautlt.setArme(new ArmeMagique("defaultArme",20,112));
 			persoDefautlt.setArmure(new ArmureMagique(16));
 			persoDefautlt.getArmure().setNom("defaultArmure");
 			
 		}else{
 			System.out.println("Equipement default Fighter");
+			
 			persoDefautlt.setArme(new ArmePhysique("defaultArme",2,2));
 			persoDefautlt.setArmure(new ArmurePhysique(1));
 			persoDefautlt.getArmure().setNom("defaultArmure");
@@ -200,20 +205,19 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 	}
 	
 	public void nbMonstreEtage(int nbMonstrEtage) {
-		int montre = 12;
-		System.out.println("reste : "+nbEtages%nbMonstrEtage);
 		
+		System.out.println("reste : "+nbEtages%nbMonstrEtage);
 		//nbFetag<=listMonstre.size() 
 		if((nbMonstrEtage > 0) && (nbMonstrEtage<= montre) && (nbEtages*nbMonstrEtage != montre) ) {
 			
-			System.out.println(nbEtages*nbMonstrEtage+" insuffissant");
+			System.out.println(montre+" monstres insuffissant IA add montres default");
 			
 			//add monstre default a la listMonstre
 			
 			Personnage genericMonstre = new Monstre();
 			this.setDefautllAttrVie(genericMonstre);
 			
-			switch(altRamdV2()) {
+			switch(altRamdDefaultInstance()) {
 				case 1 :
 					System.out.println("default barbare");
 					genericMonstre.setRpg(new DefaultBarbare());
@@ -221,7 +225,6 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 				case 2:
 					System.out.println("default Paladin");
 					genericMonstre.setRpg(new DefaultPaladin());
-					
 					break;
 				case 3:
 					System.out.println("default magicien");
@@ -233,32 +236,37 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 					break;
 			}
 			setDefaultEquipment(genericMonstre);
+			//inset list monstre
+			listMonstre.add((Monstre) genericMonstre); //def : ok
+			montre = montre+1;
 			
-			//inset list mostre
-			//this.nbMonstreEtage(new nbFetag++)	
-		//}else if(nbFetag > 0 && nbFetag<=listMonstre.size() && nbEtages%nbFetag ==0) {
-			//insert dans liste etage fonction nbmontre /etage
-			//altRamd();
+			nbMonstreEtage(nbMonstrEtage);
 			
-		}else {
+		}else if((nbMonstrEtage < 0) && (nbMonstrEtage> montre) && (nbEtages*nbMonstrEtage != montre)){
 			System.out.println("error de saisie");
-			menu.nbMonstreEtage();
+			menu.menuMonstreEtage(montre);
+		}else {
+			System.out.println("------------ monstre ok insert -------------");
+			this.afficheList(listMonstre);
+			getInstanceEquipement(listMonstre);
 		}
 	}
-	public int altRamdV2() {	
+	public int altRamdDefaultInstance() {	                //def : ok
 			 int x = (int)(Math.random() * 4)%4 +1;
 			 System.out.println(x);
 			 return x;
-		
 	}
-	public void altRamd() {
-		for (int i = 0; i <= 20; i++) {
-			 int x = (int)(Math.random() * 10)%10 +1;
-			 System.out.println(x);
+	public void getInstanceEquipement(List<Monstre> list) {
+		for(Monstre m : list) {
+			/*if(m.getArme() instanceof ArmeMagique) {
+				System.out.println("instance arme magique");
+			}*/
+			m.getArmure().affiArmure();
 		}
+		System.out.println("------------Instance arme ------------");
+		verifInstanceArm(list,0);
 	}
-	
-	
+
 	
 	
 	
@@ -394,7 +402,7 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 		}
 		return choix;
 	}
-	public int initPersArmeArmure() {													    //def : ok
+	public int initPersArmeArmure() {											    //def : ok
 		//gestiion bouclage pour error
 		System.out.print("\nchoix : ");
 		int choix = scanners.getScanner().nextInt() - 1;
@@ -552,7 +560,6 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 		}
 	}
 
-	
 	
 	//************************************************//
 	//	 @Test unitaire
