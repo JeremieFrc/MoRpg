@@ -129,7 +129,7 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 		
 		//menu.screenGame();     									//def : ok
 		//nbJoueurGame = menu.initNbJoueurs();						//def : ok
-		nbEtages = menu.nbEtage();								    //def : ok
+		//nbEtages = menu.nbEtage();								    //def : ok
 		
 		//init les element
 		//this.createElementPersonnage(0,nbJoueurGame[0]); 			//def : ok
@@ -271,11 +271,31 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 	void initEtageMonstre(int nbMontreEtage) {
 		//init les  monstre a liste etage monstre
 		
-		for(int i=0;i<listMonstre.size();i++) {
-			for(int j=0;j<nbMontreEtage;j++) {
-				
+		int nombreEtagess = 5;
+		int maxMonstreEtage = 2;
+		
+		int compteur = 0 ;
+		int montreSize = 10;
+		int listMonsteee = 10;
+		
+		
+		
+		for(int i=0 ; i < nombreEtagess  ; i++) {
+			for(int j = 0; j <= maxMonstreEtage ;j++) {
+				for(int jj = compteur+1; jj <= listMonsteee ;j++) {
+					System.out.print("etage : "+i+" montre ["+jj+"]");
+				}
+				System.out.println("etage : "+i+" montre ["+jj+"]");
 			}
 		}
+		
+		/*
+		for(int i=compteur ; i < montreSize ; i++) {
+			for(int j=0; j< nombremonstreEtage ;j++) {
+				System.out.print("etage : "+j+"");
+				compteur++;
+			}
+		}*/
 	}
 	
 	
