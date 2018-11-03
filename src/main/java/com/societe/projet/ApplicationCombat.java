@@ -39,6 +39,14 @@ public class ApplicationCombat {
 	//***********************************************//							
 	 ScannerProvider scanners = ScannerProvider.getInstance();
 
+	//************************************************//
+	//	 @insert base Data
+	//***********************************************//
+	  matchBDD();
+	 
+	 
+	 
+	 
 		
 	 //************************************************//
 	//	 @insert menu
@@ -54,22 +62,78 @@ public class ApplicationCombat {
 	 
 	 //testInitObject(persGeneric); //ok
 	 
-	 //************************************************//
-	//	 @insert base Data
-	//***********************************************//
 	
+	 
+	 
 	 //testInitBddV1(); //ok	supp after utilisation 
+	 
 	 //dropTable(); //ok
 	 //testInitArm();//ok
 	 //testInitArmu();//ok
 	 //testSelectV1(); //ok
+	 
+	
 
 	}
+	
+	public static void matchBDD() {
+		
+		DAOManager<Arme> armeDAOManager = new DAOManager<>();
+		DAOManager<Armure> armureDAOManager = new DAOManager<>();
+		
+		DAOManager<ArmeMagique> armeMDAOManager = new DAOManager<>();
+		DAOManager<ArmePhysique> armePDAOManager = new DAOManager<>();
+		
+		DAOManager<ArmureMagique> armuMDAOManager = new DAOManager<>();
+		DAOManager<ArmurePhysique> armuPDAOManager = new DAOManager<>();
+		
+		
+		armeMDAOManager.dropTable(ArmeMagiqueContract.DROP_TABLE);
+		armePDAOManager.dropTable(ArmePhysiqueContract.DROP_TABLE);
+		
+		armuMDAOManager.dropTable(ArmureMagiqueContract.DROP_TABLE);
+		armuPDAOManager.dropTable(ArmurePhysicContract.DROP_TABLE);
+		
+		armureDAOManager.dropTable(ArmureContract.DROP_TABLE);
+		armeDAOManager.dropTable(ArmeContract.DROP_TABLE);
+		
+		/*
+		 * ----------  Create Table
+		 */
+		
+		armeDAOManager.createTable(ArmeContract.CREATE_TABLE);
+		armeMDAOManager.createTable(ArmeMagiqueContract.CREATE_TABLE_V2);
+		armePDAOManager.createTable(ArmePhysiqueContract.CREATE_TABLE_V2);	
+		
+		armureDAOManager.createTable(ArmureContract.CREATE_TABLE);
+		armuMDAOManager.createTable(ArmureMagiqueContract.CREATE_TABLE_V2);
+		armuPDAOManager.createTable(ArmurePhysicContract.CREATE_TABLE_V2);
+		
+		/*
+		 * ---------- Init arme et armure in bdd
+		 */
+		
+		armeDAOManager.insertBdd(ArmeContract.INSERT_TABLE);
+		armeMDAOManager.initConstraintPrepaStat(ArmeMagiqueContract.INSERT_CONST,1,4);
+		armePDAOManager.initConstraintPrepaStat(ArmePhysiqueContract.INSERT_CONST,4,7);
+		
+		armureDAOManager.insertBdd(ArmureContract.INSERT_TABLE);
+		armuMDAOManager.initConstraintPrepaStat(ArmureMagiqueContract.INSERT_CONST,1,4);
+		armuPDAOManager.initConstraintPrepaStat(ArmurePhysicContract.INSERT_CONST,4,7);
+	
+	}
+	
+	
+	
+	
+	
+	
 	
 	public static void testInitArm() {
 		DAOManager<Arme> armeDAOManager = new DAOManager<>();
 		DAOManager<ArmeMagique> armgDAOManager = new DAOManager<>();
 		DAOManager<ArmePhysique> armpDAOManager = new DAOManager<>();
+		
 		armeDAOManager.createTable(ArmeContract.CREATE_TABLE);
 		armgDAOManager.createTable(ArmeMagiqueContract.CREATE_TABLE_V2);
 		armpDAOManager.createTable(ArmePhysiqueContract.CREATE_TABLE_V2);	
@@ -85,6 +149,7 @@ public class ApplicationCombat {
 		DAOManager<Armure> armuDAOManager = new DAOManager<>();
 		DAOManager<ArmureMagique> armugDAOManager = new DAOManager<>();
 		DAOManager<ArmurePhysique> armupDAOManager = new DAOManager<>();
+		
 		armuDAOManager.createTable(ArmureContract.CREATE_TABLE);
 		armugDAOManager.createTable(ArmureMagiqueContract.CREATE_TABLE_V2);
 		armupDAOManager.createTable(ArmurePhysicContract.CREATE_TABLE_V2);	
