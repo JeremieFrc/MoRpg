@@ -42,29 +42,22 @@ public class ApplicationCombat {
 	//************************************************//
 	//	 @insert base Data
 	//***********************************************//
-	  matchBDD();
+	  matchBDD();  //def : ok
 	 
-	 
-	 
-	 
-		
 	 //************************************************//
 	//	 @insert menu
 	//***********************************************//
-	 Donjon persGeneric = new Donjon(scanners);
+	 Donjon persGeneric = new Donjon(scanners);   //def : ok
 	 
-	 persGeneric.initMenu();
-	 persGeneric.interfaceGame();
+	 persGeneric.initMenu();					//def : ok
+	 persGeneric.interfaceGame();				//def : ok
 	 
 	 //************************************************//
 	//	 @init Object
 	//***********************************************//
 	 
 	 //testInitObject(persGeneric); //ok
-	 
 	
-	 
-	 
 	 //testInitBddV1(); //ok	supp after utilisation 
 	 
 	 //dropTable(); //ok
@@ -72,7 +65,6 @@ public class ApplicationCombat {
 	 //testInitArmu();//ok
 	 //testSelectV1(); //ok
 	 
-	
 
 	}
 	
