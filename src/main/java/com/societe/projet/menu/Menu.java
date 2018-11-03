@@ -19,7 +19,7 @@ public class Menu {
 		
 		int nbJoueur[] = new int[2];
 		System.out.println(SCREEN_CONFIG);
-		System.out.println("-------- Nombres Joueurs par Equipe -------------\n");
+		System.out.println("\n\n\n-------- Nombres Joueurs par Equipe -------------\n");
 		
 		System.out.println("Nombre joueurs equipe de HEROS : ");
 		System.out.print("Choix : ");
@@ -52,7 +52,7 @@ public class Menu {
 	public int nbEtage() {
 		int nb = 0;
 		
-		System.out.println("\n--------Saisie nombre etage pour Donjon----------\n");
+		System.out.println("\n\n\n--------Saisie nombre etage pour Donjon----------\n");
 		System.out.print("Choix : ");
 		
 		nb = scanner.getScanner().nextInt();
@@ -80,7 +80,7 @@ public class Menu {
 	}	
 	public int affCreatePerso(int nbJoueurGame) {
 
-		System.out.println("\nEquipe nbPerso maximun : "+nbJoueurGame);
+		System.out.println("Equipe nbPerso maximun : "+nbJoueurGame);
 		
 		System.out.println("\nPersonnage Paladin   [1]");
 		System.out.println("Personnage Magicien  [2]");
@@ -97,13 +97,14 @@ public class Menu {
 	
 	public int menuMonstreEtage(int totalMontre) {
 		
-		System.out.println("Total montre dans arene : "+totalMontre);
+		System.out.println("\n\n\n-------- Choix monstre par Etages ------------");
+		System.out.println("\nTotal montre dans arene : "+totalMontre);
 		System.out.println("Combien Monstre par etage  ");
 		System.out.print("Choix : ");
 		
-		//int choix = scanner.getScanner().nextInt();
-		//scanner.getScanner().nextLine();
-		return scanner.getScanner().nextInt();
+		int choix = scanner.getScanner().nextInt();
+		scanner.getScanner().nextLine();
+		return choix;
 		
 	}
 	
