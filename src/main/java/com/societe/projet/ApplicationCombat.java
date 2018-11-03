@@ -128,16 +128,39 @@ public class ApplicationCombat {
 	}
 	
 	public static void dropTable() {
-		DAOManager dao = new DAOManager();
-		dao.dropTable(ArmurePhysicContract.DROP_TABLE);
-		dao.dropTable(ArmureMagiqueContract.DROP_TABLE);
 		
-		dao.dropTable(ArmureContract.DROP_TABLE);
+		DAOManager<Arme> armeDAOManager = new DAOManager<>();
+		DAOManager<Armure> armureDAOManager = new DAOManager<>();
+		
+		DAOManager<ArmeMagique> armeMDAOManager = new DAOManager<>();
+		DAOManager<ArmePhysique> armePDAOManager = new DAOManager<>();
+		
+		DAOManager<ArmureMagique> armuMDAOManager = new DAOManager<>();
+		DAOManager<ArmurePhysique> armuPDAOManager = new DAOManager<>();
+		
+		
+		
+		armeMDAOManager.dropTable(ArmeMagiqueContract.DROP_TABLE);
+		armePDAOManager.dropTable(ArmePhysiqueContract.DROP_TABLE);
+		
+		armuMDAOManager.dropTable(ArmureMagiqueContract.DROP_TABLE);
+		armuPDAOManager.dropTable(ArmurePhysicContract.DROP_TABLE);
+		
+		armureDAOManager.dropTable(ArmureContract.DROP_TABLE);
+		armeDAOManager.dropTable(ArmeContract.DROP_TABLE);
+		
+
+		
+		//DAOManager dao = new DAOManager();
+		//dao.dropTable(ArmurePhysicContract.DROP_TABLE);
+		//dao.dropTable(ArmureMagiqueContract.DROP_TABLE);
+		
+		//dao.dropTable(ArmureContract.DROP_TABLE);
 	
-		dao.dropTable(ArmeMagiqueContract.DROP_TABLE);
-		dao.dropTable(ArmePhysiqueContract.DROP_TABLE);
+		//dao.dropTable(ArmeMagiqueContract.DROP_TABLE);
+		//dao.dropTable(ArmePhysiqueContract.DROP_TABLE);
 		
-		dao.dropTable(ArmeContract.DROP_TABLE);
+		//dao.dropTable(ArmeContract.DROP_TABLE);
 	}
 	
 	public static void testInitBddV1() {

@@ -218,9 +218,6 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 	//init les armure et les armes des personnage par default
 	
 	
-	
-	
-	
 	public void nbMonstreEtage(int nbMonstrEtage) {
 		int totalMonstre = listMonstre.size();
 		nbMonstreEtage = nbMonstrEtage;
