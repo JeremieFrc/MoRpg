@@ -34,40 +34,44 @@ public class ApplicationCombat {
 
 	public static void main(String[] args) {
 		
-	//************************************************//
-	//	 @definition Scanner
-	//***********************************************//							
-	 ScannerProvider scanners = ScannerProvider.getInstance();
-
-	//************************************************//
-	//	 @insert base Data
-	//***********************************************//
-	  matchBDD();  //def : ok
+	/*
+	*************************************************
+	*    @definition Scanner
+	*************************************************
+	 */
+	
+		ScannerProvider scanners = ScannerProvider.getInstance();
+		
+	/*
+	*************************************************
+	*    @insert base Data
+	*************************************************
+	*/	
+		matchBDD();  //def : ok
+		
+	/*
+	*************************************************
+	*     @insert menu
+	*************************************************
+	*/
+		Donjon persGeneric = new Donjon(scanners);   //def : ok
+		//persGeneric.initMenu();					//def : ok
+		//persGeneric.interfaceGame();				//def : ok	
+		
 	 
 	 //************************************************//
-	//	 @insert menu
-	//***********************************************//
-	 Donjon persGeneric = new Donjon(scanners);   //def : ok
-	 
-	 //persGeneric.initMenu();					//def : ok
-	 //persGeneric.interfaceGame();				//def : ok
-	 
-	 //************************************************//
-	//	 @init Object
+	//	 @Testt unitaie init Object
 	//***********************************************//
 	 
 	 //testInitObject(persGeneric); //ok
-	
-	 //testInitBddV1(); //ok	supp after utilisation 
-	 
-	 //dropTable(); //ok
-
-	 //testInitArmu();//ok
 	 //testSelectV1(); //ok
 	 
-	 
-	 
-	 closeConnection();
+	/*
+	*************************************************
+	*     @Close Connection Bdd
+	*************************************************
+	*/
+	 closeConnection();    //def : ok
 	}
 	
 	public static void matchBDD() {
@@ -184,8 +188,6 @@ public class ApplicationCombat {
 		}
 	}
 
-	
-	
 	
 	public static void testInitObject( Donjon persGeneric ) {
 		
