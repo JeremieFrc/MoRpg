@@ -58,16 +58,6 @@ public class ApplicationCombat {
 		persGeneric.initMenu();						//def : ok
 		persGeneric.interfaceGame();				//def : ok
 		persGeneric.game();
-		
-	 
-	 //************************************************//
-	//	 @Testt unitaie init Object
-	//***********************************************//
-	 
-		
-		//declararer  1 heros et un monstre
-		//les faire ce battre method attak
-		//programmer attack fonction des caract des personnage
 	 
 	/*
 	*************************************************

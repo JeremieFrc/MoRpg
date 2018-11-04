@@ -243,6 +243,16 @@ public class Donjon {
 	
 	public void game() {
 		System.out.println("\n\n\n--------Lancementt Jeux -----------");
+		
+		
+		
+		//declararer  1 heros et un monstre
+		//les faire ce battre method attak
+		//programmer attack fonction des caract des personnage
+		
+		
+		
+		
 	}
 
 	
