@@ -499,6 +499,19 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 	 * * Base de donnees methode
 	 */
 	
+	public static <T> void affEquipment(List <T> item) {
+		int compteur = 1 ;
+		for (T a : item) {	
+			if( a instanceof Arme) {
+				((Arme) a).affiArme();
+			}else if (a instanceof Armure) {
+				((Armure) a).affiArmure();
+			}
+			System.out.println("\nchoix : ["+compteur+"]");
+			compteur++;
+		}
+	}
+	
 	public static <T> void affArme(List <T> item) {									//def : ok
 		int compteur =1 ;
 		for (T a : item) {
@@ -508,7 +521,7 @@ public class Donjon { //personnage builder lui qui gere tous les personnage poin
 		}
 	}
 	public static <T> void affArmure(List <T> item) {								//def : ok						
-		int compteur =1 ;
+		int compteur = 1 ;
 		for (T a : item) {
 			((Armure) a).affiArmure();
 			System.out.println("\nchoix : ["+compteur+"]");

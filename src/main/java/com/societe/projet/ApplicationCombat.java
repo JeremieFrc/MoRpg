@@ -49,8 +49,8 @@ public class ApplicationCombat {
 	//***********************************************//
 	 Donjon persGeneric = new Donjon(scanners);   //def : ok
 	 
-	 persGeneric.initMenu();					//def : ok
-	 persGeneric.interfaceGame();				//def : ok
+	 //persGeneric.initMenu();					//def : ok
+	 //persGeneric.interfaceGame();				//def : ok
 	 
 	 //************************************************//
 	//	 @init Object
@@ -61,11 +61,13 @@ public class ApplicationCombat {
 	 //testInitBddV1(); //ok	supp after utilisation 
 	 
 	 //dropTable(); //ok
-	 //testInitArm();//ok
+
 	 //testInitArmu();//ok
 	 //testSelectV1(); //ok
 	 
-
+	 
+	 
+	 closeConnection();
 	}
 	
 	public static void matchBDD() {
@@ -112,30 +114,27 @@ public class ApplicationCombat {
 		armureDAOManager.insertBdd(ArmureContract.INSERT_TABLE);
 		armuMDAOManager.initConstraintPrepaStat(ArmureMagiqueContract.INSERT_CONST,1,4);
 		armuPDAOManager.initConstraintPrepaStat(ArmurePhysicContract.INSERT_CONST,4,7);
-	
-	}
-	
-	
-	
-	
-	
-	
-	
-	public static void testInitArm() {
+	}	
+	public static void closeConnection() {
 		DAOManager<Arme> armeDAOManager = new DAOManager<>();
-		DAOManager<ArmeMagique> armgDAOManager = new DAOManager<>();
-		DAOManager<ArmePhysique> armpDAOManager = new DAOManager<>();
+		DAOManager<Armure> armureDAOManager = new DAOManager<>();
 		
-		armeDAOManager.createTable(ArmeContract.CREATE_TABLE);
-		armgDAOManager.createTable(ArmeMagiqueContract.CREATE_TABLE_V2);
-		armpDAOManager.createTable(ArmePhysiqueContract.CREATE_TABLE_V2);	
+		DAOManager<ArmeMagique> armeMDAOManager = new DAOManager<>();
+		DAOManager<ArmePhysique> armePDAOManager = new DAOManager<>();
 		
-		armeDAOManager.insertBdd(ArmeContract.INSERT_TABLE);
-		//armeDAOManager.initConstraintPrepaStat(ArmeMagiqueContract.INSERT_CONST,ArmePhysiqueContract.INSERT_CONST);
-		armgDAOManager.initConstraintPrepaStat(ArmeMagiqueContract.INSERT_CONST,1,4);
-		armgDAOManager.initConstraintPrepaStat(ArmePhysiqueContract.INSERT_CONST,4,7);
+		DAOManager<ArmureMagique> armuMDAOManager = new DAOManager<>();
+		DAOManager<ArmurePhysique> armuPDAOManager = new DAOManager<>();
 		
+		DBOUtilitaire.closeConnection(armeDAOManager.getConnection());
+		DBOUtilitaire.closeConnection(armeMDAOManager.getConnection());
+		DBOUtilitaire.closeConnection(armePDAOManager.getConnection());
+
+		DBOUtilitaire.closeConnection(armureDAOManager.getConnection());
+		DBOUtilitaire.closeConnection(armuMDAOManager.getConnection());
+		DBOUtilitaire.closeConnection(armuPDAOManager.getConnection());	
 	}
+		
+	
 	
 	public static void testInitArmu() {
 		DAOManager<Armure> armuDAOManager = new DAOManager<>();
@@ -167,101 +166,25 @@ public class ApplicationCombat {
 		ArrayList<ArmureMagique> armuc = armuDAOManager.selectAllJoin(new ArmureMagiqueContract(), new ArmureMagiqueDTO());
 		ArrayList<ArmurePhysique> armup = armupDAOManager.selectAllJoin(new ArmurePhysicContract(), new ArmurePhysiqueDTO());
 	
-		affArm(armic);
-		affArm(armp);
+		affEquipment(armic);
+		//affEquipment(armp);
 		
-		affArmu(armuc);
-		affArmu(armup);	
-	}
-	public static <T> void affArm(List <T> item) {
-		for (T a : item) {
-			((Arme) a).affiArme();
-		}
-	}
-	public static <T> void affArmu(List <T> item) {
-		for (T a : item) {
-			((Armure) a).affiArmure();
-		}
+		affEquipment(armuc);
+		//affArmu(armup);	
 	}
 	
-	public static void dropTable() {
-		
-		DAOManager<Arme> armeDAOManager = new DAOManager<>();
-		DAOManager<Armure> armureDAOManager = new DAOManager<>();
-		
-		DAOManager<ArmeMagique> armeMDAOManager = new DAOManager<>();
-		DAOManager<ArmePhysique> armePDAOManager = new DAOManager<>();
-		
-		DAOManager<ArmureMagique> armuMDAOManager = new DAOManager<>();
-		DAOManager<ArmurePhysique> armuPDAOManager = new DAOManager<>();
-		
-		
-		
-		armeMDAOManager.dropTable(ArmeMagiqueContract.DROP_TABLE);
-		armePDAOManager.dropTable(ArmePhysiqueContract.DROP_TABLE);
-		
-		armuMDAOManager.dropTable(ArmureMagiqueContract.DROP_TABLE);
-		armuPDAOManager.dropTable(ArmurePhysicContract.DROP_TABLE);
-		
-		armureDAOManager.dropTable(ArmureContract.DROP_TABLE);
-		armeDAOManager.dropTable(ArmeContract.DROP_TABLE);
-		
+	
+	public static <T> void affEquipment(List <T> item) {
+		for (T a : item) {	
+			if( a instanceof Arme) {
+				((Arme) a).affiArme();
+			}else if (a instanceof Armure) {
+				((Armure) a).affiArmure();
+			}
+		}
+	}
 
-		
-		//DAOManager dao = new DAOManager();
-		//dao.dropTable(ArmurePhysicContract.DROP_TABLE);
-		//dao.dropTable(ArmureMagiqueContract.DROP_TABLE);
-		
-		//dao.dropTable(ArmureContract.DROP_TABLE);
 	
-		//dao.dropTable(ArmeMagiqueContract.DROP_TABLE);
-		//dao.dropTable(ArmePhysiqueContract.DROP_TABLE);
-		
-		//dao.dropTable(ArmeContract.DROP_TABLE);
-	}
-	
-	public static void testInitBddV1() {
-		//declaration une seul instance de bdd
-				DAOManager dao = new DAOManager();
-				
-				dao.dropTable(ArmurePhysicContract.DROP_TABLE);
-				dao.dropTable(ArmureMagiqueContract.DROP_TABLE);
-				
-				dao.dropTable(ArmureContract.DROP_TABLE);
-			
-				dao.dropTable(ArmeMagiqueContract.DROP_TABLE);
-				dao.dropTable(ArmePhysiqueContract.DROP_TABLE);
-				
-				dao.dropTable(ArmeContract.DROP_TABLE);
-				
-				
-				System.out.println(ArmeContract.CREATE_TABLE);
-				System.out.println(ArmeMagiqueContract.CREATE_TABLE_V2);
-	
-				dao.createTable(ArmureContract.CREATE_TABLE); //creation ok
-				dao.createTable(ArmeContract.CREATE_TABLE); //creation ok
-				
-				dao.createTable(ArmePhysiqueContract.CREATE_TABLE_V2);
-				dao.createTable(ArmeMagiqueContract.CREATE_TABLE_V2);
-				
-				
-				dao.createTable(ArmurePhysicContract.CREATE_TABLE_V2);
-				dao.createTable(ArmureMagiqueContract.CREATE_TABLE_V2);
-				
-				
-				//insert en dure
-				
-				dao.insertBdd(ArmeContract.INSERT_TABLE);
-				dao.insertBdd(ArmureContract.INSERT_TABLE);
-				System.out.println(ArmeMagiqueContract.INSERT_CONST);
-				//liaison contrainte
-				
-				dao.initConstraintPrepaStat(ArmeMagiqueContract.INSERT_CONST,ArmePhysiqueContract.INSERT_CONST);
-				dao.initConstraintPrepaStat(ArmureMagiqueContract.INSERT_CONST,ArmurePhysicContract.INSERT_CONST);
-				
-				
-				DBOUtilitaire.closeConnection(dao.getConnection());		
-	}
 	
 	
 	public static void testInitObject( Donjon persGeneric ) {

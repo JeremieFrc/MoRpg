@@ -9,7 +9,7 @@ public class DBOpenHelper {
 	
 	public static final String URL = "root@localhost";
 	public static final String DATA_BASE = "myrpg";
-	public static final String ServerName = "127.0.0.1";
+	public static final String SERVERNAME = "127.0.0.1";
 	public static final String USER = "root";
 	public static final String PASS = "";
 	
@@ -24,7 +24,7 @@ public class DBOpenHelper {
 		MysqlDataSource dataSource = new MysqlDataSource();
 		
 		dataSource.setDatabaseName(DATA_BASE);
-		dataSource.setServerName(ServerName);
+		dataSource.setServerName(SERVERNAME);
 		dataSource.setUser(USER);
 		dataSource.setPassword("");
 		
