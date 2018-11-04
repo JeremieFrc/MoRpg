@@ -1,11 +1,34 @@
 package com.societe.projet.defaultfighter;
 
+
 import com.societe.projet.entities.armes.Arme;
+import com.societe.projet.entities.armes.ArmePhysique;
 import com.societe.projet.entities.armures.Armure;
+import com.societe.projet.entities.armures.ArmurePhysique;
 import com.societe.projet.entities.personnages.Personnage;
 import com.societe.projet.rpg.Barbare;
 
+
 public class DefaultBarbare extends DefaultFighter implements Barbare {
+	/*
+	*************************************************
+	*    @Private
+	*************************************************
+	 */
+	private Arme armeBarbare;
+	
+	/*
+	*************************************************
+	*    @getter setter
+	*************************************************
+	 */
+	
+	
+	/*
+	*************************************************
+	*    @Override
+	*************************************************
+	 */
 
 	@Override
 	public String getWeasponRestriction() {
@@ -24,17 +47,40 @@ public class DefaultBarbare extends DefaultFighter implements Barbare {
 		// TODO Auto-generated method stub
 		super.figth(defender);
 	}
-
+	/*
+	*********************************************************
+	*    @@verification contraintes barbare armure  arme
+	*******************************************************
+	 */
+	
 	@Override
 	public boolean isEquipable(Arme arme) {
-		// TODO Auto-generated method stub
-		return super.isEquipable(arme);
+		boolean result = false;
+		//gestion erreur sur les type arme que select par user
+		if (arme instanceof ArmePhysique) {
+			result = true;
+		}
+		return result;
 	}
 
 	@Override
 	public boolean isEquipable(Armure armure) {
-		// TODO Auto-generated method stub
-		return super.isEquipable(armure);
+		boolean result = false;
+		//gestion erreur sur les type armure que select par user
+		//verification instance select
+		if (armure instanceof ArmurePhysique) {
+			result = true;
+		}
+		return result;
+	}
+
+	//******************************************************//
+	//	 @ setEquimepent barbare armure et arme
+	//*****************************************************//
+	
+	@Override
+	public void setArmeBarbare(Arme arme) {
+		armeBarbare = arme;	
 	}
 
 }

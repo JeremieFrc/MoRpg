@@ -1,11 +1,40 @@
 package com.societe.projet.defaultfighter;
 
+
 import com.societe.projet.entities.armes.Arme;
 import com.societe.projet.entities.armures.Armure;
 import com.societe.projet.entities.personnages.Personnage;
 import com.societe.projet.rpg.Rpg;
 
 public class DefaultFighter implements Rpg{
+	
+	/*
+	*************************************************
+	*    @Private
+	*************************************************
+	 */
+	
+	private Personnage personnage;
+	
+	/*
+	*************************************************
+	*    @getter setter
+	*************************************************
+	 */
+	
+	
+	public Personnage getPersonnage() {
+		return personnage;
+	}
+
+	public void setPersonnage(Personnage personnage) {
+		this.personnage = personnage;
+	}
+	/*
+	*************************************************
+	*    @Override
+	*************************************************
+	 */
 
 	@Override
 	public String getWeasponRestriction() {
@@ -24,7 +53,7 @@ public class DefaultFighter implements Rpg{
 		// TODO Auto-generated method stub
 		
 	}
-	
+
 	@Override
 	public boolean isEquipable(Arme arme) {
 		// TODO Auto-generated method stub

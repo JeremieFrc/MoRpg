@@ -1,53 +1,67 @@
 package com.societe.projet.entities.armures;
 
-public abstract class Armure {
+import com.societe.projet.databases.DBItem;
 
+public abstract class Armure extends DBItem {
+
+	/*
+	*************************************************
+	*    @Private
+	*************************************************
+	 */
 	
-	//************************************************//
-	//	 @private
-	//***********************************************//
+	private String nom;
+	private int defence;
 	
-	private int defencePhysique;
-	private int defenceMagic;
-	
-	
-	//************************************************//
-	//	 @Constructeur 
-	//***********************************************//
+	/*
+	*************************************************
+	*    @Constructor
+	*************************************************
+	 */
 	
 	/**
 	 * 
-	 * @param defencePhysique
-	 * @param defenceMagic
+	 * @param defence
 	 */
 	
-	public Armure(int defencePhysique, int defenceMagic) {
-
-		this.defencePhysique = defencePhysique;
-		this.defenceMagic = defenceMagic;
+	public Armure() {}
+	
+	public Armure(int defence) {
+		this.defence = defence;
 	}
 	
-	//************************************************//
-	//	 @Setter and @getter
-	//***********************************************//
-
-	public int getDefencePhysique() {
-		return defencePhysique;
+	/*
+	*************************************************
+	*    @getter setter
+	*************************************************
+	 */
+	
+	public String getNom() {
+		return nom;
 	}
 
-	public void setDefencePhysique(int defencePhysique) {
-		this.defencePhysique = defencePhysique;
-	}
-
-	public int getDefenceMagic() {
-		return defenceMagic;
-	}
-
-	public void setDefenceMagic(int defenceMagic) {
-		this.defenceMagic = defenceMagic;
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
 	
+	public int getDefence() {
+		return defence;
+	}
+
+	public void setDefence(int defence) {
+		this.defence = defence;
+	}
 	
-	
+	/*
+	*************************************************
+	*    @Methods
+	*************************************************
+	 */
+
+	public void affiArmure() {
+		System.out.println("\n-----Armure -----------");
+		System.out.println("nom : "+nom);
+		System.out.println("defence : "+defence);
+	}
 	
 }

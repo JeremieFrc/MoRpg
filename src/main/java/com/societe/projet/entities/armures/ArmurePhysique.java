@@ -3,19 +3,50 @@ package com.societe.projet.entities.armures;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArmurePhysique extends Armure {
-	//************************************************//
-	//	 @private
-	//***********************************************//
+import com.societe.projet.entities.armes.Arme;
 
-	private List <ArmureMixte> listPhysiqye = new ArrayList<ArmureMixte>();
+public class ArmurePhysique extends Armure {
+	/*
+	*************************************************
+	*    @Private
+	*************************************************
+	 */
+	private List <ArmureMixte> listAmurPhysique = new ArrayList<ArmureMixte>();
 	
-	//************************************************//
-	//	 @Constructeur 
-	//***********************************************//
+	/*
+	*************************************************
+	*    @Constructor
+	*************************************************
+	 */
+	public ArmurePhysique() {}
 	
-	public ArmurePhysique(int defencePhysique, int defenceMagic) {
-		super(defencePhysique, defenceMagic);
-		// TODO Auto-generated constructor stub
+	public ArmurePhysique(int defence) {
+		super(defence);
 	}
+	
+	/*
+	*************************************************
+	*    @getter setter
+	*************************************************
+	 */
+	
+	public List<ArmureMixte> getlistAmurPhysique() {
+		return listAmurPhysique;
+	}
+
+	public void setlistAmurPhysique(List<ArmureMixte> listAmurPhysique) {
+		this.listAmurPhysique = listAmurPhysique;
+	}
+	
+	/*
+	*************************************************
+	*    @Methods
+	*************************************************
+	 */
+	
+	public int SubitAttack(Arme arme) {
+		return 0;
+	}
+
+	
 }

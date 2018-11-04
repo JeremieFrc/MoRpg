@@ -1,50 +1,65 @@
 package com.societe.projet.entities.armes;
 
-public abstract class Arme  {
-	//************************************************//
-	//	 @private
-	//***********************************************//
+import com.societe.projet.databases.DBItem;
+import com.societe.projet.entities.armures.Armure;
+
+public abstract class Arme extends DBItem {
+	/*
+	*************************************************
+	*    @Private
+	*************************************************
+	 */
 	
-	private int degatPhysique;
-	private int degatMagit;
+	private String nom;
+	private int degat;
 	private int cpa ; //point de consommation
 	
-	//************************************************//
-	//	 @Constructeur 
-	//***********************************************//	
+	/*
+	*************************************************
+	*    @Constructor
+	*************************************************
+	 */
 	
 	/**
 	 * 
-	 * @param degatMagit
+	 * @param degatMagic
 	 * @param degatPhysique
 	 * @param cpa
 	 */
-	
-	public Arme (int degatMagit, int degatPhysique,int cpa) {
-		this.degatMagit = degatMagit;
-		this.degatPhysique = degatPhysique;
+	public Arme() {}
+
+	public Arme (int degat,int cpa) {
+		this.degat= degat;
 		this.cpa = cpa;
 	}
-	//************************************************//
-	//	 @Setter and @getter
-	//***********************************************//	
-
-	public int getDegatPhysique() {
-		return degatPhysique;
+	
+	public Arme(String nom,int degat,int cpa) {
+		this.nom = nom;
+		this.degat= degat;
+		this.cpa = cpa;
 	}
-
-	public void setDegatPhysique(int degatPhysique) {
-		this.degatPhysique = degatPhysique;
+	
+	/*
+	*************************************************
+	*    @getter setter
+	*************************************************
+	 */
+	public String getNom() {
+		return nom;
 	}
-
-	public int getDegatMagit() {
-		return degatMagit;
+	
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
-
-	public void setDegatMagit(int degatMagit) {
-		this.degatMagit = degatMagit;
+	
+	public void setDegat(int degat) {
+		this.degat = degat;
 	}
-
+	
+	public int getDegat() {
+		return degat;
+	}
+	
 	public int getCpa() {
 		return cpa;
 	}
@@ -53,4 +68,22 @@ public abstract class Arme  {
 		this.cpa = cpa;
 	}
 	
+	/*
+	*************************************************
+	*    @Methods
+	*************************************************
+	 */
+	
+	public int attack(Armure armure) {
+		int result = 0;
+		result = this.getDegat() - armure.getDefence();
+		return result > 0 ? result : 0; //application ternaire
+	}
+	
+	public void affiArme() {
+		System.out.println("\n----- Arme : ----------");
+		System.out.println("nom : "+nom);
+		System.out.println("degat : "+degat);
+		System.out.println("cpa : "+cpa);
+	}
 }
