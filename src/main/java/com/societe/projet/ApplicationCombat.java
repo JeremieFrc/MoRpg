@@ -55,17 +55,15 @@ public class ApplicationCombat {
 	*************************************************
 	*/
 		Donjon persGeneric = new Donjon(scanners);   //def : ok
-		//persGeneric.initMenu();						//def : ok
-		//persGeneric.interfaceGame();				//def : ok	
+		persGeneric.initMenu();						//def : ok
+		persGeneric.interfaceGame();				//def : ok
+		persGeneric.game();
 		
 	 
 	 //************************************************//
 	//	 @Testt unitaie init Object
 	//***********************************************//
 	 
-	 //testInitObject(persGeneric); //ok
-	 //testSelectV1(); //ok
-		
 		
 		//declararer  1 heros et un monstre
 		//les faire ce battre method attak
@@ -148,63 +146,10 @@ public class ApplicationCombat {
 	
 	
 	//************************************************//
-	//	 @Testt unitai init Object
+	//	 @Testt unitaire init Object
 	//***********************************************//
 	
-	
-	
-	
-	
-	
-	public static void testInitArmu() {
-		DAOManager<Armure> armuDAOManager = new DAOManager<>();
-		DAOManager<ArmureMagique> armugDAOManager = new DAOManager<>();
-		DAOManager<ArmurePhysique> armupDAOManager = new DAOManager<>();
-		
-		armuDAOManager.createTable(ArmureContract.CREATE_TABLE);
-		armugDAOManager.createTable(ArmureMagiqueContract.CREATE_TABLE_V2);
-		armupDAOManager.createTable(ArmurePhysicContract.CREATE_TABLE_V2);	
-		
-		armuDAOManager.insertBdd(ArmureContract.INSERT_TABLE);
-		//armuDAOManager.initConstraintPrepaStat(ArmureMagiqueContract.INSERT_CONST,ArmurePhysicContract.INSERT_CONST);
-		armugDAOManager.initConstraintPrepaStat(ArmureMagiqueContract.INSERT_CONST,1,4);
-		armupDAOManager.initConstraintPrepaStat(ArmurePhysicContract.INSERT_CONST,4,7);
-	}
-	
-	public static void testSelectV1() {
-		
-		//dao genenerique
-		DAOManager<ArmeMagique> armeDAOManager = new DAOManager<>();
-		DAOManager<ArmePhysique> armepDAOManager = new DAOManager<>();
-		
-		DAOManager<ArmureMagique> armuDAOManager = new DAOManager<>();
-		DAOManager<ArmurePhysique> armupDAOManager = new DAOManager<>();
-		
-		ArrayList<ArmeMagique> armic = armeDAOManager.selectAllJoin(new ArmeMagiqueContract(), new ArmeMagiqueDTO());
-		ArrayList<ArmePhysique> armp = armepDAOManager.selectAllJoin(new ArmePhysiqueContract(), new ArmePhysiqueDTO());
-		
-		ArrayList<ArmureMagique> armuc = armuDAOManager.selectAllJoin(new ArmureMagiqueContract(), new ArmureMagiqueDTO());
-		ArrayList<ArmurePhysique> armup = armupDAOManager.selectAllJoin(new ArmurePhysicContract(), new ArmurePhysiqueDTO());
-	
-		affEquipment(armic);
-		//affEquipment(armp);
-		
-		affEquipment(armuc);
-		//affArmu(armup);	
-	}
-	
-	
-	public static <T> void affEquipment(List <T> item) {
-		for (T a : item) {	
-			if( a instanceof Arme) {
-				((Arme) a).affiArme();
-			}else if (a instanceof Armure) {
-				((Armure) a).affiArmure();
-			}
-		}
-	}
 
-	
 	public static void testInitObject( Donjon persGeneric ) {
 		
 		 Personnage p = new Hero();

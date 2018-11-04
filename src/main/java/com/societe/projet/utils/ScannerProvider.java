@@ -11,7 +11,6 @@ public class ScannerProvider {
 	
 	private Scanner scanner;
 	
-	
 	/*
 	*************************************************
 	*    @Constructor
