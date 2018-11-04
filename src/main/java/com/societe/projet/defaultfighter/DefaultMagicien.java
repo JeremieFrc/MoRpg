@@ -8,7 +8,13 @@ import com.societe.projet.entities.personnages.Personnage;
 import com.societe.projet.rpg.Magiciens;
 
 public class DefaultMagicien extends DefaultFighter implements Magiciens{
-
+	
+	/*
+	*************************************************
+	*    @Override
+	*************************************************
+	 */
+	
 	@Override
 	public String getWeasponRestriction() {
 		// TODO Auto-generated method stub
@@ -27,10 +33,12 @@ public class DefaultMagicien extends DefaultFighter implements Magiciens{
 		super.figth(defender);
 	}
 	
-	//******************************************************//
-	//	 @ verification contraintes Magiciens armure et arme
-	//*****************************************************//
-
+	/*
+	*********************************************************
+	*    @@verification contraintes barbare armure  arme
+	*******************************************************
+	 */
+	
 	@Override
 	public boolean isEquipable(Arme arme) {
 		boolean result = false;

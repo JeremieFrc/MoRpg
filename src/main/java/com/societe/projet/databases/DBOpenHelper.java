@@ -7,13 +7,31 @@ import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 public class DBOpenHelper {
 	
+	/*
+	*************************************************
+	*    @Constante
+	*************************************************
+	 */
+	
 	public static final String URL = "root@localhost";
 	public static final String DATA_BASE = "myrpg";
 	public static final String SERVERNAME = "127.0.0.1";
 	public static final String USER = "root";
 	public static final String PASS = "";
 	
+	/*
+	*************************************************
+	*    @Private
+	*************************************************
+	 */
+	
 	private Connection connection;
+	
+	/*
+	*************************************************
+	*    @Constructor
+	*************************************************
+	 */
 	
 	private DBOpenHelper () {
 		/*
@@ -39,6 +57,11 @@ public class DBOpenHelper {
 			e.printStackTrace();
 		}
 	}
+	/*
+	*************************************************
+	*    @Singleton
+	*************************************************
+	 */
 	
 	private static DBOpenHelper INSTANCE = null;
 	

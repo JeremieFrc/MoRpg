@@ -11,9 +11,11 @@ import com.societe.projet.rpg.Rpg;
 
 public abstract class Personnage {
 	
-	//************************************************//
-	//	 @private
-	//***********************************************//	
+	/*
+	*************************************************
+	*    @Private
+	*************************************************
+	 */
 	
 	private String name;
 	
@@ -28,14 +30,18 @@ public abstract class Personnage {
 	
 	private List<Butin> butins;
 	
-	//************************************************//
-	//	 @Constructeur 
-	//***********************************************//	
+	/*
+	*************************************************
+	*    @Constructor
+	*************************************************
+	 */
 	
 	/**
 	 * 
 	 * @param pointVie
 	 * @param pointAction
+	 * @param pointAttaque
+	 * @param name
 	 */
 	
 	public Personnage() {}
@@ -47,9 +53,11 @@ public abstract class Personnage {
 		this.pointAttaque = pointAction;
 	}
 	
-	//************************************************//
-	//	 @Setter and @getter
-	//***********************************************//	
+	/*
+	*************************************************
+	*    @getter setter
+	*************************************************
+	 */
 	
 	public String getName() {
 		return name;
@@ -83,10 +91,12 @@ public abstract class Personnage {
 		this.pointAttaque = pointAttaque;
 	}
 	
-	//************************************************//
-	//	 @Setter and @getter
-	//***********************************************//	
-
+	/*
+	*************************************************
+	*    @getter setter
+	*************************************************
+	 */
+	
 	public Arme getArme() {
 		return arme;
 	}
@@ -102,9 +112,11 @@ public abstract class Personnage {
 		this.armure = armure;
 	}
 	
-	//************************************************//
-	//	 @Setter and @getter butins
-	//***********************************************//	
+	/*
+	*************************************************
+	*    @getter setter butin
+	*************************************************
+	 */
 	
 	public List<Butin> getButins() {
 		return butins;
@@ -113,9 +125,11 @@ public abstract class Personnage {
 		this.butins = butins;
 	}
 
-	//************************************************//
-	//	 @Setter and @getter  reg
-	//***********************************************//
+	/*
+	*************************************************
+	*    @getter setter rpg
+	*************************************************
+	 */
 	
 	public Rpg getRpg() {
 		return rpg;
@@ -125,9 +139,11 @@ public abstract class Personnage {
 		this.rpg = rpg;
 	}
 	
-	//************************************************//
-	//	 @Methods test
-	//***********************************************//
+	/*
+	*************************************************
+	*    @Methods
+	*************************************************
+	 */
 	
 	public void affichePersonnage() {
 		System.out.println("------Personnage------------");
@@ -135,7 +151,5 @@ public abstract class Personnage {
 		System.out.println("point de vie : "+pointVie);
 		System.out.println("point action : "+pointAction);
 		System.out.println("point attaque : "+pointAction);
-	
 	}
-
 }

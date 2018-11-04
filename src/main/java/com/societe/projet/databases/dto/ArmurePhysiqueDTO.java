@@ -7,7 +7,12 @@ import com.societe.projet.databases.contracts.armures.ArmureContract;
 import com.societe.projet.entities.armures.ArmurePhysique;
 
 public class ArmurePhysiqueDTO implements DTO<ArmurePhysique> {
-
+	/*
+	*************************************************
+	*    @Methods Override
+	*************************************************
+	*/	
+	
 	@Override
 	public String javaToMySQL(ArmurePhysique item) {
 		// TODO Auto-generated method stub

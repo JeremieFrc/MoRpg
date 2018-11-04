@@ -55,7 +55,7 @@ public class ApplicationCombat {
 	*************************************************
 	*/
 		Donjon persGeneric = new Donjon(scanners);   //def : ok
-		//persGeneric.initMenu();					//def : ok
+		//persGeneric.initMenu();						//def : ok
 		//persGeneric.interfaceGame();				//def : ok	
 		
 	 
@@ -65,13 +65,19 @@ public class ApplicationCombat {
 	 
 	 //testInitObject(persGeneric); //ok
 	 //testSelectV1(); //ok
+		
+		
+		//declararer  1 heros et un monstre
+		//les faire ce battre method attak
+		//programmer attack fonction des caract des personnage
 	 
 	/*
 	*************************************************
-	*     @Close Connection Bdd
+	*     @Close Connection Bdd and scanner
 	*************************************************
 	*/
-	 closeConnection();    //def : ok
+	 scanners.closeScanner(); 	//def : ok
+	 closeConnection();    		//def : ok
 	}
 	
 	public static void matchBDD() {
@@ -138,6 +144,16 @@ public class ApplicationCombat {
 		DBOUtilitaire.closeConnection(armuPDAOManager.getConnection());	
 	}
 		
+	
+	
+	
+	//************************************************//
+	//	 @Testt unitai init Object
+	//***********************************************//
+	
+	
+	
+	
 	
 	
 	public static void testInitArmu() {

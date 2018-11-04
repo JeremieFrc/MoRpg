@@ -4,7 +4,11 @@ import com.societe.projet.databases.contracts.Contract;
 
 public class ArmureContract implements Contract {
 	
-	/********* DESCRIPTION ELEMENT TABLE **************/
+	/*
+	*************************************************
+	*    @DESCRIPTION ELEMENT TABLE
+	*************************************************
+	*/	
 
 	public static final String TABLE = "Armure";
 	public static final String[] FIELDS = {"id","nom","defence"};	
@@ -12,7 +16,11 @@ public class ArmureContract implements Contract {
 			+ "," + FIELDS[1] 
 			+ "," + FIELDS[2];
 	
-	/********* Creation and Drop **************/
+	/*
+	*************************************************
+	*    @Creation and Drop
+	*************************************************
+	*/	
 	
 	public static final String CREATE_TABLE =
 			"CREATE TABLE " + TABLE + "(" +FIELDS[0] + " INT " + " NOT NULL " + " PRIMARY KEY AUTO_INCREMENT " + ","+
@@ -22,7 +30,11 @@ public class ArmureContract implements Contract {
 	
 	public static final String DROP_TABLE = "DROP TABLE IF EXISTS "+TABLE+";";
 	
-	/************* INSERT *************/
+	/*
+	*************************************************
+	*    @insert base Data
+	*************************************************
+	*/
 	
 	public static final String INSERT_TABLE = "INSERT INTO "
 	+TABLE+" ("+FIELDS[1]+","+FIELDS[2]+")"
@@ -39,7 +51,11 @@ public class ArmureContract implements Contract {
 	
 	
 		
-	/************* SELECT *************/
+	/*
+	*************************************************
+	*    @SELECT base Data Constants
+	*************************************************
+	*/
 	
 	public static final String SELECT = "SELECT ";
 	public static final String FROM = " FROM ";
@@ -53,7 +69,11 @@ public class ArmureContract implements Contract {
 												   + FROM + TABLE
 												   + WHERE+FIELDS[1]+PARAM;
 
-	/********* OVERRIDE **************/
+	/*
+	*************************************************
+	*    @OVERRIDE table
+	*************************************************
+	*/		
 	
 	@Override
 	public String getTable() {
@@ -69,7 +89,12 @@ public class ArmureContract implements Contract {
 		return SELECT_FIELDS ;
 	}
    
-	/************** requete bdd ********************/
+	/*
+	*************************************************
+	*    @OVERRIDE query 
+	*************************************************
+	*/
+	
 	@Override
 	public String getCreateTable() {
 		// TODO Auto-generated method stub

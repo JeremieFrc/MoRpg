@@ -4,16 +4,20 @@ import com.societe.projet.entities.armes.Arme;
 
 public class ArmureMixte extends Armure {
 	
-	//************************************************//
-	//	 @private
-	//***********************************************//
+	/*
+	*************************************************
+	*    @Private
+	*************************************************
+	 */
 	private ArmureMagique armureMagique;
 	private ArmurePhysique armurePhysique;
 	
 
-	//************************************************//
-	//	 @Constructeurs 
-	//***********************************************//
+	/*
+	*************************************************
+	*    @Constructor
+	*************************************************
+	 */
 	
 	public ArmureMixte(ArmureMagique armureMagique, ArmurePhysique armurePhysique) {
 		super();
@@ -21,9 +25,11 @@ public class ArmureMixte extends Armure {
 		this.armurePhysique = armurePhysique;
 	}
 	
-	//************************************************//
-	//	 @Getter and Setter 
-	//***********************************************//
+	/*
+	*************************************************
+	*    @getter setter
+	*************************************************
+	 */
 	
 	public ArmureMagique getArmureMagique() {
 		return armureMagique;
@@ -39,10 +45,12 @@ public class ArmureMixte extends Armure {
 	public void setArmurePhysique(ArmurePhysique armurePhysique) {
 		this.armurePhysique = armurePhysique;
 	}
-	//************************************************//
-	//	 @Methods 
-	//***********************************************//
 	
+	/*
+	*************************************************
+	*    @Methods
+	*************************************************
+	 */
 
 	public int SubitAttack(Arme arme) {
 		return 0;

@@ -8,6 +8,11 @@ import com.societe.projet.entities.armes.ArmePhysique;
 
 public class ArmePhysiqueDTO implements DTO<ArmePhysique> {
 
+	/*
+	*************************************************
+	*    @Methods Override
+	*************************************************
+	*/	
 	@Override
 	public String javaToMySQL(ArmePhysique item) {
 		// TODO Auto-generated method stub

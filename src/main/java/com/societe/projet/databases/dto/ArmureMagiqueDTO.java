@@ -8,6 +8,12 @@ import com.societe.projet.entities.armures.ArmureMagique;
 
 public class ArmureMagiqueDTO implements DTO<ArmureMagique> {
 
+	/*
+	*************************************************
+	*    @Methods Override
+	*************************************************
+	*/	
+	
 	@Override
 	public String javaToMySQL(ArmureMagique item) {
 		// TODO Auto-generated method stub

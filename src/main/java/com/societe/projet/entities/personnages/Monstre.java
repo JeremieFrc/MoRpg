@@ -6,9 +6,12 @@ import com.societe.projet.gameplay.Realisable;
 public class Monstre extends Personnage implements Realisable{
 	
 	
-	//************************************************//
-	//	 @Constructeur 
-	//***********************************************//
+	/*
+	*************************************************
+	*    @Constructor
+	*************************************************
+	 */
+	
 	
 	 public Monstre() {
 		super();
@@ -16,10 +19,12 @@ public class Monstre extends Personnage implements Realisable{
 	}
 
 	
-	//************************************************//
-	//	 @Overides 
-	//***********************************************//
-
+	/*
+	*************************************************
+	*    @Override
+	*************************************************
+	*/
+		
 	@Override
 	public void actionAttaque() {
 		// TODO Auto-generated method stub
@@ -28,7 +33,5 @@ public class Monstre extends Personnage implements Realisable{
 	@Override
 	public void actionDefence() {
 		// TODO Auto-generated method stub
-		
 	}
-
 }

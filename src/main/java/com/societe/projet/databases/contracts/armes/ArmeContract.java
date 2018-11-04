@@ -4,7 +4,12 @@ import com.societe.projet.databases.contracts.Contract;
 
 public class ArmeContract implements Contract {
 	
-	/********* DESCRIPTION ELEMENT TABLE **************/
+	/*
+	*************************************************
+	*    @DESCRIPTION ELEMENT TABLE
+	*************************************************
+	*/	
+	
 
 	public static final String TABLE = "arme";
 	public static final String[] FIELDS = {"id","nom","degat","cpa"};
@@ -13,9 +18,12 @@ public class ArmeContract implements Contract {
 			+ "," + FIELDS[2]
 			+ "," + FIELDS[3];
 
-	
-	/********* Creation and Drop **************/
-	
+	/*
+	*************************************************
+	*    @Creation and Drop
+	*************************************************
+	*/	
+
 	public static final String CREATE_TABLE =
 			"CREATE TABLE " + TABLE + "(" +FIELDS[0] + " INT " + " NOT NULL " + " PRIMARY KEY AUTO_INCREMENT " + ","+
 					FIELDS[1] + " VARCHAR(255) " + "," +
@@ -25,7 +33,11 @@ public class ArmeContract implements Contract {
 	
 	public static final String DROP_TABLE = "DROP TABLE IF EXISTS "+TABLE+";";
 	
-	/************* INSERT *************/
+	/*
+	*************************************************
+	*    @insert base Data
+	*************************************************
+	*/	
 	
 	public static final String INSERT_TABLE = "INSERT INTO "
 			+TABLE+" ("+FIELDS[1]+","+FIELDS[2]+","+FIELDS[3]+")"
@@ -40,8 +52,11 @@ public class ArmeContract implements Contract {
 			+TABLE+" ("+FIELDS[1]+","+FIELDS[2]+","+FIELDS[3]+")"
 			+ " VALUES "+" (?,?,?)";
 	
-	
-	/************* SELECT *************/
+	/*
+	*************************************************
+	*    @SELECT base Data Constants
+	*************************************************
+	*/	
 	
 	public static final String SELECT = "SELECT ";
 	public static final String FROM = " FROM ";
@@ -55,8 +70,11 @@ public class ArmeContract implements Contract {
 	public static final String SELECT_FIRST_PREPA = SELECT + FIELDS[1]
 												   + FROM + TABLE
 												   + WHERE+FIELDS[1]+PARAM;
-	
-	/********* OVERRIDE **************/
+	/*
+	*************************************************
+	*    @OVERRIDE table
+	*************************************************
+	*/	
 	
 	@Override
 	public String getTable() {
@@ -71,9 +89,14 @@ public class ArmeContract implements Contract {
 	@Override
 	public String getSelectTable() {
 		return SELECT_FIELDS ;
-	}
+	}	
+	
+	/*
+	*************************************************
+	*    @OVERRIDE query 
+	*************************************************
+	*/	
   
-	/************* requete bdd **********************/
 	@Override
 	public String getCreateTable() {
 		return CREATE_TABLE;

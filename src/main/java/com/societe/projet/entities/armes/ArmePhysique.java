@@ -7,15 +7,18 @@ import com.societe.projet.entities.armures.Armure;
 
 
 public class ArmePhysique extends Arme {
-	//************************************************//
-	//	 @private
-	//***********************************************//	
-	
+	/*
+	*************************************************
+	*    @Private
+	*************************************************
+	 */
 	private List<ArmeMixte> listArmPhysique = new ArrayList<ArmeMixte>();
 	
-	//************************************************//
-	//	 @Constructeur 
-	//***********************************************//	
+	/*
+	*************************************************
+	*    @Constructor
+	*************************************************
+	 */
 	
 	public ArmePhysique() {}
 
@@ -23,9 +26,11 @@ public class ArmePhysique extends Arme {
 		super(nom,degat,cpa);
 	}
 	
-	//************************************************//
-	//	 @Setter and @getter
-	//***********************************************//
+	/*
+	*************************************************
+	*    @getter setter
+	*************************************************
+	 */
 	
 	public List<ArmeMixte> getListArmPhysique() {
 		return listArmPhysique;
@@ -35,9 +40,12 @@ public class ArmePhysique extends Arme {
 		this.listArmPhysique = listArmPhysique;
 	}
 
-	//************************************************//
-	//	 @Methods 
-   //***********************************************//
+	/*
+	*************************************************
+	*    @Override
+	*************************************************
+	 */
+	
 	@Override
 	public int attack(Armure armure) {
 		// TODO Auto-generated method stub

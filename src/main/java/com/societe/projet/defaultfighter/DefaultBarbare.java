@@ -10,9 +10,25 @@ import com.societe.projet.rpg.Barbare;
 
 
 public class DefaultBarbare extends DefaultFighter implements Barbare {
-
+	/*
+	*************************************************
+	*    @Private
+	*************************************************
+	 */
 	private Arme armeBarbare;
 	
+	/*
+	*************************************************
+	*    @getter setter
+	*************************************************
+	 */
+	
+	
+	/*
+	*************************************************
+	*    @Override
+	*************************************************
+	 */
 
 	@Override
 	public String getWeasponRestriction() {
@@ -31,11 +47,11 @@ public class DefaultBarbare extends DefaultFighter implements Barbare {
 		// TODO Auto-generated method stub
 		super.figth(defender);
 	}
-
-	
-	//******************************************************//
-	//	 @ verification contraintes barbare armure et arme
-	//*****************************************************//
+	/*
+	*********************************************************
+	*    @@verification contraintes barbare armure  arme
+	*******************************************************
+	 */
 	
 	@Override
 	public boolean isEquipable(Arme arme) {

@@ -3,23 +3,34 @@ package com.societe.projet.entities.armes;
 import com.societe.projet.entities.armures.Armure;
 
 public class ArmeMixte extends Arme {
-	//************************************************//
-	//	 @Constructeur 
-	//***********************************************//
+	/*
+	*************************************************
+	*    @Private
+	*************************************************
+	 */
 	
 	private ArmePhysique armePhysique; 
 	private ArmeMagique armeMagique;
 	
 	//pas de point degat defint dufait que ce sont des arme ayant leurr propre point degat action
 	
+	/*
+	*************************************************
+	*    @Constructor
+	*************************************************
+	 */
+	
 	public ArmeMixte(ArmePhysique armePhysique, ArmeMagique armeMagique) {
 		
 		this.armePhysique = armePhysique;
 		this.armeMagique = armeMagique;
 	}
-	//************************************************//
-	//	 @Setter and @getter
-	//***********************************************//
+	
+	/*
+	*************************************************
+	*    @getter setter
+	*************************************************
+	 */
 	
 	public ArmePhysique getArmePhysique() {
 		return armePhysique;
@@ -37,9 +48,11 @@ public class ArmeMixte extends Arme {
 		this.armeMagique = armeMagique;
 	}
 
-	//************************************************//
-	//	 @Methods 
-   //***********************************************//
+	/*
+	*************************************************
+	*    @Override
+	*************************************************
+	 */
 	
 	@Override
 	public int attack(Armure armure) {

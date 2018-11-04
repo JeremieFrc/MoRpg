@@ -4,17 +4,21 @@ import com.societe.projet.databases.DBItem;
 import com.societe.projet.entities.armures.Armure;
 
 public abstract class Arme extends DBItem {
-	//************************************************//
-	//	 @private
-	//***********************************************//
+	/*
+	*************************************************
+	*    @Private
+	*************************************************
+	 */
 	
 	private String nom;
 	private int degat;
 	private int cpa ; //point de consommation
 	
-	//************************************************//
-	//	 @Constructeur 
-	//***********************************************//	
+	/*
+	*************************************************
+	*    @Constructor
+	*************************************************
+	 */
 	
 	/**
 	 * 
@@ -35,10 +39,11 @@ public abstract class Arme extends DBItem {
 		this.cpa = cpa;
 	}
 	
-	//************************************************//
-	//	 @Setter and @getter
-	//***********************************************//	
-
+	/*
+	*************************************************
+	*    @getter setter
+	*************************************************
+	 */
 	public String getNom() {
 		return nom;
 	}
@@ -63,14 +68,18 @@ public abstract class Arme extends DBItem {
 		this.cpa = cpa;
 	}
 	
-	//************************************************//
-	//	 @Methods 
-   //***********************************************//
+	/*
+	*************************************************
+	*    @Methods
+	*************************************************
+	 */
+	
 	public int attack(Armure armure) {
 		int result = 0;
 		result = this.getDegat() - armure.getDefence();
 		return result > 0 ? result : 0; //application ternaire
 	}
+	
 	public void affiArme() {
 		System.out.println("\n----- Arme : ----------");
 		System.out.println("nom : "+nom);

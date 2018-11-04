@@ -6,13 +6,17 @@ import java.util.List;
 import com.societe.projet.entities.armures.Armure;
 
 public class ArmeMagique extends Arme{
-	//************************************************//
-	//	 @private
-	//***********************************************//	
+	/*
+	*************************************************
+	*    @Private
+	*************************************************
+	 */
 	private List <ArmeMixte> listArmMagique = new ArrayList<ArmeMixte>();
-	//************************************************//
-	//	 @Constructeur 
-	//***********************************************//	
+	/*
+	*************************************************
+	*    @Constructor
+	*************************************************
+	 */
 	
 	public ArmeMagique() {}
 	
@@ -20,9 +24,12 @@ public class ArmeMagique extends Arme{
 		super(nom,degat,cpa);
 	}
 	
-	//************************************************//
-	//	 @Setter and @getter
-	//***********************************************//
+	/*
+	*************************************************
+	*    @getter setter
+	*************************************************
+	 */
+	
 	public List<ArmeMixte> getLisArmtMagique() {
 		return listArmMagique;
 	}
@@ -30,9 +37,13 @@ public class ArmeMagique extends Arme{
 	public void setListArmMagique(List<ArmeMixte> listArmMagique) {
 		this.listArmMagique = listArmMagique;
 	}
-	//************************************************//
-	//	 @Methods 
-   //***********************************************//
+	
+	/*
+	*************************************************
+	*    @Override
+	*************************************************
+	 */
+	
 	@Override
 	public int attack(Armure armure) {
 		return super.attack(armure);

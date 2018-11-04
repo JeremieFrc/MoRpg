@@ -4,22 +4,24 @@ import com.societe.projet.databases.DBItem;
 
 public abstract class Armure extends DBItem {
 
-	
-	//************************************************//
-	//	 @private
-	//***********************************************//
+	/*
+	*************************************************
+	*    @Private
+	*************************************************
+	 */
 	
 	private String nom;
 	private int defence;
 	
-	//************************************************//
-	//	 @Constructeur 
-	//***********************************************//
+	/*
+	*************************************************
+	*    @Constructor
+	*************************************************
+	 */
 	
 	/**
 	 * 
-	 * @param defencePhysique
-	 * @param defenceMagic
+	 * @param defence
 	 */
 	
 	public Armure() {}
@@ -28,12 +30,12 @@ public abstract class Armure extends DBItem {
 		this.defence = defence;
 	}
 	
+	/*
+	*************************************************
+	*    @getter setter
+	*************************************************
+	 */
 	
-	
-	//************************************************//
-	//	 @Setter and @getter
-	//***********************************************//
-
 	public String getNom() {
 		return nom;
 	}
@@ -49,6 +51,12 @@ public abstract class Armure extends DBItem {
 	public void setDefence(int defence) {
 		this.defence = defence;
 	}
+	
+	/*
+	*************************************************
+	*    @Methods
+	*************************************************
+	 */
 
 	public void affiArmure() {
 		System.out.println("\n-----Armure -----------");

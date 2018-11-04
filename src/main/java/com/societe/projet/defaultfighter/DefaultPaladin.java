@@ -10,7 +10,12 @@ import com.societe.projet.entities.personnages.Personnage;
 import com.societe.projet.rpg.Paladin;
 
 public class DefaultPaladin extends DefaultFighter implements Paladin {
-
+	
+	/*
+	*************************************************
+	*    @Override
+	*************************************************
+	 */
 	@Override
 	public String getWeasponRestriction() {
 		// TODO Auto-generated method stub
@@ -28,10 +33,12 @@ public class DefaultPaladin extends DefaultFighter implements Paladin {
 		// TODO Auto-generated method stub
 	}
 	
+	/*
+	*********************************************************
+	*    @@verification contraintes barbare armure  arme
+	*******************************************************
+	 */
 	
-	//******************************************************//
-	//	 @ verification contraintes Paladin armure et arme
-	//*****************************************************//
 	@Override
 	public boolean isEquipable(Arme arme) {
 		boolean result = false;

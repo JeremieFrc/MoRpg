@@ -1,13 +1,20 @@
 package com.societe.projet.databases.contracts;
 
 public interface Contract {
+	
 	/**
 	 * 
 	 * methods generique 
 	 * definition nom table et recuperation des champs
-	 * 
-	 * method de creation et select pour la table en question
+	 * method de creation and select pour la table
 	 */
+	
+	/*
+	*************************************************
+	*    @Methods
+	*************************************************
+	*/	
+	
 	public String getTable();
 	public String getContForeign();
 	public String[] getFields(); //nous allons stocker nos champs

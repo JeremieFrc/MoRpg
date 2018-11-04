@@ -4,17 +4,47 @@ import com.societe.projet.utils.ScannerProvider;
 
 public class Menu {
 	
+	/*
+	*************************************************
+	*    @Constante
+	*************************************************
+	 */
+	
 	public static final String SCREEN_GAME   = "\n-------- bienvenue Jeux RPG -----------\n\n";
 	public static final String SCREEN_CONFIG = "Configuration Jeux : \n\n";
 	
+	/*
+	*************************************************
+	*    @Private
+	*************************************************
+	 */
+	
 	private ScannerProvider scanner;
+	
+	/*
+	*************************************************
+	*    @Constructor
+	*************************************************
+	 */
+	
+	/**
+	 * @param scanner
+	 */
 	
 	public Menu(ScannerProvider scanner) {
 		this.scanner = scanner;
 	}	
+	
+	/*
+	*************************************************
+	*    @Methods
+	*************************************************
+	 */
+	
 	public void screenGame() {
 		System.out.println(SCREEN_GAME);
 	}
+	
 	public int[] initNbJoueurs() {
 		
 		int nbJoueur[] = new int[2];
@@ -37,6 +67,7 @@ public class Menu {
 		
 		return nbJoueur;
 	}
+	
 	public void verifNbJoueur(int tab[]) {
 		
 		//parcourir tab and verification data
@@ -49,6 +80,7 @@ public class Menu {
 			}
 		}
 	}	
+	
 	public int nbEtage() {
 		int nb = 0;
 		
@@ -64,6 +96,7 @@ public class Menu {
 		}
 		return nb;
 	}
+	
 	public int menuEquipe() {
 		int response = 0;
 		
@@ -78,6 +111,7 @@ public class Menu {
 		
 		return response;
 	}	
+	
 	public int affCreatePerso(int nbJoueurGame) {
 
 		System.out.println("Equipe nbPerso maximun : "+nbJoueurGame);
@@ -88,7 +122,8 @@ public class Menu {
 		System.out.print("choix : ");
 		
 		return scanner.getScanner().nextInt();	
-	}	
+	}
+	
 	public void menuArme() {
 		System.out.println("\nPersonnage Paladin [1]");
 		System.out.println("Personnage Magicien  [2]");
@@ -107,7 +142,4 @@ public class Menu {
 		return choix;
 		
 	}
-	
-	
-	
 }

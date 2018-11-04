@@ -8,44 +8,51 @@ import java.sql.Statement;
 
 public class DBOUtilitaire {
 	
-	/**************************************\
-		PreparedStatement  QUERY STRING
-	 **************************************/
+	/*
+	*************************************************
+	*    @PreparedStatement  QUERY STRING
+	*************************************************
+	 */
+	
 	public static PreparedStatement initPreparedStatement(Connection connect,String query) throws SQLException {
 		PreparedStatement preparedStatement = connect.prepareStatement(query);
 		return preparedStatement;	
 	}
-
-	/**************************************\
-		PreparedStatement  generic
-	 **************************************/	
+	/*
+	*************************************************
+	*    @PreparedStatement  generic
+	*************************************************
+	 */
+	
 	public static PreparedStatement initPreparedStatement
 		(Connection connect, String query,boolean returnGeneratedKeys,Object...objects) throws SQLException {
 		
 		PreparedStatement preparedStatement = connect.prepareStatement
 				(query,returnGeneratedKeys ? Statement.RETURN_GENERATED_KEYS : Statement.NO_GENERATED_KEYS);
 		
-		//init object sur preparedStatement comme realiser les setX(partameter)
+		//init object on preparedStatement pour realiser  setX(parameter)
 		for(int i=0;i<objects.length;i++) {
 			
-			//ajout des element joker dans la requete preparedStatement
+			//ajout element joker requete preparedStatement
 			preparedStatement.setObject(i+1,objects[i]);
 		}
 		return preparedStatement;
 	}
 	
-	/**************************************\
-		Close 
-	 **************************************/
+	/*
+	*************************************************
+	*    @Closer
+	*************************************************
+	 */
+
 	public static void closeResultSet (ResultSet resultSet) {
 		try {
 			resultSet.close();
 		} catch (SQLException e) {
-			
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
 	public static void CloseStatement(Statement statement) {
 		try {
 			statement.close();
@@ -61,24 +68,11 @@ public class DBOUtilitaire {
 			e.printStackTrace();
 		}
 	}
-	
-	
 	public static void closeConnection(Connection connect) {
 		try {
 			connect.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	}
-	public static void dualClose(PreparedStatement preparedStatement, Connection connect) {
-		System.out.println("--------- dualClose --------------");
-		closePreparedStatement(preparedStatement);
-		closeConnection(connect);
-	}
-	public static void matchClose(ResultSet resultSet, PreparedStatement preparedStatement, Connection connect) {
-		
-		closeResultSet(resultSet);
-		closePreparedStatement(preparedStatement);
-		closeConnection(connect);
 	}
 }

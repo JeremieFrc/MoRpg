@@ -73,7 +73,7 @@ public class DAOManager <T extends DBItem >{
 	
 	/*
 	 * **************************************
-	 *  @Methods
+	 *  @Methods create and drop
 	 * ***************************************/
 
 	public void createTable(String query) {	
@@ -100,6 +100,12 @@ public class DAOManager <T extends DBItem >{
 			DBOUtilitaire.CloseStatement(statement);
 		}
 	}
+
+	/*
+	 * **************************************
+	 *  @Methods bdd simple
+	 * ***************************************/
+	
 	
 	public void insertBdd(String query) {
 		try {
@@ -114,9 +120,14 @@ public class DAOManager <T extends DBItem >{
 		}
 	}
 	
+	/*
+	 * **************************************
+	 *  @Methods init armu and amure (X)
+	 * ***************************************/
+	
+	
 	public void initConstraintPrepaStat(String query1,int debut,int fin) {
 		boolean returnKey = false;
-		//String query = "INSERT INTO"
 		for(int i=debut;i<fin;i++) {
 			
 				try {
@@ -130,9 +141,7 @@ public class DAOManager <T extends DBItem >{
 					DBOUtilitaire.closePreparedStatement(preparedStatement);
 				}
 			
-			}
-			
-		
+			}	
 	}	
 	public void initConstraintPrepaStat(String query1, String query2) {
 		boolean returnKey = false;
@@ -169,7 +178,7 @@ public class DAOManager <T extends DBItem >{
 	
 	/*
 	 * **************************************
-	 *  @Methods
+	 *  @Methods select and recup Data
 	 * ***************************************/
 	
 	public ArrayList<T> selectAllJoin(Contract contract, DTO<T> dto) {
@@ -183,8 +192,6 @@ public class DAOManager <T extends DBItem >{
 		request.append(contract.getTable());
 		request.append(contract.getInnerJoin());
 		
-		//System.out.println(request.toString());
-		
 		parser(dto, result, request);
 		return result;
 	}
@@ -192,7 +199,6 @@ public class DAOManager <T extends DBItem >{
 	private void parser(DTO<T> dto, ArrayList<T> result, StringBuilder request) {
 	
 		try {
-			//stmt = DBOpenHelper.getInstance().getConn().createStatement();
 			preparedStatement = DBOUtilitaire.initPreparedStatement(connection, request.toString());
 			resultSet = preparedStatement.executeQuery();
 			
@@ -202,11 +208,7 @@ public class DAOManager <T extends DBItem >{
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			try {
-				preparedStatement.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+			DBOUtilitaire.closePreparedStatement(preparedStatement);
 		}
 	}
 }

@@ -6,26 +6,30 @@ import java.util.List;
 import com.societe.projet.entities.armes.Arme;
 
 public class ArmurePhysique extends Armure {
-	//************************************************//
-	//	 @private
-	//***********************************************//
-
+	/*
+	*************************************************
+	*    @Private
+	*************************************************
+	 */
 	private List <ArmureMixte> listAmurPhysique = new ArrayList<ArmureMixte>();
 	
-	//************************************************//
-	//	 @Constructeur 
-	//***********************************************//
-	
+	/*
+	*************************************************
+	*    @Constructor
+	*************************************************
+	 */
 	public ArmurePhysique() {}
 	
 	public ArmurePhysique(int defence) {
 		super(defence);
 	}
 	
+	/*
+	*************************************************
+	*    @getter setter
+	*************************************************
+	 */
 	
-	//************************************************//
-	//	 @Setter and @getter
-	//***********************************************//
 	public List<ArmureMixte> getlistAmurPhysique() {
 		return listAmurPhysique;
 	}
@@ -33,9 +37,12 @@ public class ArmurePhysique extends Armure {
 	public void setlistAmurPhysique(List<ArmureMixte> listAmurPhysique) {
 		this.listAmurPhysique = listAmurPhysique;
 	}
-	//************************************************//
-	//	 @Methods 
-	//***********************************************//
+	
+	/*
+	*************************************************
+	*    @Methods
+	*************************************************
+	 */
 	
 	public int SubitAttack(Arme arme) {
 		return 0;

@@ -4,7 +4,11 @@ import com.societe.projet.databases.contracts.Contract;
 
 public class ArmeMagiqueContract implements Contract {
 	
-	/********* DESCRIPTION ELEMENT TABLE **************/
+	/*
+	*************************************************
+	*    @DESCRIPTION ELEMENT TABLE
+	*************************************************
+	*/	
 
 	public static final String   TABLE    = "armemagique";
 	public static final String[] FIELDS = {"id","nom","degat","cpa"};
@@ -14,7 +18,11 @@ public class ArmeMagiqueContract implements Contract {
 			+ "," + FIELDS[2]
 			+ "," + FIELDS[3];
 	
-	/********* Creation constraint and Drop **************/
+	/*
+	*************************************************
+	*    @Creation and Drop
+	*************************************************
+	*/	
 	
 	public static final String CREATE_TABLE =
 			"CREATE TABLE " + TABLE + "(" +FIELDS[0] + " INT " + " NOT NULL "+
@@ -33,13 +41,23 @@ public class ArmeMagiqueContract implements Contract {
 	
 	public static final String DROP_TABLE = "DROP TABLE IF EXISTS "+TABLE+";";
 	
+	/*
+	*************************************************
+	*    @insert base Data and INNER_JOIN
+	*************************************************
+	*/	
 	public static final String INSERT_CONST = "INSERT INTO "
 					+TABLE+" ("+FIELDS[0]+")"
 					+ " VALUES "+" (?)";
 
 	public static final String INNER_JOIN_ARME = " INNER JOIN arme ON arme."+FIELDS[0]+" = "+TABLE+"."+FIELDS[0]+"";
 	
-
+	/*
+	*************************************************
+	*    @OVERRIDE table
+	*************************************************
+	*/	
+	
 	@Override
 	public String getTable() {
 		return TABLE;
@@ -54,6 +72,12 @@ public class ArmeMagiqueContract implements Contract {
 		// TODO Auto-generated method stub
 		return SELECT_FIELDS;
 	}
+	
+	/*
+	*************************************************
+	*    @OVERRIDE query 
+	*************************************************
+	*/	
 	@Override
 	public String getCreateTable() {
 		// TODO Auto-generated method stub
