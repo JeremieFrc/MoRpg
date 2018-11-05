@@ -1,9 +1,6 @@
 package com.societe.projet;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.societe.projet.databases.DBOUtilitaire;
 import com.societe.projet.databases.contracts.armes.ArmeContract;
 import com.societe.projet.databases.contracts.armes.ArmeMagiqueContract;
@@ -12,10 +9,7 @@ import com.societe.projet.databases.contracts.armures.ArmureContract;
 import com.societe.projet.databases.contracts.armures.ArmureMagiqueContract;
 import com.societe.projet.databases.contracts.armures.ArmurePhysicContract;
 import com.societe.projet.databases.dao.DAOManager;
-import com.societe.projet.databases.dto.ArmeMagiqueDTO;
-import com.societe.projet.databases.dto.ArmePhysiqueDTO;
-import com.societe.projet.databases.dto.ArmureMagiqueDTO;
-import com.societe.projet.databases.dto.ArmurePhysiqueDTO;
+
 import com.societe.projet.defaultfighter.DefaultBarbare;
 import com.societe.projet.defaultfighter.DefaultPaladin;
 import com.societe.projet.donjons.Donjon;

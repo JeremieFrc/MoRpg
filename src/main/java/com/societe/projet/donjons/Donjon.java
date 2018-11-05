@@ -245,12 +245,35 @@ public class Donjon {
 		System.out.println("\n\n\n--------Lancementt Jeux -----------");
 		
 		
+		Personnage monstre = new Monstre();
+		monstre.setRpg(new DefaultBarbare()); //barbare
+		
+
+		Personnage heros = new Hero();
+		heros.setRpg(new DefaultBarbare()); //barbare
+		
+		//init les personnage et les vie
+				
+		
+		heros.setArme(new ArmeMagique("armemagique",12,12));
+		monstre.setArme(new ArmeMagique("armemagique",12,12));
+		
+		
+		ArmeMagique armMigic = new ArmeMagique("armemagique",12,12);
+		ArmureMagique armuMigic = new ArmureMagique(12);
+		
+		ArmePhysique armP = new ArmePhysique("armep",12,12);
+		ArmurePhysique armuP = new ArmurePhysique(12);
+		
+		
+		
+		heros.getRpg().figth(monstre);
+		
+		
 		
 		//declararer  1 heros et un monstre
 		//les faire ce battre method attak
 		//programmer attack fonction des caract des personnage
-		
-		
 		
 		
 	}

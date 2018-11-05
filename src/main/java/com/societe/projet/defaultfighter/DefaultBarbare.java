@@ -45,6 +45,20 @@ public class DefaultBarbare extends DefaultFighter implements Barbare {
 	@Override
 	public void figth(Personnage defender) {
 		// TODO Auto-generated method stub
+		
+		System.out.println("fight");
+		
+		if (this.getPersonnage().getPointVie() > 0) {
+			
+			int frag = this.getPersonnage().getArme().attack(defender.getArmure())
+					+ this.getPersonnage().getArme().getDegat();
+			
+			defender.setPointVie(defender.getPointVie() - frag);
+			
+			System.out.println(frag);
+		}
+		
+		
 		super.figth(defender);
 	}
 	/*
