@@ -27,6 +27,7 @@ public abstract class Personnage {
 	private Armure armure;
 	
 	private  Rpg rpg;
+
 	
 	private List<Butin> butins;
 	
@@ -78,7 +79,6 @@ public abstract class Personnage {
 	public int getPointAction() {
 		return pointAction;
 	}
-
 	
 	
 	public void setPointAction(int pointAction) {
@@ -92,6 +92,7 @@ public abstract class Personnage {
 	public void setPointAttaque(int pointAttaque) {
 		this.pointAttaque = pointAttaque;
 	}
+	
 	
 	/*
 	*************************************************

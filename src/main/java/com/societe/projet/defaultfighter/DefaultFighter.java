@@ -7,29 +7,32 @@ import com.societe.projet.entities.personnages.Personnage;
 import com.societe.projet.rpg.Rpg;
 
 public class DefaultFighter implements Rpg{
+
+	protected Personnage personne;
 	
-	/*
-	*************************************************
-	*    @Private
-	*************************************************
-	 */
-	
-	private Personnage personnage;
-	
-	/*
-	*************************************************
-	*    @getter setter
-	*************************************************
-	 */
-	
+	public void setPersonne(Personnage personne) {
+		this.personne = personne;
+	}
 	
 	public Personnage getPersonnage() {
-		return personnage;
+		return personne;
 	}
-
-	public void setPersonnage(Personnage personnage) {
-		this.personnage = personnage;
+	/*
+	*************************************************
+	*    @Constructeur
+	*************************************************
+	 */
+	public DefaultFighter() {
+		// TODO Auto-generated constructor stub
 	}
+	
+	public DefaultFighter(Personnage personne) {
+		// TODO Auto-generated constructor stub
+		this.personne = personne;
+	}
+	
+	
+	
 	/*
 	*************************************************
 	*    @Override

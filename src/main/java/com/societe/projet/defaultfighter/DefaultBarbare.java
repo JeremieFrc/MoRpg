@@ -22,7 +22,15 @@ public class DefaultBarbare extends DefaultFighter implements Barbare {
 	*    @getter setter
 	*************************************************
 	 */
+	public DefaultBarbare() {
+		// TODO Auto-generated constructor stub
+	}
 	
+	
+	public DefaultBarbare(Personnage personne) {
+		// TODO Auto-generated constructor stub
+		super(personne);
+	}
 	
 	/*
 	*************************************************
@@ -46,20 +54,24 @@ public class DefaultBarbare extends DefaultFighter implements Barbare {
 	public void figth(Personnage defender) {
 		// TODO Auto-generated method stub
 		
-		System.out.println("fight");
+		System.out.println("\n\n\n--fight-----\n");
+		
+		this.getPersonnage().affichePersonnage();
+		this.getPersonnage().getArme().affiArme();
+		this.getPersonnage().getArmure().affiArmure();
+		
+		defender.affichePersonnage();
+		
 		
 		if (this.getPersonnage().getPointVie() > 0) {
 			
 			int frag = this.getPersonnage().getArme().attack(defender.getArmure())
 					+ this.getPersonnage().getArme().getDegat();
 			
-			defender.setPointVie(defender.getPointVie() - frag);
+			//defender.setPointVie(defender.getPointVie() - frag);
 			
 			System.out.println(frag);
 		}
-		
-		
-		super.figth(defender);
 	}
 	/*
 	*********************************************************
@@ -67,6 +79,8 @@ public class DefaultBarbare extends DefaultFighter implements Barbare {
 	*******************************************************
 	 */
 	
+
+
 	@Override
 	public boolean isEquipable(Arme arme) {
 		boolean result = false;

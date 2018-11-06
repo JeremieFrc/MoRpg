@@ -50,7 +50,7 @@ public class Donjon {
 	
 	private ScannerProvider scanners;
 	
-	private Personnage personne;
+	
 	private String nom;
 	
 	private int nbEtages;
@@ -65,6 +65,9 @@ public class Donjon {
 	private List <ArrayList<Monstre>> listEtages = new ArrayList<ArrayList<Monstre>>();
 	
 	private int nbMonstreEtage;
+	
+	
+	private Personnage personne;
 	
 	/*
 	*************************************************
@@ -129,6 +132,10 @@ public class Donjon {
 	public Personnage setDeftEquipement() {
 		return this.personne;
 	}
+	public void setPersonne(Personnage personne) {
+		this.personne = personne;
+	}
+	
 	
 	public void setDefautllAttrVie(Personnage personDefault) {
 		personDefault.setName("defaultPers");
@@ -246,27 +253,52 @@ public class Donjon {
 		
 		
 		Personnage monstre = new Monstre();
-		monstre.setRpg(new DefaultBarbare()); //barbare
+		monstre.setName("monstre");
+		monstre.setRpg(new DefaultBarbare(monstre)); //barbare
+		
+		
+		Personnage mon = new Monstre();
+		//Rpg rpgg = new DefaultFighter();
+		Rpg rpgb = new DefaultBarbare(mon);
+		
+		mon.setRpg(rpgb);
+		
+		///////////////////////////////////////
 		
 
 		Personnage heros = new Hero();
-		heros.setRpg(new DefaultBarbare()); //barbare
+		heros.setName("heros");
+		heros.setRpg(new DefaultBarbare(heros)); //barbare
 		
-		//init les personnage et les vie
-				
+		/////////////////////////////////////////////
+	
 		
-		heros.setArme(new ArmeMagique("armemagique",12,12));
-		monstre.setArme(new ArmeMagique("armemagique",12,12));
+		if(heros.getRpg() instanceof Barbare) {
+			System.out.println("heros intance barbare");
+		}
+		if(monstre.getRpg() instanceof Barbare) {
+			System.out.println("monstre intance barbare");
+		}
 		
+		/////////////////////////////////////
 		
-		ArmeMagique armMigic = new ArmeMagique("armemagique",12,12);
-		ArmureMagique armuMigic = new ArmureMagique(12);
+		this.initPersonGeneric(heros);
+		this.initPersonGeneric(monstre);
 		
-		ArmePhysique armP = new ArmePhysique("armep",12,12);
-		ArmurePhysique armuP = new ArmurePhysique(12);
+		/////////////////////////////////////
 		
+		heros.setArme(new ArmePhysique("armpheros",48,48));
+		monstre.setArme(new ArmePhysique("armpmonstre",12,12));
 		
+		//////////////////////////////////////////////
+		heros.setArmure(new ArmurePhysique(12));
+		monstre.setArmure(new ArmurePhysique(12));
 		
+		/////////////////////////////////
+		monstre.affichePersonnage();
+		heros.affichePersonnage();
+		
+		//////////////////////////////////
 		heros.getRpg().figth(monstre);
 		
 		
@@ -277,7 +309,14 @@ public class Donjon {
 		
 		
 	}
+	
+	public void initPersonGeneric(Personnage perso) {
+		 perso.setPointVie(12);
+		 perso.setPointAttaque(200);
+		 perso.setPointAction(100);
+	}
 
+	
 	
 	/*
 	*************************************************
