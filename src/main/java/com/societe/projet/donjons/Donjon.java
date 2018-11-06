@@ -285,10 +285,10 @@ public class Donjon {
 		
 		/////////////////////////////////////
 		
-		heros.setArme(new ArmePhysique("armpheros",48,48));
-		heros2.setArme(new ArmeMagique("armpheros2",48,48));
-		monstre.setArme(new ArmePhysique("armpmonstre",148,148));
-		mon.setArme(new ArmePhysique("armpmonstre",148,148));
+		heros.setArme(new ArmePhysique("armpheros",148,418));
+		heros2.setArme(new ArmeMagique("armpheros2",418,418));
+		monstre.setArme(new ArmePhysique("armpmonstre",48,48));
+		mon.setArme(new ArmePhysique("armpmonstre",48,48));
 		
 		//////////////////////////////////////////////
 		heros.setArmure(new ArmurePhysique(40));
@@ -322,23 +322,49 @@ public class Donjon {
 		nbEtages =1;
 		nbMonstreEtage = 2;
 		initEtageMonstre();
+		int i =0 ;
 		//////////////////////////////////
+		
+		//listHeros.get(0).affichePersonnage();
 		
 		System.out.println(listEtages.size());
 		for(ArrayList<Monstre> lisMonstre : listEtages) {
-			System.out.println("\n\n\n\n\n\nEtages");
+			//System.out.println("\n\n\n\n\n\nEtages");
 			for(Monstre mtr : lisMonstre) {
-				mtr.affichePersonnage();
-				mtr.getArme().affiArme();
-				mtr.getArmure().affiArmure();
-				
-				combatListEtage(dieMonstre ,dieHeros,mtr,nextHero);
+				//mtr.affichePersonnage();
+				//mtr.getArme().affiArme();
+				//mtr.getArmure().affiArmure();
+				System.out.println("------------------------Monstre "+i);
+				System.out.println("------------------------heros acteul "+nextHero);
+				nextHero = combatListEtage(dieMonstre ,dieHeros,mtr,nextHero);
+				i++;
+			}	
+			
+		}
+		verifiedTotalDie(dieMonstre,dieHeros);	
+	}
+	
+	public void save() {
+		
+		System.out.println(listEtages.size());
+		for(ArrayList<Monstre> valeur1 : listEtages) {
+			System.out.println("\n\n\n\n\n\nEtages");
+			for(Monstre valeur2 : valeur1) {
+				valeur2.affichePersonnage();
+				valeur2.getArme().affiArme();
+				valeur2.getArmure().affiArmure();
+			
 			
 			}	
 		}
+	}
+	public void save2() {
 		
+		int dieMonstre = listMonstre.size();
+		int dieHeros = listHeros.size();
+		int toogle = 0;
 		
-		
+		boolean win = false;
 		while((dieMonstre!= 0 || dieHeros!=0) && !win) {
 			
 			if(toogle == 0) {
@@ -361,23 +387,20 @@ public class Donjon {
 				toogle--;
 			}
 		}
-
-			
+		
 	}
 	
-	public void eeee() {
+	public void verifiedTotalDie(int dieMont,int dieHer) {
+		System.out.println(dieMont);
+		System.out.println(dieHer);
 		
-		System.out.println(listEtages.size());
-		for(ArrayList<Monstre> valeur1 : listEtages) {
-			System.out.println("\n\n\n\n\n\nEtages");
-			for(Monstre valeur2 : valeur1) {
-				valeur2.affichePersonnage();
-				valeur2.getArme().affiArme();
-				valeur2.getArmure().affiArmure();
-			
-			
-			}	
+		
+		if(dieMont < dieHer) {
+			 System.out.println("Equipe Heros Win");
+		}else {
+			System.out.println("Equipe Monstre Win");
 		}
+		 
 	}
 	
 	
@@ -389,13 +412,13 @@ public class Donjon {
 		return response;
 	}
 	
-	
-	public void combatListEtage(int dieM,int dieH,Personnage monst,int nHeros) {
-	
+	public int combatListEtage(int dieM,int dieH,Personnage monst,int nHeros) {
+		System.out.println("combatListEtage");
+		System.out.println(" ----------------------------nHeros  "+ nHeros);
 	    int toogle = 0;
-		boolean win = true;
+		boolean win = false;
 		
-		while((dieM!= 0 || dieH!=0) && !win) {
+		while((dieM!= 0 || dieH!=0) && !win && verifiedTyp(monst) == verifiedTyp(listHeros.get(nHeros)) ) {
 			
 			if(toogle == 0) {
 				listHeros.get(nHeros).getRpg().figth(monst);
@@ -411,14 +434,15 @@ public class Donjon {
 				
 				if(verifiedLife(listHeros.get(nHeros))) {
 					win = true;
-					nHeros++;
+					nHeros = nHeros+1;
 					dieH--;
 					System.out.println("winner is monstre");
+					combatListEtage(dieM,dieH,monst,nHeros);
 				}
 				toogle--;
 			}
 		}
-
+		return nHeros;
 	}
 
 	
