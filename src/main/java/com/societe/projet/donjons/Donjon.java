@@ -255,7 +255,7 @@ public class Donjon {
 		Personnage monstre = new Monstre();
 		monstre.setName("monstre");
 		monstre.setRpg(new DefaultBarbare(monstre)); //barbare
-		
+		listMonstre.add((Monstre)monstre);
 		
 		Personnage mon = new Monstre();
 		//Rpg rpgg = new DefaultFighter();
@@ -265,20 +265,16 @@ public class Donjon {
 		
 		///////////////////////////////////////
 		
-
 		Personnage heros = new Hero();
 		heros.setName("heros");
 		heros.setRpg(new DefaultBarbare(heros)); //barbare
+		listHeros.add((Hero) heros);
 		
-		/////////////////////////////////////////////
-	
+		Personnage heros2 = new Hero();
+		heros2.setName("heros2");
+		heros2.setRpg(new DefaultMagicien(heros2));
 		
-		if(heros.getRpg() instanceof Barbare) {
-			System.out.println("heros intance barbare");
-		}
-		if(monstre.getRpg() instanceof Barbare) {
-			System.out.println("monstre intance barbare");
-		}
+		listHeros.add((Hero) heros2);
 		
 		/////////////////////////////////////
 		
@@ -288,23 +284,21 @@ public class Donjon {
 		/////////////////////////////////////
 		
 		heros.setArme(new ArmePhysique("armpheros",48,48));
+		heros2.setArme(new ArmeMagique("armpheros2",48,48));
 		monstre.setArme(new ArmePhysique("armpmonstre",12,12));
 		
 		//////////////////////////////////////////////
 		heros.setArmure(new ArmurePhysique(12));
+		heros2.setArmure(new ArmureMagique(12));
 		monstre.setArmure(new ArmurePhysique(12));
-		
-		/////////////////////////////////
-		monstre.affichePersonnage();
-		heros.affichePersonnage();
+
 		
 		//////////////////////////////////
-		heros.getRpg().figth(monstre);
 		
+		listHeros.get(0).getRpg().figth(listMonstre.get(0)); //m//bb
 		
-		
-		//declararer  1 heros et un monstre
 		//les faire ce battre method attak
+		
 		//programmer attack fonction des caract des personnage
 		
 		

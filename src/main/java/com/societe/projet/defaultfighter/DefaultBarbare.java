@@ -7,6 +7,8 @@ import com.societe.projet.entities.armures.Armure;
 import com.societe.projet.entities.armures.ArmurePhysique;
 import com.societe.projet.entities.personnages.Personnage;
 import com.societe.projet.rpg.Barbare;
+import com.societe.projet.rpg.Magiciens;
+import com.societe.projet.rpg.Paladin;
 
 
 public class DefaultBarbare extends DefaultFighter implements Barbare {
@@ -54,33 +56,16 @@ public class DefaultBarbare extends DefaultFighter implements Barbare {
 	public void figth(Personnage defender) {
 		// TODO Auto-generated method stub
 		
-		System.out.println("\n\n\n--fight-----\n");
-		
-		this.getPersonnage().affichePersonnage();
-		this.getPersonnage().getArme().affiArme();
-		this.getPersonnage().getArmure().affiArmure();
-		
-		defender.affichePersonnage();
-		
-		
-		if (this.getPersonnage().getPointVie() > 0) {
-			
-			int frag = this.getPersonnage().getArme().attack(defender.getArmure())
-					+ this.getPersonnage().getArme().getDegat();
-			
-			//defender.setPointVie(defender.getPointVie() - frag);
-			
-			System.out.println(frag);
-		}
+		System.out.println("--------fitght defaultBarbare------");
+		super.figth(defender);
 	}
+	
 	/*
 	*********************************************************
 	*    @@verification contraintes barbare armure  arme
 	*******************************************************
 	 */
 	
-
-
 	@Override
 	public boolean isEquipable(Arme arme) {
 		boolean result = false;

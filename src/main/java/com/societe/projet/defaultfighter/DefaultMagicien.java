@@ -9,6 +9,24 @@ import com.societe.projet.rpg.Magiciens;
 
 public class DefaultMagicien extends DefaultFighter implements Magiciens{
 	
+	
+	
+	/*
+	*************************************************
+	*    @Constructor
+	*************************************************
+	 */
+	public DefaultMagicien() {
+		
+	}
+	
+	
+	public DefaultMagicien(Personnage personne) {
+		// TODO Auto-generated constructor stub
+		super(personne);
+	}
+	
+	
 	/*
 	*************************************************
 	*    @Override
@@ -29,8 +47,8 @@ public class DefaultMagicien extends DefaultFighter implements Magiciens{
 
 	@Override
 	public void figth(Personnage defender) {
-		// TODO Auto-generated method stub
-		super.figth(defender);
+		System.out.println("--------fitght defaultMagiciens------");
+		super.figth(defender); //redirection defaultFighter
 	}
 	
 	/*
