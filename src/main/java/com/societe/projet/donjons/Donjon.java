@@ -381,10 +381,6 @@ public class Donjon {
 	}
 	
 	
-	
-	
-	
-	
 	public  boolean verifiedLife(Personnage item) {
 		boolean response = false;
 		if(item.getPointVie()<0) {
