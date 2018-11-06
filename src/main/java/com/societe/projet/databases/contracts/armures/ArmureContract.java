@@ -38,12 +38,12 @@ public class ArmureContract implements Contract {
 	
 	public static final String INSERT_TABLE = "INSERT INTO "
 	+TABLE+" ("+FIELDS[1]+","+FIELDS[2]+")"
-			+ " VALUES "+"('bouclier',15),"
+			+ " VALUES "+"('bouclier',60),"
 						+"('fronte',200),"
-						+"('cape',15),"
-						+"('animal',12),"
-						+"('voiture',20),"
-						+"('sable',2)";
+						+"('cape',100),"
+						+"('animal',120),"
+						+"('voiture',200),"
+						+"('sable',200)";
 	
 	public static final String INSERT_TABLE_V2  = "INSERT INTO "
 	+TABLE+" ("+FIELDS[1]+","+FIELDS[2]+")"

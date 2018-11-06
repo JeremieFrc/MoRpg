@@ -41,12 +41,12 @@ public class ArmeContract implements Contract {
 	
 	public static final String INSERT_TABLE = "INSERT INTO "
 			+TABLE+" ("+FIELDS[1]+","+FIELDS[2]+","+FIELDS[3]+")"
-			+ " VALUES "+"('epee',12,200),"
-						+"('bagette',20,20),"
-						+"('hache',32,198),"
-						+"('potion',12,2),"
-						+"('sortillege',25,2),"
-						+"('gatlin',15,2)";
+			+ " VALUES "+"('epee',148,200),"
+						+"('bagette',48,200),"
+						+"('hache',148,198),"
+						+"('potion',48,200),"
+						+"('sortillege',418,200),"
+						+"('gatlin',410,200)";
 	
 	public static final String INSERT_TABLE_V2  = "INSERT INTO "
 			+TABLE+" ("+FIELDS[1]+","+FIELDS[2]+","+FIELDS[3]+")"

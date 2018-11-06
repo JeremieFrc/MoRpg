@@ -41,7 +41,7 @@ public class ApplicationCombat {
 	*    @insert base Data
 	*************************************************
 	*/	
-		//matchBDD();  //def : ok
+		matchBDD();  //def : ok
 		
 	/*
 	*************************************************
@@ -49,8 +49,8 @@ public class ApplicationCombat {
 	*************************************************
 	*/
 		Donjon persGeneric = new Donjon(scanners);       //def : ok
-		//persGeneric.initMenu();						//def : ok
-		//persGeneric.interfaceGame();				   //def : ok
+		persGeneric.initMenu();						//def : ok
+		persGeneric.interfaceGame();				   //def : ok
 		persGeneric.game();
 	 
 	/*
@@ -59,7 +59,7 @@ public class ApplicationCombat {
 	*************************************************
 	*/
 	 scanners.closeScanner(); 	     //def : ok
-	 //closeConnection();    		//def : ok
+	 closeConnection();    		//def : ok
 	}
 	
 	public static void matchBDD() {
