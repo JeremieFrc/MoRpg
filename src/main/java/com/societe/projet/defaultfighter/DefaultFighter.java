@@ -3,7 +3,7 @@ package com.societe.projet.defaultfighter;
 
 import com.societe.projet.entities.armes.Arme;
 import com.societe.projet.entities.armures.Armure;
-import com.societe.projet.entities.armures.ArmurePhysique;
+
 import com.societe.projet.entities.personnages.Personnage;
 import com.societe.projet.rpg.Barbare;
 import com.societe.projet.rpg.Magiciens;
@@ -59,8 +59,6 @@ public class DefaultFighter implements Rpg{
 		
 		if (this.getPersonnage().getPointVie() > 0 && (this.verifiedTyp(this.getPersonnage()) == this.verifiedTyp(defender)) && this.getPersonnage().getPointAttaque()>0) {
 			
-			this.getPersonnage().affichePersonnage();
-			this.getPersonnage().getArme().affiArme();
 			int frag = this.getPersonnage().getArme().attack(defender.getArmure());
 			System.out.println("frag "+frag);
 			//defender lose life
@@ -76,12 +74,6 @@ public class DefaultFighter implements Rpg{
 			
 			//bonus on heros
 			this.getPersonnage().actionAttaque(frag);
-			
-			
-			//this.getPersonnage().affichePersonnage();
-			//System.out.println("getPoint attaque"+this.getPersonnage().getPointAttaque());
-			//System.out.println("getPoint action"+this.getPersonnage().getPointAction());
-			//defender.getArmure().affiArmure();
 		}else {
 			 System.out.println("Aucun impact");
 		}

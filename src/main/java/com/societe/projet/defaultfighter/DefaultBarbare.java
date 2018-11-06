@@ -7,8 +7,7 @@ import com.societe.projet.entities.armures.Armure;
 import com.societe.projet.entities.armures.ArmurePhysique;
 import com.societe.projet.entities.personnages.Personnage;
 import com.societe.projet.rpg.Barbare;
-import com.societe.projet.rpg.Magiciens;
-import com.societe.projet.rpg.Paladin;
+
 
 
 public class DefaultBarbare extends DefaultFighter implements Barbare {

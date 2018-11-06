@@ -61,7 +61,6 @@ public class Donjon {
 	private List <Hero> listHeros= new ArrayList<Hero>();
 	
 	
-	private List <Personnage> listPersonnage = new ArrayList<Personnage>();
 	private List <ArrayList<Monstre>> listEtages = new ArrayList<ArrayList<Monstre>>();
 	
 	private int nbMonstreEtage;
@@ -258,11 +257,10 @@ public class Donjon {
 		listMonstre.add((Monstre)monstre);
 		
 		Personnage mon = new Monstre();
-		//Rpg rpgg = new DefaultFighter();
+		mon.setName("mon");
 		Rpg rpgb = new DefaultBarbare(mon);
-		
 		mon.setRpg(rpgb);
-		
+		listMonstre.add((Monstre)mon);
 		///////////////////////////////////////
 		
 		Personnage heros = new Hero();
@@ -281,6 +279,7 @@ public class Donjon {
 		this.initPersonGeneric(heros);
 		this.initPersonGeneric(heros2);
 		this.initPersonGeneric(monstre);
+		this.initPersonGeneric(mon);
 		
 		
 		
@@ -289,13 +288,15 @@ public class Donjon {
 		heros.setArme(new ArmePhysique("armpheros",48,48));
 		heros2.setArme(new ArmeMagique("armpheros2",48,48));
 		monstre.setArme(new ArmePhysique("armpmonstre",148,148));
+		mon.setArme(new ArmePhysique("armpmonstre",148,148));
 		
 		//////////////////////////////////////////////
 		heros.setArmure(new ArmurePhysique(40));
 		heros2.setArmure(new ArmureMagique(40));
 		monstre.setArmure(new ArmurePhysique(40));
+		mon.setArmure(new ArmurePhysique(40));
 
-//////////////////////////////////
+		//////////////////////////////////
 		
 		
 		//heros.affichePersonnage();
@@ -312,15 +313,32 @@ public class Donjon {
 		int dieMonstre = listMonstre.size();
 		int dieHeros = listHeros.size();
 		int toogle = 0;
-		boolean win = false;
+		boolean win = true;
+		nbEtages =1;
+		initEtageMonstre();
+		
+		for(ArrayList<Monstre> valeur1 : listEtages) {
+			System.out.println("\n\n\n\n\n\nEtages");
+			for(Monstre valeur2 : valeur1) {
+				valeur2.affichePersonnage();
+				valeur2.getArme().affiArme();
+				valeur2.getArmure().affiArmure();
+				
+				combatListEtage();
+			
+			}	
+		}
+		
 		
 		
 		while((dieMonstre!= 0 || dieHeros!=0) && !win) {
+			
 			if(toogle == 0) {
 				listHeros.get(0).getRpg().figth(listMonstre.get(0));
 				
 				if(verifiedLife(listMonstre.get(0))) {
 					win = true;
+					dieMonstre--;
 					System.out.println("winner is Equipe Heros");
 				}
 				toogle++;
@@ -329,24 +347,17 @@ public class Donjon {
 				
 				if(verifiedLife(listHeros.get(0))) {
 					win = true;
+					dieHeros--;
 					System.out.println("winner is Equipe monstre");
 				}
 				toogle--;
 			}
 		}
-		
-		//Affichage du windows
-		
-		
-		//les faire ce battre method attak
-		
-		//programmer attack fonction des caract des personnage	
+			
 	}
 	
 	public  boolean verifiedLife(Personnage item) {
-		
 		boolean response = false;
-		
 		if(item.getPointVie()<0) {
 			response = true;
 		}
@@ -355,17 +366,10 @@ public class Donjon {
 	
 	
 	public void combatListEtage() {
-		//bouclé
 		
-		//parcourrir la liste
-		//save init nbmonstre .size
-		//listHeros.size
 
 	}
-	
-	
 
-	
 	
 	public void initPersonGeneric(Personnage perso) {
 		 perso.setPointVie(200);

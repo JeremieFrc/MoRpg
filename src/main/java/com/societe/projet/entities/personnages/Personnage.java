@@ -1,11 +1,8 @@
 package com.societe.projet.entities.personnages;
 
 
-import java.util.List;
-
 import com.societe.projet.entities.armes.Arme;
 import com.societe.projet.entities.armures.Armure;
-import com.societe.projet.gameplay.Butin;
 import com.societe.projet.gameplay.Realisable;
 import com.societe.projet.rpg.Rpg;
 
@@ -29,8 +26,6 @@ public abstract class Personnage implements Realisable  {
 	
 	private  Rpg rpg;
 
-	
-	private List<Butin> butins;
 	
 	/*
 	*************************************************
@@ -114,19 +109,6 @@ public abstract class Personnage implements Realisable  {
 	}
 	public void setArmure(Armure armure) {
 		this.armure = armure;
-	}
-	
-	/*
-	*************************************************
-	*    @getter setter butin
-	*************************************************
-	 */
-	
-	public List<Butin> getButins() {
-		return butins;
-	}
-	public void setButins(List<Butin> butins) {
-		this.butins = butins;
 	}
 
 	/*

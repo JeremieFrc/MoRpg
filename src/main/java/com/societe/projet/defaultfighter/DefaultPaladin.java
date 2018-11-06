@@ -6,7 +6,6 @@ import com.societe.projet.entities.armes.ArmeMixte;
 import com.societe.projet.entities.armures.Armure;
 import com.societe.projet.entities.armures.ArmureMagique;
 import com.societe.projet.entities.armures.ArmureMixte;
-import com.societe.projet.entities.personnages.Monstre;
 import com.societe.projet.entities.personnages.Personnage;
 import com.societe.projet.rpg.Paladin;
 

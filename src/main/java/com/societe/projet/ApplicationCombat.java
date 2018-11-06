@@ -48,9 +48,9 @@ public class ApplicationCombat {
 	*     @insert menu
 	*************************************************
 	*/
-		Donjon persGeneric = new Donjon(scanners);   //def : ok
+		Donjon persGeneric = new Donjon(scanners);       //def : ok
 		//persGeneric.initMenu();						//def : ok
-		//persGeneric.interfaceGame();				//def : ok
+		//persGeneric.interfaceGame();				   //def : ok
 		persGeneric.game();
 	 
 	/*
@@ -58,7 +58,7 @@ public class ApplicationCombat {
 	*     @Close Connection Bdd and scanner
 	*************************************************
 	*/
-	 scanners.closeScanner(); 	//def : ok
+	 scanners.closeScanner(); 	     //def : ok
 	 //closeConnection();    		//def : ok
 	}
 	
