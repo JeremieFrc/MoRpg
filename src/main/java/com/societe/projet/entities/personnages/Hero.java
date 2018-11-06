@@ -41,8 +41,4 @@ public class Hero extends Personnage implements Realisable {
 		this.getArmure().setDefence(this.getArmure().getDefence()- (frag/2));
 	}
 
-	
-	
-	
-	
 }

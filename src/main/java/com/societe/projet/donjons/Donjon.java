@@ -238,7 +238,7 @@ public class Donjon {
 		
 		this.nbMonstreEtage(menu.menuMonstreEtage(listMonstre.size()));    //def : ok
 		this.initEtageMonstre();										   //def : ok
-		this.affListEtage();		
+		this.affListEtage();	
 	}
 	
 	/*
@@ -310,21 +310,29 @@ public class Donjon {
 		//listHeros.get(0).getRpg().figth(listMonstre.get(0)); //bb//bb
 		//listMonstre.get(0).getRpg().figth(listHeros.get(0));
 		
+		//////////////////////////////////
+		
 		int dieMonstre = listMonstre.size();
 		int dieHeros = listHeros.size();
 		int toogle = 0;
-		boolean win = true;
-		nbEtages =1;
-		initEtageMonstre();
+		boolean win = false;
 		
-		for(ArrayList<Monstre> valeur1 : listEtages) {
+		int nextHero = 0;
+		//////////////////////////////////
+		nbEtages =1;
+		nbMonstreEtage = 2;
+		initEtageMonstre();
+		//////////////////////////////////
+		
+		System.out.println(listEtages.size());
+		for(ArrayList<Monstre> lisMonstre : listEtages) {
 			System.out.println("\n\n\n\n\n\nEtages");
-			for(Monstre valeur2 : valeur1) {
-				valeur2.affichePersonnage();
-				valeur2.getArme().affiArme();
-				valeur2.getArmure().affiArmure();
+			for(Monstre mtr : lisMonstre) {
+				mtr.affichePersonnage();
+				mtr.getArme().affiArme();
+				mtr.getArmure().affiArmure();
 				
-				combatListEtage();
+				combatListEtage(dieMonstre ,dieHeros,mtr,nextHero);
 			
 			}	
 		}
@@ -353,8 +361,29 @@ public class Donjon {
 				toogle--;
 			}
 		}
+
 			
 	}
+	
+	public void eeee() {
+		
+		System.out.println(listEtages.size());
+		for(ArrayList<Monstre> valeur1 : listEtages) {
+			System.out.println("\n\n\n\n\n\nEtages");
+			for(Monstre valeur2 : valeur1) {
+				valeur2.affichePersonnage();
+				valeur2.getArme().affiArme();
+				valeur2.getArmure().affiArmure();
+			
+			
+			}	
+		}
+	}
+	
+	
+	
+	
+	
 	
 	public  boolean verifiedLife(Personnage item) {
 		boolean response = false;
@@ -365,8 +394,34 @@ public class Donjon {
 	}
 	
 	
-	public void combatListEtage() {
+	public void combatListEtage(int dieM,int dieH,Personnage monst,int nHeros) {
+	
+	    int toogle = 0;
+		boolean win = true;
 		
+		while((dieM!= 0 || dieH!=0) && !win) {
+			
+			if(toogle == 0) {
+				listHeros.get(nHeros).getRpg().figth(monst);
+				
+				if(verifiedLife(monst)) {
+					win = true;
+					dieM--;
+					System.out.println("winner is Heros");
+				}
+				toogle++;
+			}else {
+				monst.getRpg().figth(listHeros.get(nHeros));
+				
+				if(verifiedLife(listHeros.get(nHeros))) {
+					win = true;
+					nHeros++;
+					dieH--;
+					System.out.println("winner is monstre");
+				}
+				toogle--;
+			}
+		}
 
 	}
 
