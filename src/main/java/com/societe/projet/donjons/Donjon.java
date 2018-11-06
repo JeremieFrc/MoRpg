@@ -239,6 +239,21 @@ public class Donjon {
 		this.nbMonstreEtage(menu.menuMonstreEtage(listMonstre.size()));    //def : ok
 		this.initEtageMonstre();										   //def : ok
 		this.affListEtage();
+		
+		/**
+		 * Remarque : test unitaire realiser sur liste 
+		 * et insert dans list etage  - > test ok 
+		 * 
+		 * test unitaire sur sais information 
+		 * 
+		 * 
+		 * result : pointeur null on defaultfighter pas "eu le temps" correction
+		 *  this.getPersonnage erreur
+		 * 
+		 * 
+		 */
+		
+		
 		this.game();
 	}
 	
