@@ -58,17 +58,29 @@ public class DefaultFighter implements Rpg{
 		
 		System.out.println("--------fitght defaultFighter------");
 		
-		if (this.getPersonnage().getPointVie() > 0 && (this.verifiedTyp(this.getPersonnage()) == this.verifiedTyp(defender))) {
+		if (this.getPersonnage().getPointVie() > 0 && (this.verifiedTyp(this.getPersonnage()) == this.verifiedTyp(defender)) && this.getPersonnage().getPointAttaque()>0) {
 				
 			int frag = this.getPersonnage().getArme().attack(defender.getArmure());
-					//+ this.getPersonnage().getArme().getDegat();
+			
+			//defender lose life
 			defender.setPointVie(defender.getPointVie()- frag); //init  new vie
-				
+			
+			//affiche result	
 			System.out.println("l'attack "+this.getPersonnage().getName()+" est "+this.getPersonnage().getArme().getDegat() );
 			System.out.println("defencer subit des degat de "+frag+" points");
-			System.out.println("defencer possede point vie "+defender.getPointVie());
-			defender.actionDefence(frag);
+			System.out.println("defencer possede new point vie "+defender.getPointVie());
+			
+			//penalite sur defence armure
+			defender.actionDefence(frag); //per
+			
+			//bonus on heros
 			this.getPersonnage().actionAttaque(frag);
+			
+			
+			//this.getPersonnage().affichePersonnage();
+			//System.out.println("getPoint attaque"+this.getPersonnage().getPointAttaque());
+			//System.out.println("getPoint action"+this.getPersonnage().getPointAction());
+			//defender.getArmure().affiArmure();
 		}else {
 			 System.out.println("Aucun impact");
 		}

@@ -52,7 +52,7 @@ public abstract class Personnage implements Realisable  {
 		this.name = name;
 		this.pointVie = pointVie;
 		this.pointAction = pointAction;
-		this.pointAttaque = pointAction;
+		this.pointAttaque = pointAttaque;
 	}
 	
 	/*

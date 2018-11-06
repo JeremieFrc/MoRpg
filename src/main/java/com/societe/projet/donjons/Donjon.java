@@ -315,7 +315,7 @@ public class Donjon {
 	}
 	
 	public void combatListEtage() {
-		
+		//bouclé
 	}
 	
 	public void initPersonGeneric(Personnage perso) {

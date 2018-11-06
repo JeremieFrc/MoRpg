@@ -1,6 +1,6 @@
 package com.societe.projet.entities.personnages;
 
-import com.societe.projet.entities.armures.Armure;
+
 import com.societe.projet.gameplay.Realisable;
 
 public class Hero extends Personnage implements Realisable {
@@ -26,9 +26,11 @@ public class Hero extends Personnage implements Realisable {
 	
 	@Override
 	public void actionAttaque(int frag) {
-		System.out.println("----- bonus  ------");
-		//diminution armure
-		this.setPointAttaque(this.getPointAction() + (frag/4));
+		System.out.println("----- bonus attaquant ------");
+		
+		//bonus point attaque bonus action
+		this.setPointAttaque(this.getPointAttaque() + (frag/4));
+		this.setPointAction(this.getPointAction() - (frag/2));	
 	}
 
 	@Override

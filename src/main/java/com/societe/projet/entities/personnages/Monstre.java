@@ -1,7 +1,7 @@
 package com.societe.projet.entities.personnages;
 
 
-import com.societe.projet.entities.armures.Armure;
+
 import com.societe.projet.gameplay.Realisable;
 
 public class Monstre extends Personnage implements Realisable{
