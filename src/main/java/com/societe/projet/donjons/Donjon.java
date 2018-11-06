@@ -288,7 +288,7 @@ public class Donjon {
 		
 		heros.setArme(new ArmePhysique("armpheros",48,48));
 		heros2.setArme(new ArmeMagique("armpheros2",48,48));
-		monstre.setArme(new ArmePhysique("armpmonstre",12,12));
+		monstre.setArme(new ArmePhysique("armpmonstre",148,148));
 		
 		//////////////////////////////////////////////
 		heros.setArmure(new ArmurePhysique(40));
@@ -298,21 +298,61 @@ public class Donjon {
 //////////////////////////////////
 		
 		
-		heros.affichePersonnage();
-		heros.getArme().affiArme();
-		heros.getArmure().affiArmure();
+		//heros.affichePersonnage();
+		//heros.getArme().affiArme();
+		//heros.getArmure().affiArmure();
 		
 		
 		//////////////////////////////////
 		
 		//listHeros.get(0).getRpg().figth(listMonstre.get(0)); //m//bb
-		listHeros.get(0).getRpg().figth(listMonstre.get(0)); //bb//bb
+		//listHeros.get(0).getRpg().figth(listMonstre.get(0)); //bb//bb
+		//listMonstre.get(0).getRpg().figth(listHeros.get(0));
+		
+		int dieMonstre = listMonstre.size();
+		int dieHeros = listHeros.size();
+		int toogle = 0;
+		boolean win = false;
+		
+		
+		while((dieMonstre!= 0 || dieHeros!=0) && !win) {
+			if(toogle == 0) {
+				listHeros.get(0).getRpg().figth(listMonstre.get(0));
+				
+				if(verifiedLife(listMonstre.get(0))) {
+					win = true;
+					System.out.println("winner is Equipe Heros");
+				}
+				toogle++;
+			}else {
+				listMonstre.get(0).getRpg().figth(listHeros.get(0));
+				
+				if(verifiedLife(listHeros.get(0))) {
+					win = true;
+					System.out.println("winner is Equipe monstre");
+				}
+				toogle--;
+			}
+		}
+		
+		//Affichage du windows
 		
 		
 		//les faire ce battre method attak
 		
 		//programmer attack fonction des caract des personnage	
 	}
+	
+	public  boolean verifiedLife(Personnage item) {
+		
+		boolean response = false;
+		
+		if(item.getPointVie()<0) {
+			response = true;
+		}
+		return response;
+	}
+	
 	
 	public void combatListEtage() {
 		//bouclé
@@ -321,10 +361,6 @@ public class Donjon {
 		//save init nbmonstre .size
 		//listHeros.size
 
-		
-		
-	
-	
 	}
 	
 	

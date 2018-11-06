@@ -32,7 +32,7 @@ public class DefaultPaladin extends DefaultFighter implements Paladin {
 	@Override
 	public void figth(Personnage defender) {
 		// TODO Auto-generated method stub
-		System.out.println("--------fitght Paladin-----");
+		//System.out.println("--------fitght Paladin-----");
 		super.figth(defender);
 	}
 	

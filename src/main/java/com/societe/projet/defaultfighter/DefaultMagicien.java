@@ -47,7 +47,7 @@ public class DefaultMagicien extends DefaultFighter implements Magiciens{
 
 	@Override
 	public void figth(Personnage defender) {
-		System.out.println("--------fitght defaultMagiciens------");
+		//System.out.println("--------fitght defaultMagiciens------");
 		super.figth(defender); //redirection defaultFighter
 	}
 	

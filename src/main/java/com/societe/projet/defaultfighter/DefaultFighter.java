@@ -58,9 +58,11 @@ public class DefaultFighter implements Rpg{
 		System.out.println("--------fitght defaultFighter------");
 		
 		if (this.getPersonnage().getPointVie() > 0 && (this.verifiedTyp(this.getPersonnage()) == this.verifiedTyp(defender)) && this.getPersonnage().getPointAttaque()>0) {
-				
-			int frag = this.getPersonnage().getArme().attack(defender.getArmure());
 			
+			this.getPersonnage().affichePersonnage();
+			this.getPersonnage().getArme().affiArme();
+			int frag = this.getPersonnage().getArme().attack(defender.getArmure());
+			System.out.println("frag "+frag);
 			//defender lose life
 			defender.setPointVie(defender.getPointVie()- frag); //init  new vie
 			

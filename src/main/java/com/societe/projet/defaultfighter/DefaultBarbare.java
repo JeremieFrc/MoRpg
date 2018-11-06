@@ -56,7 +56,7 @@ public class DefaultBarbare extends DefaultFighter implements Barbare {
 	public void figth(Personnage defender) {
 		// TODO Auto-generated method stub
 		
-		System.out.println("--------fitght defaultBarbare------");
+		//System.out.println("--------fitght defaultBarbare------");
 		super.figth(defender);
 	}
 	
