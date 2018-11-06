@@ -816,40 +816,4 @@ public class Donjon {
 			compteur++;
 		}
 	}
-	
-	
-	//************************************************//
-	//	 @Test unitaire
-	//***********************************************//
-
-	public void methodTestinitArme() {
-		
-		//Personnage p = new Hero();
-		Personnage p = new Monstre();
-		initPerson(p,1);
-		p.setRpg(new DefaultPaladin());
-		//p.setRpg(new DefaultMagicien());
-		//p.setRpg(new DefaultBarbare());
-		verifiedType(p);
-	}
-	
-
-	public void getInitMontre(List<Monstre> list) {				
-		//for(Monstre m : list) {
-			/*if(m.getArme() instanceof ArmeMagique) {
-				System.out.println("instance arme magique");
-			}*/
-			//m.getArmure().affiArmure();
-		//}
-		
-		for (int i = 0; i < nbJoueurGame[1]; i++) {
-			Monstre m = new Monstre();
-			m.setName("ddd");
-			list.add(m);
-		}
-		
-		//System.out.println("------------Instance arme ------------");
-		//verifInstanceArm(list,0);
-	}
-
 }
