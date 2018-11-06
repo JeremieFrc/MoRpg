@@ -279,7 +279,10 @@ public class Donjon {
 		/////////////////////////////////////
 		
 		this.initPersonGeneric(heros);
+		this.initPersonGeneric(heros2);
 		this.initPersonGeneric(monstre);
+		
+		
 		
 		/////////////////////////////////////
 		
@@ -288,24 +291,35 @@ public class Donjon {
 		monstre.setArme(new ArmePhysique("armpmonstre",12,12));
 		
 		//////////////////////////////////////////////
-		heros.setArmure(new ArmurePhysique(12));
-		heros2.setArmure(new ArmureMagique(12));
-		monstre.setArmure(new ArmurePhysique(12));
+		heros.setArmure(new ArmurePhysique(40));
+		heros2.setArmure(new ArmureMagique(40));
+		monstre.setArmure(new ArmurePhysique(40));
 
+//////////////////////////////////
+		
+		
+		heros.affichePersonnage();
+		heros.getArme().affiArme();
+		heros.getArmure().affiArmure();
+		
 		
 		//////////////////////////////////
 		
-		listHeros.get(0).getRpg().figth(listMonstre.get(0)); //m//bb
+		//listHeros.get(0).getRpg().figth(listMonstre.get(0)); //m//bb
+		listHeros.get(0).getRpg().figth(listMonstre.get(0)); //bb//bb
+		
 		
 		//les faire ce battre method attak
 		
-		//programmer attack fonction des caract des personnage
-		
+		//programmer attack fonction des caract des personnage	
+	}
+	
+	public void combatListEtage() {
 		
 	}
 	
 	public void initPersonGeneric(Personnage perso) {
-		 perso.setPointVie(12);
+		 perso.setPointVie(200);
 		 perso.setPointAttaque(200);
 		 perso.setPointAction(100);
 	}

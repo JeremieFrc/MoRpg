@@ -1,8 +1,8 @@
 package com.societe.projet.gameplay;
 
-import com.societe.projet.entities.armures.Armure;
+
 
 public interface Realisable {
-	void actionAttaque(Armure armureDefencer);
-	void actionDefence();
+	void actionAttaque(int frag);
+	void actionDefence(int frag);
 }

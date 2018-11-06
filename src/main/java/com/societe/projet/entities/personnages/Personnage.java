@@ -6,10 +6,11 @@ import java.util.List;
 import com.societe.projet.entities.armes.Arme;
 import com.societe.projet.entities.armures.Armure;
 import com.societe.projet.gameplay.Butin;
+import com.societe.projet.gameplay.Realisable;
 import com.societe.projet.rpg.Rpg;
 
 
-public abstract class Personnage {
+public abstract class Personnage implements Realisable  {
 	
 	/*
 	*************************************************
@@ -155,4 +156,17 @@ public abstract class Personnage {
 		System.out.println("point action : "+pointAction);
 		System.out.println("point attaque : "+pointAction);
 	}
+
+	@Override
+	public void actionAttaque(int frag) {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void actionDefence(int frag) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
 }

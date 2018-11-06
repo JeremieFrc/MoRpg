@@ -3,6 +3,7 @@ package com.societe.projet.defaultfighter;
 
 import com.societe.projet.entities.armes.Arme;
 import com.societe.projet.entities.armures.Armure;
+import com.societe.projet.entities.armures.ArmurePhysique;
 import com.societe.projet.entities.personnages.Personnage;
 import com.societe.projet.rpg.Barbare;
 import com.societe.projet.rpg.Magiciens;
@@ -58,16 +59,21 @@ public class DefaultFighter implements Rpg{
 		System.out.println("--------fitght defaultFighter------");
 		
 		if (this.getPersonnage().getPointVie() > 0 && (this.verifiedTyp(this.getPersonnage()) == this.verifiedTyp(defender))) {
-			
-			int frag = this.getPersonnage().getArme().attack(defender.getArmure())
-					+ this.getPersonnage().getArme().getDegat();
-		
-			System.out.println(frag);
+				
+			int frag = this.getPersonnage().getArme().attack(defender.getArmure());
+					//+ this.getPersonnage().getArme().getDegat();
+			defender.setPointVie(defender.getPointVie()- frag); //init  new vie
+				
+			System.out.println("l'attack "+this.getPersonnage().getName()+" est "+this.getPersonnage().getArme().getDegat() );
+			System.out.println("defencer subit des degat de "+frag+" points");
+			System.out.println("defencer possede point vie "+defender.getPointVie());
+			defender.actionDefence(frag);
+			this.getPersonnage().actionAttaque(frag);
 		}else {
 			 System.out.println("Aucun impact");
 		}
-		System.out.println("this "+this.verifiedTyp(this.getPersonnage()));
-		System.out.println("defender "+this.verifiedTyp(defender));
+		//System.out.println("this "+this.verifiedTyp(this.getPersonnage()));
+		//System.out.println("defender "+this.verifiedTyp(defender));
 		
 		//this.getPersonnage().affichePersonnage();
 		
@@ -76,14 +82,14 @@ public class DefaultFighter implements Rpg{
 	public <T> int verifiedTyp(T perso) {
 		int response = 0 ; 
 		if( ((Personnage) perso).getRpg() instanceof Paladin ) {
-			System.out.print(" Paladin");
+			//System.out.println(" Paladin");
 			response = 1;
 		 }else if( ((Personnage) perso).getRpg() instanceof Barbare ) {
-			 System.out.print(" barbare");
+			 //System.out.println(" barbare");
 			 response = 2;
 		 }else if( ((Personnage) perso).getRpg() instanceof Magiciens ) {
 			 response = 3;
-			 System.out.print(" Magiciens");
+			 //System.out.println(" Magiciens");
 		 }
 		return response;
 	}

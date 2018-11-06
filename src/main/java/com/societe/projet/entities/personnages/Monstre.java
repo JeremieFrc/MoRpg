@@ -27,15 +27,20 @@ public class Monstre extends Personnage implements Realisable{
 	 
 
 	@Override
-	public void actionAttaque(Armure armureDefencer) {
-		// TODO Auto-generated method stub
+	public void actionAttaque(int frag) {
+		System.out.println("*****************");
+		System.out.println("----- bonus  ------");
+		//diminution armure
+		this.setPointAttaque(this.getPointAction() + (frag/2));
 		
 	}
 
 	@Override
-	public void actionDefence() {
+	public void actionDefence(int frag) {
 		// TODO Auto-generated method stub
-		
+				System.out.println("----- degat sur armure ------");
+				//diminution armure
+				this.getArmure().setDefence(this.getArmure().getDefence()- (frag/2));
 	}
 	 
 	
