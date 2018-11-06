@@ -316,7 +316,20 @@ public class Donjon {
 	
 	public void combatListEtage() {
 		//bouclé
+		
+		//parcourrir la liste
+		//save init nbmonstre .size
+		//listHeros.size
+
+		
+		
+	
+	
 	}
+	
+	
+
+	
 	
 	public void initPersonGeneric(Personnage perso) {
 		 perso.setPointVie(200);
@@ -441,7 +454,6 @@ public class Donjon {
 				}else {
 					((Personnage) liste.get(i)).setArmure(armuphs.get(this.initPersArmeArmure()));//init arme sur heros or monstre
 				}
-				//this.verifInstanceArm(liste,i);
 				break;
 			
 			case 2 : 
@@ -452,7 +464,7 @@ public class Donjon {
 				affEquipment(armp);
 				
 				((Personnage) liste.get(i)).setArmure(armp.get(this.initPersArmeArmure()));//init arme sur heros or monstre
-				//this.verifInstanceArm(liste,i);
+				
 				break;
 				
 			case 3 : 
@@ -730,28 +742,6 @@ public class Donjon {
 		verifiedType(p);
 	}
 	
-	public void methodTest() {
-		//this.afficheList(listPersonnage);	
-		
-		Personnage p = new Hero();
-		p.setRpg(new DefaultPaladin());
-		//verifiedType(p);
-		listHeros.add((Hero) p);
-		
-		Personnage pp = new Hero();
-		pp.setRpg(new DefaultMagicien()); 
-		//verifiedType(pp);
-		listHeros.add((Hero) pp);
-		
-		Personnage ppp = new Hero();
-		ppp.setRpg(new DefaultBarbare());
-		//verifiedType(ppp);
-		listHeros.add((Hero) ppp);
-	
-		for(Personnage pc : listHeros) {
-			verifiedType(pc);
-		}
-	}
 
 	public void getInitMontre(List<Monstre> list) {				
 		//for(Monstre m : list) {

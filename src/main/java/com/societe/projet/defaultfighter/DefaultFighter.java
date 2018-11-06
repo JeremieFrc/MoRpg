@@ -54,8 +54,7 @@ public class DefaultFighter implements Rpg{
 
 	@Override
 	public void figth(Personnage defender) {
-		// TODO Auto-generated method stub
-		
+	
 		System.out.println("--------fitght defaultFighter------");
 		
 		if (this.getPersonnage().getPointVie() > 0 && (this.verifiedTyp(this.getPersonnage()) == this.verifiedTyp(defender)) && this.getPersonnage().getPointAttaque()>0) {
@@ -84,12 +83,6 @@ public class DefaultFighter implements Rpg{
 		}else {
 			 System.out.println("Aucun impact");
 		}
-		//System.out.println("this "+this.verifiedTyp(this.getPersonnage()));
-		//System.out.println("defender "+this.verifiedTyp(defender));
-		
-		//this.getPersonnage().affichePersonnage();
-		
-
 	}
 	public <T> int verifiedTyp(T perso) {
 		int response = 0 ; 
