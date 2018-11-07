@@ -13,6 +13,22 @@ public class DefaultPaladin extends DefaultFighter implements Paladin {
 	
 	/*
 	*************************************************
+	*    @Constructeur
+	*************************************************
+	 */
+	 public DefaultPaladin() {
+		// TODO Auto-generated constructor stub
+	}
+	 public DefaultPaladin(Personnage personne) {
+			// TODO Auto-generated constructor stub
+		 super(personne);
+	}
+	
+	
+	
+	
+	/*
+	*************************************************
 	*    @Override
 	*************************************************
 	 */

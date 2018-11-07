@@ -283,6 +283,120 @@ public class Donjon {
 		}
 		this.verifiedTotalDie();	
 	}
+	public void save3() {
+		Personnage monstre = new Monstre();
+		monstre.setName("monstre");
+		monstre.setRpg(new DefaultBarbare(monstre)); //barbare
+		listMonstre.add((Monstre)monstre);
+		
+		Personnage mon = new Monstre();
+		mon.setName("mon");
+		Rpg rpgb = new DefaultBarbare(mon);
+		mon.setRpg(rpgb);
+		listMonstre.add((Monstre)mon);
+		///////////////////////////////////////
+		
+		Personnage heros = new Hero();
+		heros.setName("heros");
+		heros.setRpg(new DefaultBarbare(heros)); //barbare
+		listHeros.add((Hero) heros);
+		
+		Personnage heros2 = new Hero();
+		heros2.setName("heros2");
+		heros2.setRpg(new DefaultMagicien(heros2));
+		
+		listHeros.add((Hero) heros2);
+		
+		/////////////////////////////////////
+		
+		this.initPersonGeneric(heros);
+		this.initPersonGeneric(heros2);
+		this.initPersonGeneric(monstre);
+		this.initPersonGeneric(mon);
+		
+		
+		
+		/////////////////////////////////////
+		
+		heros.setArme(new ArmePhysique("armpheros",148,418));
+		heros2.setArme(new ArmeMagique("armpheros2",418,418));
+		monstre.setArme(new ArmePhysique("armpmonstre",48,48));
+		mon.setArme(new ArmePhysique("armpmonstre",48,48));
+		
+		//////////////////////////////////////////////
+		heros.setArmure(new ArmurePhysique(40));
+		heros2.setArmure(new ArmureMagique(40));
+		monstre.setArmure(new ArmurePhysique(40));
+		mon.setArmure(new ArmurePhysique(40));
+ 		//////////////////////////////////
+		
+		
+		//heros.affichePersonnage();
+		//heros.getArme().affiArme();
+		//heros.getArmure().affiArmure();
+		
+		
+		//////////////////////////////////
+		
+		//listHeros.get(0).getRpg().figth(listMonstre.get(0)); //m//bb
+		//listHeros.get(0).getRpg().figth(listMonstre.get(0)); //bb//bb
+		//listMonstre.get(0).getRpg().figth(listHeros.get(0));
+		
+		//////////////////////////////////
+		
+		nbEtages =1;
+		nbMonstreEtage = 2;
+		initEtageMonstre();
+		
+		//////////////////////////////////
+	}
+	public void save() {
+		
+		System.out.println(listEtages.size());
+		for(ArrayList<Monstre> valeur1 : listEtages) {
+			System.out.println("\n\n\n\n\n\nEtages");
+			for(Monstre valeur2 : valeur1) {
+				valeur2.affichePersonnage();
+				valeur2.getArme().affiArme();
+				valeur2.getArmure().affiArmure();
+			
+			
+			}	
+		}
+	}
+	public void save2() {
+		
+		int dieMonstre = listMonstre.size();
+		int dieHeros = listHeros.size();
+		int toogle = 0;
+		
+		boolean win = false;
+		while((dieMonstre!= 0 || dieHeros!=0) && !win) {
+			
+			if(toogle == 0) {
+				listHeros.get(0).getRpg().figth(listMonstre.get(0));
+				
+				if(verifiedLife(listMonstre.get(0))) {
+					win = true;
+					dieMonstre--;
+					System.out.println("winner is Equipe Heros");
+				}
+				toogle++;
+			}else {
+				listMonstre.get(0).getRpg().figth(listHeros.get(0));
+				
+				if(verifiedLife(listHeros.get(0))) {
+					win = true;
+					dieHeros--;
+					System.out.println("winner is Equipe monstre");
+				}
+				toogle--;
+			}
+		}
+		
+	}
+	
+
 	
 	public void verifiedTotalDie() {
 		int dieMonstre = 0;
@@ -433,6 +547,8 @@ public class Donjon {
 			System.out.println("\n\n\n\n\n\nEtages");
 			for(Monstre valeur2 : valeur1) {
 				valeur2.affichePersonnage();
+				valeur2.getArme().affiArme();
+				valeur2.getArmure().affiArmure();
 			}	
 		}
 	}
@@ -626,19 +742,19 @@ public class Donjon {
 					case 1:
 						 System.out.println("\n\n\n---- Paladin --------");
 						 //creation paladin
-						 pers.setRpg(new DefaultPaladin()); //init de type paladin
+						 pers.setRpg(new DefaultPaladin(pers)); //init de type paladin
 						 initPerson(pers,equipe);
 						 break;
 					case 2:
 						System.out.println("\n---- Magicien --------\n ");
 						//creation Magicien
-						pers.setRpg(new DefaultMagicien()); 
+						pers.setRpg(new DefaultMagicien(pers)); 
 						initPerson(pers,equipe);
 						break;
 					case 3:
 						System.out.println("\n---- Barbare --------\n ");
 						//creation barbare
-						pers.setRpg(new DefaultBarbare()); 
+						pers.setRpg(new DefaultBarbare(pers)); 
 						initPerson(pers,equipe);
 						break;
 					default:

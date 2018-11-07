@@ -20,7 +20,6 @@ public class DefaultMagicien extends DefaultFighter implements Magiciens{
 		
 	}
 	
-	
 	public DefaultMagicien(Personnage personne) {
 		// TODO Auto-generated constructor stub
 		super(personne);

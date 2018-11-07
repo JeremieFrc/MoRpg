@@ -51,7 +51,7 @@ public class ApplicationCombat {
 		Donjon persGeneric = new Donjon(scanners);       //def : ok
 		persGeneric.initMenu();						//def : ok
 		persGeneric.interfaceGame();				   //def : ok
-		persGeneric.game();
+		
 	 
 	/*
 	*************************************************
