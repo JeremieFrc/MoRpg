@@ -26,29 +26,8 @@ public abstract class Personnage implements Realisable  {
 	
 	private  Rpg rpg;
 
-	
-	/*
-	*************************************************
-	*    @Constructor
-	*************************************************
-	 */
-	
-	/**
-	 * 
-	 * @param pointVie
-	 * @param pointAction
-	 * @param pointAttaque
-	 * @param name
-	 */
-	
+
 	public Personnage() {}
-	
-	public Personnage(String name,int pointVie,int pointAction,int pointAttaque) {
-		this.name = name;
-		this.pointVie = pointVie;
-		this.pointAction = pointAction;
-		this.pointAttaque = pointAttaque;
-	}
 	
 	/*
 	*************************************************
